@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "@/components/common/Navbar";
+import Footer from "@/components/common/Footer";
+import ScrollToTop from "@/components/common/ScrollToTop";
 
 export const metadata: Metadata = {
-  title: "The Boston Pledge | Empowering Grassroots Equity & Global Public Service",
+  title:
+    "The Boston Pledge | Empowering Grassroots Equity & Global Public Service",
   description:
     "The Boston Pledge (TBP) is a 501(c)(3) non-profit organization fostering sustainable socio-economic development, grassroots entrepreneurship, and global citizenship.",
   keywords: [
@@ -24,8 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full scroll-smooth">
-      <body className="min-h-full flex flex-col font-sans bg-slate-50 text-slate-900 antialiased selection:bg-indigo-600 selection:text-white">
-        {children}
+      <body className="min-h-full flex flex-col font-sans bg-[#FAF8F5] text-[#1E231C] antialiased selection:bg-[#414D3C] selection:text-white">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );

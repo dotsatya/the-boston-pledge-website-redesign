@@ -8,14 +8,14 @@ export default function Hero() {
   const [showStoryModal, setShowStoryModal] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-[#FAF8F5] pt-6 pb-16 lg:pt-10 lg:pb-24 border-b border-[#ECE7DF]">
+    <section className="relative overflow-hidden bg-[#FAF8F5] pt-6 pb-6 sm:pb-8 lg:pt-8 lg:pb-10">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center min-h-[580px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
           {/* Left Column: Text & CTAs matching demo */}
           <div className="lg:col-span-6 z-10 py-4 lg:pr-4">
             {/* Pill Tag */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#D5CEC2] text-xs font-medium text-[#485342] mb-6 bg-white/60 shadow-2xs">
-              <span className="w-3.5 h-2 rounded-xs border border-[#8C9585] inline-block bg-white/80" />
+              <span className="w-3.5 h-2 rounded-full border border-[#8C9585] inline-block bg-white/80" />
               <span>Together for a Better Tomorrow</span>
             </div>
 
@@ -109,7 +109,7 @@ export default function Hero() {
                 />
               </div>
 
-              {/* Bottom Layered Silk Waves flowing into background */}
+              {/* Bottom Layered Silk Waves flowing into background SVG-- */}
               <div className="absolute -bottom-1 left-0 right-0 h-32 pointer-events-none z-10 overflow-hidden">
                 <svg
                   viewBox="0 0 600 140"
@@ -163,16 +163,16 @@ export default function Hero() {
           onClick={() => setShowStoryModal(false)}
         >
           <div
-            className="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl relative border border-[#E8E2D8]"
+            className="bg-white rounded-3xl p-6 sm:p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative border border-[#E8E2D8]"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between pb-4 border-b border-[#ECE7DF] mb-6">
+            <div className="flex items-center justify-between pb-4 border-b border-[#ECE7DF] mb-5">
               <div>
-                <span className="text-[11px] font-bold text-[#414D3C] uppercase tracking-wider block">
-                  The Boston Pledge Story
+                <span className="text-[11px] font-bold text-[#414D3C] uppercase tracking-[0.16em] block">
+                  VISION
                 </span>
-                <h3 className="text-xl font-serif text-[#1E231C] mt-0.5">
-                  Uncovering the Power Within
+                <h3 className="text-xl sm:text-2xl font-serif text-[#1E231C] mt-0.5">
+                  Our Vision for the Future
                 </h3>
               </div>
               <button
@@ -185,25 +185,30 @@ export default function Hero() {
               </button>
             </div>
 
-            <div className="aspect-video w-full rounded-2xl overflow-hidden bg-black/90 mb-5 relative">
+            <div className="aspect-video w-full rounded-2xl overflow-hidden bg-black/90 mb-5 relative shadow-xs">
               <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0"
-                title="The Boston Pledge Story"
+                src="https://www.youtube.com/embed/-dPmSPXLuqs?autoplay=1"
+                title="The Boston Pledge - Our Vision for the Future"
                 className="w-full h-full border-0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             </div>
 
-            <p className="text-xs sm:text-sm text-[#555E50] leading-relaxed mb-5">
-              Founded over 25 years ago by Dr. Partha S. Ghosh and fellow pioneers, The Boston Pledge is dedicated to empowering grassroots micro-enterprises and nurturing ethical global leadership.
-            </p>
+            <div className="space-y-3 text-xs sm:text-sm text-[#4A5345] leading-relaxed mb-6 font-normal">
+              <p>
+                The Boston Pledge’s vision is to continually bring together goodness in global citizens who will humbly serve to catalyze sustainable development of Global Equity. And be a fertile incubator of voluntary public service.
+              </p>
+              <p>
+                The foundation of TBP constitutes Respect, Trust and Faith the members have in the cause and in each other, on which rest the three essential pillars defining our values – <strong className="font-semibold text-[#1E231C]">Discipline & Accountability</strong>, <strong className="font-semibold text-[#1E231C]">Inclusiveness</strong>, and <strong className="font-semibold text-[#1E231C]">Two way learning</strong> (with those we aspire to serve).
+              </p>
+            </div>
 
-            <div className="flex justify-end">
+            <div className="flex justify-end pt-3 border-t border-[#F0EBE3]">
               <Link
                 href="/about"
                 onClick={() => setShowStoryModal(false)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-colors shadow-xs"
               >
                 <span>Read Full Legacy</span>
                 <ArrowRightIcon className="w-3.5 h-3.5" />

@@ -1,23 +1,18 @@
 import React from "react";
-import Navbar from "@/components/common/Navbar";
-import Footer from "@/components/common/Footer";
 import MediaHero from "@/components/media/MediaHero";
-import ArticlesGrid from "@/components/media/ArticlesGrid";
+import FramesGallery from "@/components/media/FramesGallery";
 
 export const metadata = {
-  title: "Media & News | The Boston Pledge",
-  description: "Read the latest news, updates, publications, and impact stories from The Boston Pledge.",
+  title: "Our Frames: The Visual Archive | The Boston Pledge",
+  description:
+    "Explore our collection of photographs and video chronicles documenting 25 years of grassroots service, conferences, and community development.",
 };
 
 export default function MediaPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#1E231C] antialiased">
-      <Navbar />
-      <main className="flex-1">
-        <MediaHero />
-        <ArticlesGrid />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <MediaHero />
+      <FramesGallery />
+    </>
   );
 }

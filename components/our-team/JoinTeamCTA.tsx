@@ -4,26 +4,33 @@ import { ArrowRightIcon } from "../common/Icons";
 
 export default function JoinTeamCTA() {
   return (
-    <section className="py-16 bg-[#FAF8F5]">
+    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
       <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="bg-[#EFE9DF] rounded-3xl p-8 sm:p-12 border border-[#E3DCCE] text-center">
-          <h3 className="text-2xl sm:text-3xl font-serif text-[#1E231C] mb-3">
+        <div className="bg-[#F3EDE3] rounded-3xl p-8 sm:p-12 border border-[#E4DDD2] text-center">
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <div className="w-8 h-px bg-[#C8C2B5]" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#5A6455]">
+              GET INVOLVED
+            </span>
+            <div className="w-8 h-px bg-[#C8C2B5]" />
+          </div>
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-[#1E231C] tracking-tight mb-3">
             Want to Join Our Volunteer & Mentorship Team?
           </h3>
-          <p className="text-xs sm:text-sm text-[#5B6356] max-w-xl mx-auto mb-8 leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#5B6356] max-w-xl mx-auto mb-8 leading-relaxed font-normal">
             We are always looking for passionate thinkers, educators, developers, doctors, and students who wish to pledge their skills to uplift communities at the base of the pyramid.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="/get-involved"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-medium text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs transition-all"
+              href="/be-a-volunteer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs hover:shadow transition-all"
             >
               <span>Apply to Join the Team</span>
               <ArrowRightIcon className="w-3.5 h-3.5" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center px-6 py-3 rounded-full text-xs font-medium text-[#2C3427] bg-white/80 hover:bg-white border border-[#D0C9BD] transition-all"
+              className="inline-flex items-center px-6 py-3 rounded-full text-xs font-semibold text-[#2C3427] bg-white hover:bg-[#FAF8F5] border border-[#D0C9BD] shadow-2xs transition-all"
             >
               Contact Our Board
             </Link>

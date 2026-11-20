@@ -1,4 +1,5 @@
 import React from "react";
+import { ArrowRightIcon } from "../common/Icons";
 
 export default function ArticlesGrid() {
   const articles = [
@@ -53,41 +54,46 @@ export default function ArticlesGrid() {
   ];
 
   return (
-    <section className="py-16 bg-[#FAF8F5]">
+    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {articles.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-2xl overflow-hidden border border-[#E9E3D9] shadow-2xs hover:shadow-sm transition-shadow flex flex-col justify-between"
+              className="bg-white rounded-2xl overflow-hidden border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
-                <div className="w-full h-48 overflow-hidden bg-[#E9E4DC]">
+                <div className="w-full h-40 sm:h-44 overflow-hidden bg-[#E9E4DC] relative">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between text-[11px] mb-2">
-                    <span className="font-semibold text-[#414D3C] uppercase tracking-wider">
+                  <div className="absolute top-2.5 right-2.5">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#242D21]/80 text-white backdrop-blur-xs shadow-xs">
                       {item.category}
                     </span>
-                    <span className="text-[#7C8578]">{item.date}</span>
                   </div>
-                  <h3 className="text-base font-serif font-medium text-[#1E231C] mb-2">
+                </div>
+                <div className="p-5">
+                  <div className="text-xs text-[#7A8475] font-medium mb-2">
+                    {item.date}
+                  </div>
+                  <h3 className="text-base sm:text-lg font-serif font-bold text-[#1E231C] mb-2 group-hover:text-[#414D3C] transition-colors leading-snug line-clamp-2">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-[#5D6558] leading-relaxed">
+                  <p className="text-xs text-[#5D6558] leading-relaxed line-clamp-2">
                     {item.excerpt}
                   </p>
                 </div>
               </div>
-              <div className="px-6 pb-6 pt-0">
-                <span className="text-xs font-semibold text-[#414D3C] hover:underline cursor-pointer">
-                  Read Full Story →
+              <div className="px-5 py-3.5 border-t border-[#F5F1EA] flex items-center justify-between">
+                <span className="text-xs font-semibold text-[#414D3C] group-hover:underline cursor-pointer">
+                  Read Full Story
                 </span>
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-[#D5CFBF] bg-white flex items-center justify-center text-[#414D3C] group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shadow-2xs shrink-0">
+                  <ArrowRightIcon className="w-3 h-3" />
+                </div>
               </div>
             </div>
           ))}

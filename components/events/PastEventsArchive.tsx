@@ -23,25 +23,33 @@ export default function PastEventsArchive() {
   ];
 
   return (
-    <section id="agenda" className="py-16 bg-[#FAF8F5]">
+    <section id="agenda" className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <h3 className="text-xl sm:text-2xl font-serif text-[#1E231C] mb-8">
-          Past Events & Symposium Archives
-        </h3>
+        <div className="mb-10">
+          <div className="flex items-center gap-3 mb-2.5">
+            <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">
+              ARCHIVES & PROCEEDINGS
+            </span>
+            <div className="w-10 h-px bg-[#C8C2B5]" />
+          </div>
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-[#1E231C] tracking-tight">
+            Past Events & Symposium Archives
+          </h3>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {pastEvents.map((event, idx) => (
             <div
               key={idx}
-              className="bg-white p-6 rounded-2xl border border-[#E8E2D8] shadow-2xs flex flex-col justify-between"
+              className="bg-white p-6 sm:p-7 rounded-2xl border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <span className="text-[11px] font-semibold text-[#667260]">{event.date}</span>
-                <h4 className="text-base font-semibold text-[#1E231C] mt-1 mb-2">
+                <span className="text-xs font-semibold text-[#5A6455]">{event.date}</span>
+                <h4 className="text-base sm:text-lg font-serif font-bold text-[#1E231C] mt-2 mb-2 leading-snug">
                   {event.title}
                 </h4>
                 <p className="text-xs text-[#5D6558] leading-relaxed mb-4">{event.desc}</p>
               </div>
-              <div className="text-[11px] text-[#7E8879] pt-3 border-t border-[#F0ECE4]">
+              <div className="text-[11px] text-[#7E8879] pt-4 border-t border-[#F5F1EA] font-medium">
                 📍 {event.location}
               </div>
             </div>

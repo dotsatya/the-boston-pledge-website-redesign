@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { EventItem, getAllEvents, getEventStatus } from "@/lib/eventsDetails";
+import { EventItem, getAllEvents, getEventStatus, formatEventDate } from "@/lib/eventsDetails";
 import { getEventCover, getEventFallback } from "./eventHelpers";
 import CoverImage from "../latest-updates/CoverImage";
 import UpdateBlockRenderer from "../latest-updates/UpdateBlockRenderer";
@@ -15,7 +15,7 @@ export default function EventDetail({ event }: { event: EventItem }) {
   const isUpcoming = status === "upcoming";
 
   return (
-    <article className="py-12 lg:py-20 bg-[#FAF8F5]">
+    <article className="py-8 sm:py-10 lg:py-12 bg-[#FAF8F5]">
       <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Breadcrumb Navigation */}
         <nav className="flex items-center gap-2 text-xs text-[#6B7565] mb-8">
@@ -45,7 +45,7 @@ export default function EventDetail({ event }: { event: EventItem }) {
             </span>
             <div className="flex items-center gap-1.5 text-xs text-[#646E5E]">
               <CalendarIcon className="w-3.5 h-3.5 text-[#5A6455]" />
-              <span>{event.dateLabel}</span>
+              <span>{formatEventDate(event.date)}</span>
             </div>
           </div>
 
@@ -127,7 +127,7 @@ export default function EventDetail({ event }: { event: EventItem }) {
                     {item.title}
                   </h4>
                   <div className="text-[11px] text-[#788273] mt-auto">
-                    {item.dateLabel}
+                    {formatEventDate(item.date)}
                   </div>
                 </Link>
               ))}

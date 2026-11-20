@@ -12,7 +12,7 @@ export default function UpdateDetail({ update }: { update: LatestUpdate }) {
   const fallback = getUpdateFallbackImage(update);
 
   return (
-    <article className="py-12 lg:py-20 bg-[#FAF8F5]">
+    <article className="py-8 sm:py-10 lg:py-12 bg-[#FAF8F5]">
       <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Breadcrumb Navigation */}
         <nav className="flex items-center gap-2 text-xs text-[#6B7565] mb-8">

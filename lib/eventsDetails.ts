@@ -1,4 +1,4 @@
-import { ContentBlock, getUpdateBySlug, isPastDate } from "./latestUpdates";
+import { ContentBlock, getUpdateBySlug } from "./latestUpdates";
 
 // ---------- Types ----------
 
@@ -6,9 +6,8 @@ export interface EventItem {
   id: string;
   slug: string; // /events/<slug>
   title: string;
-  date: string; // ISO date, used for sorting and for upcoming/completed status
-  dateLabel: string; // the text you show on the page
-  dateIsApproximate?: boolean; // true = only the year/month is known, `date` is a placeholder
+  date: string; // Single date field (ISO format, e.g. YYYY-MM-DD)
+  type: "completed" | "upcoming"; // Event status: only "completed" or "upcoming"
   category: string;
   coverImage?: string; // optional: many old events have no image
   venue?: string;
@@ -32,15 +31,13 @@ export const eventsDetails: EventItem[] = [
     slug: "renaissance-2-0-a-parliament-of-enlightened-thoughts",
     title: "Renaissance 2.0 - A Parliament of Enlightened Thoughts",
     date: "2026-02-24",
-    dateLabel: "February 24, 2026",
+    type: "upcoming",
     category: "Silver Jubilee",
     coverImage:
       "https://thebostonpledge.org/wp-content/uploads/2025/08/New-Project-1-768x2461.png",
     summary:
       "The Silver Jubilee celebration of The Boston Pledge — where global visionaries gather to reimagine civilization through peace, creativity, and conscience.",
     content: [
-      // All the real details are inside this poster image. I could not read the image.
-      // TODO: send me the image (upload it in chat) and I will turn it into text blocks.
       {
         type: "image",
         src: "https://thebostonpledge.org/wp-content/uploads/2025/08/New-Project-1-768x2461.png",
@@ -56,8 +53,8 @@ export const eventsDetails: EventItem[] = [
     id: "2",
     slug: "balancing-equity-ethics-ecology-generative-ai-as-the-engine",
     title: "Balancing Equity, Ethics, & Ecology: Generative AI as the Engine?",
-    date: "2024-09-15", // taken from the registration link and poster file names
-    dateLabel: "September 15, 2024",
+    date: "2024-09-15",
+    type: "completed",
     category: "Webinar",
     coverImage:
       "https://thebostonpledge.org/wp-content/uploads/2024/08/tbp-768x1773.jpg",
@@ -70,13 +67,11 @@ export const eventsDetails: EventItem[] = [
         href: "https://bit.ly/tbp-Sept-15-2024",
         onlyWhenUpcoming: true,
       },
-      // Details are inside this poster image. TODO: send me the image to get text blocks.
       {
         type: "image",
         src: "https://thebostonpledge.org/wp-content/uploads/2024/08/tbp-768x1773.jpg",
         alt: "Balancing Equity, Ethics, & Ecology: Generative AI as the Engine? event poster",
       },
-      // In your paste this link sat under the 20th Anniversary block, but the file name says GenAI Sep 15 2024.
       {
         type: "button",
         label: "Download poster",
@@ -91,11 +86,10 @@ export const eventsDetails: EventItem[] = [
     slug: "tbp-20th-anniversary-conference-series-oct-10-2021",
     title: "TBP 20th Anniversary Conference Series-Oct-10-2021",
     date: "2021-10-10",
-    dateLabel: "October 10, 2021",
+    type: "completed",
     category: "Conference Series",
     coverImage:
       "https://thebostonpledge.org/wp-content/uploads/2024/08/Poster-TBP-10-10-10-event-V2-768x994.png",
-    // The old card showed the Reset India text ("Attended by close to 200...") by mistake. This line is mine.
     summary: "TBP 20th Anniversary Conference Series, October 10, 2021.",
     content: [
       {
@@ -122,9 +116,8 @@ export const eventsDetails: EventItem[] = [
     id: "4",
     slug: "tbp-20th-anniversary",
     title: "TBP 20th Anniversary",
-    date: "2020-09-01", // APPROXIMATE (poster uploaded Aug 2020). Replace with the real date.
-    dateLabel: "2020",
-    dateIsApproximate: true,
+    date: "2020-09-01",
+    type: "completed",
     category: "Summit",
     coverImage:
       "https://thebostonpledge.org/wp-content/uploads/2020/08/TBP-Summit-poster.jpg",
@@ -155,9 +148,8 @@ export const eventsDetails: EventItem[] = [
     id: "5",
     slug: "tbp-youth-workshop-2019",
     title: "TBP Youth Workshop 2019",
-    date: "2019-07-01", // APPROXIMATE (summer 2019). Replace with the real date.
-    dateLabel: "Summer 2019",
-    dateIsApproximate: true,
+    date: "2019-07-01",
+    type: "completed",
     category: "Workshop",
     coverImage: "/images/updates/tbp-youth-workshop-2019.jpg",
     summary:
@@ -170,14 +162,11 @@ export const eventsDetails: EventItem[] = [
     id: "6",
     slug: "eighteenth-annual-conference-2019",
     title: "Eighteenth Annual Conference 2019",
-    date: "2019-10-01", // APPROXIMATE. Replace with the real date.
-    dateLabel: "2019",
-    dateIsApproximate: true,
+    date: "2019-10-01",
+    type: "completed",
     category: "Annual Conference",
     coverImage: "/images/updates/eighteenth-annual-conference-2019.jpg",
     summary: "Conference schedule will be announced soon. Stay tuned.",
-    // I searched the web and the client's own site. Nothing more exists online.
-    // Get the real details from the client, then edit this ONE place in latestUpdates.ts.
     content: fromUpdate("eighteenth-annual-conference-2019"),
   },
 
@@ -187,7 +176,7 @@ export const eventsDetails: EventItem[] = [
     slug: "seventeenth-annual-conference-2018",
     title: "Seventeenth Annual Conference 2018",
     date: "2018-11-11",
-    dateLabel: "November 11, 2018",
+    type: "completed",
     category: "Annual Conference",
     coverImage: "/images/updates/seventeenth-annual-conference-2018.jpg",
     venue: "Busch Student Center, Rutgers University, Piscataway Township, NJ",
@@ -202,7 +191,7 @@ export const eventsDetails: EventItem[] = [
     slug: "sixteenth-annual-conference-2017",
     title: "Sixteenth Annual Conference 2017",
     date: "2017-09-23",
-    dateLabel: "September 23, 2017",
+    type: "completed",
     category: "Annual Conference",
     coverImage: "/images/updates/sixteenth-annual-conference-2017.jpg",
     venue: "Mason Innovation Lab, George Mason University",
@@ -216,15 +205,13 @@ export const eventsDetails: EventItem[] = [
     id: "9",
     slug: "fifteenth-annual-event-2016",
     title: "Fifteenth Annual Event 2016",
-    date: "2016-10-01", // month known (October 2016), day unknown
-    dateLabel: "October 2016",
-    dateIsApproximate: true,
+    date: "2016-10-01",
+    type: "completed",
     category: "Annual Event",
     venue: "Fletcher School of Law & Diplomacy, Medford, MA",
     summary: "The World at the Brink: Future of Education",
     content: [
       { type: "paragraph", text: "The World at the Brink: Future of Education" },
-      // Added from The Boston Pledge's own Media page (not in your paste). Remove if the client disagrees.
       {
         type: "paragraph",
         text: "Held in October 2016 at the Fletcher School of Law & Diplomacy, Medford, Massachusetts.",
@@ -238,8 +225,7 @@ export const eventsDetails: EventItem[] = [
     slug: "fourteenth-annual-event-2015",
     title: "Fourteenth Annual Event 2015",
     date: "2015-06-01",
-    dateLabel: "2015",
-    dateIsApproximate: true,
+    type: "completed",
     category: "Annual Event",
     summary: "Rural Innovation Center in Lakhikantapur",
     content: [
@@ -253,8 +239,7 @@ export const eventsDetails: EventItem[] = [
     slug: "thirteenth-annual-event-2014",
     title: "Thirteenth Annual Event 2014",
     date: "2014-06-01",
-    dateLabel: "2014",
-    dateIsApproximate: true,
+    type: "completed",
     category: "Annual Event",
     summary: "Leadership & Future of Water",
     content: [{ type: "paragraph", text: "Leadership & Future of Water" }],
@@ -266,8 +251,7 @@ export const eventsDetails: EventItem[] = [
     slug: "twelfth-annual-event-2013",
     title: "Twelfth Annual Event: 2013",
     date: "2013-06-01",
-    dateLabel: "2013",
-    dateIsApproximate: true,
+    type: "completed",
     category: "Annual Event",
     summary:
       "The 12th Annual Conference of The Boston Pledge presents: Mr. Kapil Mandal, a perfect representation of Leadership and Entrepreneurship",
@@ -285,14 +269,12 @@ export const eventsDetails: EventItem[] = [
     slug: "eleventh-annual-event-2012",
     title: "Eleventh Annual Event: 2012",
     date: "2012-06-01",
-    dateLabel: "2012",
-    dateIsApproximate: true,
+    type: "completed",
     category: "Annual Event",
     summary:
       "Partha S. Ghosh is the chairman of The Boston Pledge. As a true global citizen, policy advisor and a strategist for Corporates and Governments he is known worldwide as an innovator of Business and Economic models.",
     content: [
       {
-        // "!rm" in your paste was a broken "fi" letter pair, fixed to "firm".
         type: "paragraph",
         text: "Partha S. Ghosh is the chairman of The Boston Pledge. As a true global citizen, policy advisor and a strategist for Corporates and Governments he is known worldwide as an innovator of Business and Economic models. He teaches Globalization & Economics at Tufts Gordon Institute, Innovation & Strategic Technologies at the Fletcher School, and Leadership at MIT. Mr. Ghosh was a partner at McKinsey & Company and is the founder/ Managing director of Strategy/Policy advisory firm Partha S Ghosh & Associates.",
       },
@@ -305,8 +287,7 @@ export const eventsDetails: EventItem[] = [
     slug: "tenth-annual-event-2011",
     title: "Tenth Annual Event: 2011",
     date: "2011-06-01",
-    dateLabel: "2011",
-    dateIsApproximate: true,
+    type: "completed",
     category: "Annual Event",
     summary:
       "Human beings did not stop evolving when we got up on our hind legs. Our evolution has continued, even accelerated, but is now more inward.",
@@ -324,7 +305,7 @@ export const eventsDetails: EventItem[] = [
     slug: "ninth-annual-event-2010",
     title: "Ninth Annual Event: 2010",
     date: "2010-12-04",
-    dateLabel: "December 4, 2010",
+    type: "completed",
     category: "Annual Event",
     summary:
       "The Boston Pledge presents our Annual Conference with emerging leaders, renowned thinkers and progressive minds like you",
@@ -353,7 +334,6 @@ export const eventsDetails: EventItem[] = [
         level: 3,
       },
       {
-        // Three missing spaces from your paste fixed: "Calcutta. We", "their contributions", "be inspired".
         type: "paragraph",
         text: "Microscopic forces are pure and most powerful. In physics, chemistry and biology we have been continually inspired by the wanders of these powers. It is our belief in communities also when small group of people come together with the purity of purpose however microscopic they may be when they gel they scale rapidly. Mother Teresa’s Missionaries of Charity is an excellent example how a large organization with base in 160 countries was built with humble beginnings on streets of Calcutta. We want to share with our supporters in the conference that however micro may their contributions be we should feel not handicapped by the size of the contribution, but be inspired by the creative and imaginative forces that such offerings might unleash.",
       },
@@ -393,8 +373,7 @@ export const eventsDetails: EventItem[] = [
     slug: "eighth-annual-event-2009",
     title: "Eighth Annual Event: 2009",
     date: "2009-06-01",
-    dateLabel: "2009",
-    dateIsApproximate: true,
+    type: "completed",
     category: "Annual Event",
     summary:
       "Making Green Economy Real: Life beyond the Meltdown where you Reinvent Yourself",
@@ -417,8 +396,7 @@ export const eventsDetails: EventItem[] = [
     slug: "seventh-annual-event-2008",
     title: "Seventh Annual Event: 2008",
     date: "2008-06-01",
-    dateLabel: "2008",
-    dateIsApproximate: true,
+    type: "completed",
     category: "Annual Event",
     summary:
       "Turbulent times produce revolutionary change. The Renaissance in Europe and in 19th Century India, as well as the impressive progress in modern China stand as testimony to the power of the human spirit.",
@@ -436,8 +414,7 @@ export const eventsDetails: EventItem[] = [
     slug: "sixth-annual-event-2007",
     title: "Sixth Annual Event: 2007",
     date: "2007-06-01",
-    dateLabel: "2007",
-    dateIsApproximate: true,
+    type: "completed",
     category: "Annual Event",
     summary: "Enterprising for Rural Development",
     content: [{ type: "paragraph", text: "Enterprising for Rural Development" }],
@@ -449,8 +426,7 @@ export const eventsDetails: EventItem[] = [
     slug: "fifth-annual-event-2006",
     title: "Fifth Annual Event: 2006",
     date: "2006-06-01",
-    dateLabel: "2006",
-    dateIsApproximate: true,
+    type: "completed",
     category: "Annual Event",
     summary: "Being in harmony with culture of the local at the base of the Pyramid",
     content: [
@@ -467,8 +443,7 @@ export const eventsDetails: EventItem[] = [
     slug: "fourth-annual-event-2005",
     title: "Fourth Annual Event: 2005",
     date: "2005-06-01",
-    dateLabel: "2005",
-    dateIsApproximate: true,
+    type: "completed",
     category: "Annual Event",
     summary: "In the Beginning is Desire...",
     content: [{ type: "paragraph", text: "In the Beginning is Desire..." }],
@@ -480,8 +455,7 @@ export const eventsDetails: EventItem[] = [
     slug: "third-annual-event-2004",
     title: "Third Annual Event 2004",
     date: "2004-06-01",
-    dateLabel: "2004",
-    dateIsApproximate: true,
+    type: "completed",
     category: "Annual Event",
     summary:
       "According to The Rig-Veda, the oldest poetic thoughts in the history of the subcontinent, the root of all divine creative activity is the spark of desire that expands the universe from a primordial unity into flowering multiplicity.",
@@ -499,7 +473,7 @@ export const eventsDetails: EventItem[] = [
     slug: "second-annual-event-2003",
     title: "Second Annual Event 2003",
     date: "2003-12-20",
-    dateLabel: "December 20, 2003",
+    type: "completed",
     category: "Annual Event",
     venue: "MIT Wong Auditorium",
     summary:
@@ -538,8 +512,7 @@ export const eventsDetails: EventItem[] = [
     slug: "first-annual-event-2002",
     title: "First Annual Event: 2002",
     date: "2002-06-01",
-    dateLabel: "2002",
-    dateIsApproximate: true,
+    type: "completed",
     category: "Annual Event",
     summary: "World Economists, Technologists and Environmentalists",
     content: [
@@ -553,9 +526,29 @@ export const eventsDetails: EventItem[] = [
 
 // ---------- Helpers (use these in your pages, not the raw array) ----------
 
-// Status is worked out from the date. Never type "Upcoming" or "Completed" by hand.
-export const getEventStatus = (e: EventItem): "upcoming" | "completed" =>
-  isPastDate(e.date) ? "completed" : "upcoming";
+// Formats an ISO date (e.g. "2026-02-24") into a clean display label (e.g. "February 24, 2026")
+export const formatEventDate = (dateStr: string): string => {
+  if (!dateStr) return "";
+  const parts = dateStr.split("-");
+  if (parts.length === 3) {
+    const year = parseInt(parts[0], 10);
+    const month = parseInt(parts[1], 10) - 1;
+    const day = parseInt(parts[2], 10);
+    const d = new Date(Date.UTC(year, month, day));
+    if (!isNaN(d.getTime())) {
+      return d.toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+        timeZone: "UTC",
+      });
+    }
+  }
+  return dateStr;
+};
+
+// Returns event status directly from the data object's `type` field
+export const getEventStatus = (e: EventItem): "upcoming" | "completed" => e.type;
 
 export const getAllEvents = (): EventItem[] =>
   [...eventsDetails].sort(
@@ -563,10 +556,10 @@ export const getAllEvents = (): EventItem[] =>
   );
 
 export const getUpcomingEvents = (): EventItem[] =>
-  getAllEvents().filter((e) => getEventStatus(e) === "upcoming");
+  getAllEvents().filter((e) => e.type === "upcoming");
 
 export const getCompletedEvents = (): EventItem[] =>
-  getAllEvents().filter((e) => getEventStatus(e) === "completed");
+  getAllEvents().filter((e) => e.type === "completed");
 
 export const getEventBySlug = (slug: string): EventItem | undefined =>
   eventsDetails.find((e) => e.slug === slug);

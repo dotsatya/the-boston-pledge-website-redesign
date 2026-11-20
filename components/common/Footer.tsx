@@ -44,12 +44,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs text-[#B5C0AF]">
               <li>
                 <Link href="/about" className="hover:text-white transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/our-team" className="hover:text-white transition-colors">
-                  Our Team
+                  About Us
                 </Link>
               </li>
               <li>
@@ -63,18 +58,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/latest-updates" className="hover:text-white transition-colors">
-                  Latest Updates
+                <Link href="/be-a-volunteer" className="hover:text-white transition-colors">
+                  Be A Volunteer
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-white transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/get-involved" className="hover:text-white transition-colors">
-                  Get Involved
+                <Link href="/donate" className="hover:text-white transition-colors">
+                  Donate
                 </Link>
               </li>
             </ul>

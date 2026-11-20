@@ -1,8 +1,6 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Navbar from "@/components/common/Navbar";
-import Footer from "@/components/common/Footer";
 import EventDetail from "@/components/events/EventDetail";
 import { getAllEvents, getEventBySlug } from "@/lib/eventsDetails";
 
@@ -41,13 +39,5 @@ export default async function SingleEventPage({ params }: Props) {
     notFound();
   }
 
-  return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#1E231C] antialiased">
-      <Navbar />
-      <main className="flex-1">
-        <EventDetail event={event} />
-      </main>
-      <Footer />
-    </div>
-  );
+  return <EventDetail event={event} />;
 }

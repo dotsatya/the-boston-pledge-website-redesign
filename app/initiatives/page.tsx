@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "@/components/common/Navbar";
-import Footer from "@/components/common/Footer";
 import InitiativesHero from "@/components/initiatives/InitiativesHero";
 import InitiativePillars from "@/components/initiatives/InitiativePillars";
 
@@ -11,13 +9,9 @@ export const metadata = {
 
 export default function InitiativesPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#1E231C] antialiased">
-      <Navbar />
-      <main className="flex-1">
-        <InitiativesHero />
-        <InitiativePillars />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <InitiativesHero />
+      <InitiativePillars />
+    </>
   );
 }

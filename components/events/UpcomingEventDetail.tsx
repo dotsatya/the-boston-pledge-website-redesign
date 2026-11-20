@@ -4,7 +4,7 @@ import { CalendarIcon, MapPinIcon, ArrowRightIcon } from "../common/Icons";
 
 export default function UpcomingEventDetail() {
   return (
-    <section className="py-16 bg-[#FAF8F5] border-b border-[#ECE7DF]">
+    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5] border-b border-[#ECE7DF]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="bg-[#EFE9DF] rounded-3xl p-8 sm:p-12 border border-[#E3DCCE]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -32,7 +32,7 @@ export default function UpcomingEventDetail() {
 
               <div className="flex flex-wrap items-center gap-3">
                 <Link
-                  href="/get-involved"
+                  href="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-medium text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all"
                 >
                   <span>Register for the Event</span>

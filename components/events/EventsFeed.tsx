@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { getAllEvents, getEventStatus, EventItem } from "@/lib/eventsDetails";
+import { getAllEvents, getEventStatus, formatEventDate, EventItem } from "@/lib/eventsDetails";
 import EventCard from "./EventCard";
 
 export default function EventsFeed() {
@@ -60,7 +60,7 @@ export default function EventsFeed() {
         const matchesTitle = event.title.toLowerCase().includes(q);
         const matchesSummary = event.summary.toLowerCase().includes(q);
         const matchesVenue = event.venue?.toLowerCase().includes(q);
-        const matchesDate = event.dateLabel.toLowerCase().includes(q);
+        const matchesDate = (formatEventDate(event.date) + " " + event.date).toLowerCase().includes(q);
         if (!matchesTitle && !matchesSummary && !matchesVenue && !matchesDate) {
           return false;
         }
@@ -71,7 +71,7 @@ export default function EventsFeed() {
   }, [allEvents, activeFilter, searchQuery]);
 
   return (
-    <section className="py-16 bg-[#FAF8F5]">
+    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Controls: Filter Pills & Search bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-5 mb-10 pb-6 border-b border-[#ECE7DF]">
