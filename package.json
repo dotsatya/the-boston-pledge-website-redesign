@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "predev": "node -e \"const fs = require('fs'); try { fs.rmSync('.next', { recursive: true, force: true }); } catch(e) {}\"",
     "build": "next build",
     "start": "next start",
+    "clean": "node -e \"const fs = require('fs'); try { fs.rmSync('.next', { recursive: true, force: true }); } catch(e) {}\"",
     "lint": "eslint"
   },
   "dependencies": {
