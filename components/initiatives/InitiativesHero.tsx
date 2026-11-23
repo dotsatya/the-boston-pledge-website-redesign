@@ -3,10 +3,10 @@ import Link from "next/link";
 
 export default function InitiativesHero() {
   return (
-    <section className="py-8 sm:py-10 lg:py-12 bg-[#FAF8F5] border-b border-[#ECE7DF]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="pt-8 sm:pt-10 pb-4 bg-[#FAF8F5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb Left */}
-        <nav className="flex items-center gap-2 text-xs text-[#7A8475] mb-4">
+        <nav className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs text-[#7A8475] mb-4">
           <Link href="/" className="hover:text-[#414D3C] transition-colors">
             Home
           </Link>
@@ -23,7 +23,7 @@ export default function InitiativesHero() {
         </div>
 
         {/* Heading Left */}
-        <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-serif font-normal text-[#1E231C] tracking-tight leading-[1.18] mb-4 max-w-3xl">
+        <h1 className="text-2xl sm:text-3xl lg:text-[44px] font-serif font-normal text-[#1E231C] tracking-tight leading-[1.18] mb-4 max-w-3xl break-words">
           Creating Opportunities <br />
           for a Better Tomorrow.
         </h1>

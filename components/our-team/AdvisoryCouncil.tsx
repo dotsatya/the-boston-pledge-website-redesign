@@ -25,17 +25,17 @@ export default function AdvisoryCouncil() {
   ];
 
   return (
-    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5] border-b border-[#ECE7DF]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="py-6 sm:py-10 lg:py-14 bg-[#FAF8F5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Header Left-Aligned */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-2.5">
+        <div className="mb-4 sm:mb-8">
+          <div className="flex items-center gap-3 mb-2 sm:mb-2.5">
             <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">
               GLOBAL COLLABORATION
             </span>
             <div className="w-10 h-px bg-[#C8C2B5]" />
           </div>
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-[#1E231C] tracking-tight mb-3">
+          <h3 className="text-xl sm:text-3xl lg:text-4xl font-serif text-[#1E231C] tracking-tight mb-2 sm:mb-3">
             Advisory Council &amp; Field Coordinators
           </h3>
           <p className="text-xs sm:text-sm text-[#5B6356] leading-relaxed max-w-2xl font-normal">
@@ -43,11 +43,11 @@ export default function AdvisoryCouncil() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-5">
           {advisors.map((adv, idx) => (
             <div
               key={idx}
-              className="bg-white p-4 sm:p-5 rounded-2xl border border-[#ECE7DF] shadow-2xs hover:shadow-md transition-all duration-300"
+              className="bg-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-[#ECE7DF] shadow-2xs hover:shadow-md transition-all duration-300"
             >
               <h4 className="text-base font-semibold text-[#1E231C] mb-1">{adv.name}</h4>
               <div className="text-xs font-medium text-[#414D3C] mb-2">{adv.focus}</div>

@@ -11,8 +11,8 @@ interface MissionSectionProps {
 
 export default function MissionSection({ title, image, objectives }: MissionSectionProps) {
   return (
-    <section className="py-6 sm:py-8 bg-[#FAF8F5] border-t border-[#ECE7DF]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="py-6 sm:py-8 bg-[#FAF8F5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
           
           {/* Left Column: Compact Mission Graphic (5 cols) */}

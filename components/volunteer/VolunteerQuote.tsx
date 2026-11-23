@@ -6,7 +6,7 @@ export default function VolunteerQuote() {
 
   return (
     <section className="py-12 sm:py-14 lg:py-16 bg-[#F3EDE3] border-y border-[#E4DDD2]">
-      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Decorative Green Quotation Mark */}
         <div className="text-4xl sm:text-5xl font-serif text-[#5E6D58] leading-none mb-6 select-none opacity-90">
           “

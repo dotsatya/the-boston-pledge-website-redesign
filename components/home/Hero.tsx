@@ -9,7 +9,7 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-[#FAF8F5] pt-6 pb-6 sm:pb-8 lg:pt-8 lg:pb-10">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
           {/* Left Column: Text & CTAs matching demo */}
           <div className="lg:col-span-6 z-10 py-4 lg:pr-4">
@@ -20,9 +20,9 @@ export default function Hero() {
             </div>
 
             {/* Headline with italic Thrive. */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[54px] xl:text-[62px] font-serif font-normal text-[#1E231C] leading-[1.12] tracking-tight mb-6">
-              Building a World <br />
-              Where Everyone Has <br />
+            <h1 className="text-3xl sm:text-5xl lg:text-[54px] xl:text-[62px] font-serif font-normal text-[#1E231C] leading-[1.18] sm:leading-[1.12] tracking-tight mb-6 break-words">
+              Building a World <br className="hidden sm:inline" />
+              Where Everyone Has <br className="hidden sm:inline" />
               the Opportunity to <em className="italic font-serif">Thrive.</em>
             </h1>
 
@@ -55,7 +55,7 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Organic Curved Mask with Photo + 25+ Years Floating Badge */}
-          <div className="lg:col-span-6 relative w-full h-[400px] sm:h-[500px] lg:h-[580px] flex items-center justify-center">
+          <div className="lg:col-span-6 relative w-full h-[260px] sm:h-[420px] lg:h-[580px] flex items-center justify-center">
             {/* SVG Mask Definition */}
             <svg className="absolute w-0 h-0" aria-hidden="true" focusable="false">
               <defs>
@@ -110,7 +110,7 @@ export default function Hero() {
               </div>
 
               {/* Bottom Layered Silk Waves flowing into background SVG-- */}
-              <div className="absolute -bottom-1 left-0 right-0 h-32 pointer-events-none z-10 overflow-hidden">
+              <div className="absolute -bottom-1 left-0 right-0 h-16 sm:h-32 pointer-events-none z-10 overflow-hidden">
                 <svg
                   viewBox="0 0 600 140"
                   fill="none"
@@ -136,15 +136,15 @@ export default function Hero() {
               </div>
 
               {/* Floating "25+ Years of Service" Badge matching demo */}
-              <div className="absolute top-8 right-4 sm:top-12 sm:right-8 lg:top-14 lg:right-6 bg-white/95 backdrop-blur-md px-5 py-3.5 rounded-2xl shadow-sm border border-[#EBE5DB] flex items-center gap-3.5 z-20 hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-xl bg-[#FAF8F5] border border-[#E2DDD3] flex items-center justify-center text-[#414D3C] shrink-0">
-                  <GlobeIcon className="w-5 h-5" />
+              <div className="absolute top-4 right-3 sm:top-12 sm:right-8 lg:top-14 lg:right-6 bg-white/95 backdrop-blur-md px-3.5 py-2 sm:px-5 sm:py-3.5 rounded-xl sm:rounded-2xl shadow-sm border border-[#EBE5DB] flex items-center gap-2.5 sm:gap-3.5 z-20 hover:shadow-md transition-shadow">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#FAF8F5] border border-[#E2DDD3] flex items-center justify-center text-[#414D3C] shrink-0">
+                  <GlobeIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold font-serif text-[#1E231C] leading-none">
+                  <div className="text-lg sm:text-2xl font-bold font-serif text-[#1E231C] leading-none">
                     25+
                   </div>
-                  <div className="text-[11px] text-[#7A8475] font-medium mt-1 whitespace-nowrap">
+                  <div className="text-[10px] sm:text-[11px] text-[#7A8475] font-medium mt-0.5 sm:mt-1 whitespace-nowrap">
                     Years of Service
                   </div>
                 </div>

@@ -24,14 +24,14 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="pt-4 sm:pt-6 pb-12 sm:pb-16 bg-[#FAF8F5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Symmetric 50/50 Balanced Grid with matching stretch alignment */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
           
           {/* Left Column: Direct Contact Details (Symmetric 6 Cols) */}
           <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
-            <div>
+            <div className="hidden md:block">
               <div className="flex items-center gap-3 mb-2.5">
                 <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">
                   DIRECT CHANNELS
@@ -160,7 +160,7 @@ export default function ContactForm() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="bg-white p-7 sm:p-9 rounded-3xl border border-[#ECE7DF] shadow-xs space-y-5 flex-1 flex flex-col justify-between"
+                className="bg-white p-5 sm:p-8 lg:p-9 rounded-2xl sm:rounded-3xl border border-[#ECE7DF] shadow-xs space-y-4 sm:space-y-5 flex-1 flex flex-col justify-between"
               >
                 <div>
                   <h3 className="text-xl font-serif text-[#1E231C]">Send Us a Message</h3>

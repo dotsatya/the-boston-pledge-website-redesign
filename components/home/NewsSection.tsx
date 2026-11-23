@@ -13,12 +13,12 @@ export default function NewsSection() {
   const news = getLatestUpdates(3);
 
   return (
-    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+    <section className="py-6 sm:py-12 lg:py-14 bg-[#FAF8F5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 lg:gap-10 items-start">
           {/* Left Column Text matching demo */}
           <div className="lg:col-span-3">
-            <div className="flex items-center gap-3 mb-2.5">
+            <div className="flex items-center gap-3 mb-2 sm:mb-2.5">
               <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">
                 NEWS & INSIGHTS
               </span>
@@ -26,19 +26,19 @@ export default function NewsSection() {
             </div>
 
             <Link href="/latest-updates" className="group">
-              <h2 className="text-2xl sm:text-3xl font-serif font-normal text-[#1E231C] tracking-tight mb-3 group-hover:text-[#414D3C] transition-colors">
+              <h2 className="text-xl sm:text-3xl font-serif font-normal text-[#1E231C] tracking-tight mb-2 sm:mb-3 group-hover:text-[#414D3C] transition-colors">
                 Insights. Ideas. Impact.
               </h2>
             </Link>
 
-            <p className="text-xs sm:text-sm text-[#5B6356] leading-relaxed mb-6 font-normal">
+            <p className="text-xs sm:text-sm text-[#5B6356] leading-relaxed mb-3.5 sm:mb-6 font-normal">
               Stay informed with the latest news, publications and stories from
               our work.
             </p>
 
             <Link
               href="/latest-updates"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs"
+              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs"
             >
               <span>View All News</span>
               <ArrowRightIcon className="w-3.5 h-3.5" />
@@ -46,7 +46,7 @@ export default function NewsSection() {
           </div>
 
           {/* Right 3 news cards with home page stepped-tab style and <ArrowUpRight /> */}
-          <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-6">
             {news.map((item, idx) => {
               const coverImg = getUpdateCoverImage(item);
               const fallback = getUpdateFallbackImage(item);
@@ -55,11 +55,11 @@ export default function NewsSection() {
                 <ScrollReveal key={item.id} delay={idx * 0.1}>
                   <Link
                     href={`/latest-updates/${item.slug}`}
-                    className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 h-full"
+                    className="group flex flex-row sm:flex-col bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 p-2 sm:p-0"
                   >
-                  {/* Top Image with padding and Stepped Tab Divider */}
-                  <div className="p-1.5 sm:p-2 pb-0">
-                    <div className="w-full h-44 sm:h-48 overflow-hidden rounded-xl bg-[#EAE6DF] relative">
+                  {/* Left (mobile) / Top (desktop) Image */}
+                  <div className="p-0 sm:p-2 sm:pb-0 shrink-0">
+                    <div className="w-24 sm:w-full h-24 sm:h-48 overflow-hidden rounded-lg sm:rounded-xl bg-[#EAE6DF] relative">
                       <CoverImage
                         src={coverImg}
                         fallbackSrc={fallback}
@@ -67,8 +67,8 @@ export default function NewsSection() {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
 
-                      {/* Stepped Tab Wave: White SVG cutting into image bottom */}
-                      <div className="absolute -bottom-px left-0 -right-10 h-6 pointer-events-none">
+                      {/* Stepped Tab Wave: desktop only */}
+                      <div className="hidden sm:block absolute -bottom-px left-0 -right-10 h-6 pointer-events-none">
                         <svg
                           viewBox="0 0 320 24"
                           fill="none"
@@ -82,23 +82,24 @@ export default function NewsSection() {
                     </div>
                   </div>
 
-                  {/* Card Bottom Body */}
-                  <div className="px-4 pb-3.5 pt-0 bg-white flex flex-col justify-between -mt-3 relative z-10">
-                    <div>
-                      {/* Date sitting inside the stepped tab on the left */}
-                      <div className="text-xs text-[#7A8475] font-medium mb-2.5">
-                        {item.dateLabel}
-                      </div>
+                  {/* Right (mobile) / Bottom (desktop) Details Body */}
+                  <div className="pl-3 sm:px-4 sm:pb-3.5 sm:pt-0 bg-white flex flex-col justify-center sm:justify-between sm:-mt-3 relative z-10 flex-1 min-w-0">
+                    <div className="flex items-center sm:items-stretch justify-between gap-2">
+                      <div className="flex-1 min-w-0">
+                        {/* Date */}
+                        <div className="text-[11px] sm:text-xs text-[#7A8475] font-medium mb-1 sm:mb-2.5">
+                          {item.dateLabel}
+                        </div>
 
-                      {/* Title on the left & Circular Button with <ArrowUpRight /> on the right */}
-                      <div className="flex items-end justify-between gap-3">
-                        <h3 className="text-sm sm:text-base font-semibold text-[#1E231C] group-hover:text-[#414D3C] transition-colors leading-snug line-clamp-2 flex-1">
+                        {/* Title */}
+                        <h3 className="text-xs sm:text-base font-semibold text-[#1E231C] group-hover:text-[#414D3C] transition-colors leading-snug line-clamp-2">
                           {item.title}
                         </h3>
-                        {/* Circular Arrow Button with <ArrowUpRight /> */}
-                        <div className="w-9 h-9 rounded-full border border-[#D5CFBF] bg-white flex items-center justify-center text-[#414D3C] group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shadow-2xs shrink-0 self-end">
-                          <ArrowUpRight className="w-4 h-4" />
-                        </div>
+                      </div>
+
+                      {/* Circular Arrow Button with <ArrowUpRight /> */}
+                      <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full border border-[#D5CFBF] bg-white flex items-center justify-center text-[#414D3C] group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shadow-2xs shrink-0 self-center sm:self-end">
+                        <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       </div>
                     </div>
                   </div>

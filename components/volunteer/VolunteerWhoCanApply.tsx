@@ -7,8 +7,8 @@ export default function VolunteerWhoCanApply() {
   const { whoCanApply } = volunteerData;
 
   return (
-    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="pt-4 sm:pt-6 pb-12 sm:pb-16 bg-[#FAF8F5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Symmetrical 50/50 Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           

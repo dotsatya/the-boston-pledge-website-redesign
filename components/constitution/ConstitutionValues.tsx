@@ -33,11 +33,11 @@ export default function ConstitutionValues() {
   };
 
   return (
-    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="pt-2 sm:pt-4 pb-6 sm:pb-16 bg-[#FAF8F5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
-          <div className="inline-flex items-center gap-3 mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-14">
+          <div className="inline-flex items-center gap-3 mb-2 sm:mb-3">
             <div className="w-8 h-px bg-[#C8C2B5]" />
             <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#5A6455]">
               FOUNDATIONAL TENETS
@@ -45,7 +45,7 @@ export default function ConstitutionValues() {
             <div className="w-8 h-px bg-[#C8C2B5]" />
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-serif font-normal text-[#1E231C] tracking-tight mb-4">
+          <h2 className="text-xl sm:text-4xl lg:text-[42px] font-serif font-normal text-[#1E231C] tracking-tight mb-2 sm:mb-4">
             {constitution.heading}
           </h2>
 
@@ -55,7 +55,7 @@ export default function ConstitutionValues() {
         </div>
 
         {/* 6 Core Values Grid (Symmetric 3 Columns) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4">
           {constitution.coreValues.map((value, idx) => {
             const meta = valueMeta[value.id] || {
               title: value.label,
@@ -65,11 +65,11 @@ export default function ConstitutionValues() {
             return (
               <div
                 key={value.id}
-                className="p-6 sm:p-7 rounded-2xl bg-white border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+                className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-[#E8E2D8] shadow-2xs hover:shadow-xs transition-all duration-200 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="inline-flex items-center justify-center w-8 h-8 text-xs font-bold text-[#414D3C] rounded-xl bg-[#FAF8F5] border border-[#DDD7CD] group-hover:bg-[#414D3C] group-hover:text-white transition-colors">
+                  <div className="flex items-center justify-between mb-2.5">
+                    <span className="inline-flex items-center justify-center w-7 h-7 text-xs font-bold text-[#414D3C] rounded-lg bg-[#FAF8F5] border border-[#DDD7CD] group-hover:bg-[#414D3C] group-hover:text-white transition-colors">
                       0{idx + 1}
                     </span>
                     <span className="text-[10px] font-semibold text-[#8C9587] uppercase tracking-wider">
@@ -77,11 +77,11 @@ export default function ConstitutionValues() {
                     </span>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-serif font-semibold text-[#1E231C] mb-2 leading-snug group-hover:text-[#414D3C] transition-colors">
+                  <h3 className="text-sm sm:text-base font-serif font-semibold text-[#1E231C] mb-1.5 leading-snug group-hover:text-[#414D3C] transition-colors">
                     {meta.title}
                   </h3>
 
-                  <blockquote className="text-xs sm:text-sm font-medium text-[#2F382B] leading-relaxed mb-3 italic">
+                  <blockquote className="text-xs sm:text-sm font-medium text-[#2F382B] leading-relaxed mb-2 italic">
                     &ldquo;{value.label}&rdquo;
                   </blockquote>
 
@@ -90,7 +90,7 @@ export default function ConstitutionValues() {
                   </p>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-[#F2ECE3] flex items-center justify-between text-[11px] text-[#7A8374]">
+                <div className="pt-2.5 mt-3 border-t border-[#F2ECE3] flex items-center justify-between text-[11px] text-[#7A8374]">
                   <span>Article Tenet</span>
                   <span className="font-semibold text-[#414D3C]">
                     The Boston Pledge Charter

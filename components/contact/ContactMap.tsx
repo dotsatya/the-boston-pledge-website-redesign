@@ -8,8 +8,8 @@ export default function ContactMap() {
   const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
 
   return (
-    <section id="live-location" className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5] border-t border-[#ECE7DF]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="live-location" className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-8">

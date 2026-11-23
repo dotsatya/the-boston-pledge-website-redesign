@@ -13,9 +13,9 @@ export default function UpdateDetail({ update }: { update: LatestUpdate }) {
 
   return (
     <article className="py-8 sm:py-10 lg:py-12 bg-[#FAF8F5]">
-      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-2 text-xs text-[#6B7565] mb-8">
+        <nav className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs text-[#6B7565] mb-6 sm:mb-8">
           <Link href="/" className="hover:text-[#1E231C] transition-colors">
             Home
           </Link>
@@ -39,7 +39,7 @@ export default function UpdateDetail({ update }: { update: LatestUpdate }) {
             </div>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-serif font-normal text-[#1E231C] leading-[1.18] tracking-tight mb-6">
+          <h1 className="text-2xl sm:text-3xl lg:text-[42px] font-serif font-normal text-[#1E231C] leading-[1.18] tracking-tight mb-6 break-words">
             {update.title}
           </h1>
 

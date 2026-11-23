@@ -5,11 +5,11 @@ export default function ConstitutionGuidelines() {
   const { guidelines } = constitutionData;
 
   return (
-    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="py-6 sm:py-10 lg:py-14 bg-[#FAF8F5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
-          <div className="inline-flex items-center gap-3 mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-14">
+          <div className="inline-flex items-center gap-3 mb-2 sm:mb-3">
             <div className="w-8 h-px bg-[#C8C2B5]" />
             <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#5A6455]">
               OPERATIONAL INTEGRITY
@@ -17,7 +17,7 @@ export default function ConstitutionGuidelines() {
             <div className="w-8 h-px bg-[#C8C2B5]" />
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-serif font-normal text-[#1E231C] tracking-tight mb-4">
+          <h2 className="text-xl sm:text-4xl lg:text-[42px] font-serif font-normal text-[#1E231C] tracking-tight mb-2 sm:mb-4">
             {guidelines.heading}
           </h2>
 
@@ -27,18 +27,18 @@ export default function ConstitutionGuidelines() {
         </div>
 
         {/* 7 Operational Guidelines in an Editorial Balanced Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-4">
           {guidelines.items.map((item, idx) => (
             <div
               key={item.id}
-              className={`p-6 sm:p-7 rounded-2xl bg-white border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group ${
+              className={`p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-[#E8E2D8] shadow-2xs hover:shadow-xs transition-all duration-200 flex flex-col justify-between group ${
                 idx === guidelines.items.length - 1 ? "md:col-span-2 bg-[#FAF8F3] border-[#DFD8CC]" : ""
               }`}
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2.5">
-                    <span className="inline-flex items-center justify-center w-8 h-8 text-xs font-bold text-[#414D3C] rounded-xl bg-[#FAF8F5] border border-[#DDD7CD] group-hover:bg-[#414D3C] group-hover:text-white transition-colors">
+                <div className="flex items-center justify-between mb-2 sm:mb-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-flex items-center justify-center w-7 h-7 text-xs font-bold text-[#414D3C] rounded-lg bg-[#FAF8F5] border border-[#DDD7CD] group-hover:bg-[#414D3C] group-hover:text-white transition-colors">
                       0{item.id}
                     </span>
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#636C5E]">
@@ -51,7 +51,7 @@ export default function ConstitutionGuidelines() {
                   </span>
                 </div>
 
-                <h3 className="text-base sm:text-lg font-serif font-semibold text-[#1E231C] mb-2.5 leading-snug group-hover:text-[#414D3C] transition-colors">
+                <h3 className="text-sm sm:text-base font-serif font-semibold text-[#1E231C] mb-1 sm:mb-1.5 leading-snug group-hover:text-[#414D3C] transition-colors">
                   {item.title}
                 </h3>
 
@@ -60,7 +60,7 @@ export default function ConstitutionGuidelines() {
                 </p>
               </div>
 
-              <div className="pt-4 mt-5 border-t border-[#F0EAE0] flex items-center justify-between text-[11px] text-[#7A8374]">
+              <div className="pt-2.5 mt-3 border-t border-[#F0EAE0] flex items-center justify-between text-[11px] text-[#7A8374]">
                 <span>Governance Rule</span>
                 <span className="font-medium text-[#414D3C]">
                   Nonprofit Governance Principle

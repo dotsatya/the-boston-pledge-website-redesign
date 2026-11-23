@@ -27,10 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full scroll-smooth">
-      <body className="min-h-full flex flex-col font-sans bg-[#FAF8F5] text-[#1E231C] antialiased selection:bg-[#414D3C] selection:text-white">
+    <html lang="en" className="h-full scroll-smooth overflow-x-hidden" suppressHydrationWarning>
+      <body className="min-h-full flex flex-col font-sans bg-[#FAF8F5] text-[#1E231C] antialiased selection:bg-[#414D3C] selection:text-white overflow-x-hidden max-w-full" suppressHydrationWarning>
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 overflow-x-hidden w-full">{children}</main>
         <Footer />
         <ScrollToTop />
       </body>

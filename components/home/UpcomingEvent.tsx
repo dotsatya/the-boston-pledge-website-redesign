@@ -6,14 +6,14 @@ import ScrollReveal from "../common/ScrollReveal";
 
 export default function UpcomingEvent() {
   return (
-    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5] border-b border-[#ECE7DF]">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+    <section className="py-6 sm:py-12 lg:py-14 bg-[#FAF8F5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="bg-[#F4EEE5] rounded-2xl lg:rounded-3xl
             border border-[#E6E0D5] overflow-hidden">
 
           <div className="grid grid-cols-1 lg:grid-cols-12
-            items-center gap-6 lg:gap-0 p-5 sm:p-7 lg:p-0">
+            items-center gap-4 sm:gap-6 lg:gap-0 p-4 sm:p-7 lg:p-0">
 
             {/* Event Information */}
             <div className="lg:col-span-4 relative z-10
@@ -27,8 +27,8 @@ export default function UpcomingEvent() {
                 <div className="w-10 h-px bg-[#C8C2B5]" />
               </div>
 
-              <h2 className="text-3xl sm:text-4xl font-serif
-                font-normal text-[#1E231C] tracking-tight mb-2">
+              <h2 className="text-2xl sm:text-4xl font-serif
+                font-normal text-[#1E231C] tracking-tight mb-2 break-words">
                 Renaissance 2.0
               </h2>
 

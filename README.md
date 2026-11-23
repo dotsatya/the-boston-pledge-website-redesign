@@ -46,6 +46,7 @@ The application is built on the **Next.js App Router** with full Static Site Gen
 | `/about` | **Overview** | Foundational narrative, historical legacy story, organizational pillars, and public reflections. |
 | `/vision-mission` | **Vision & Mission** | The core vision doctrine, Albert Einstein quote banner, 3 actionable mission objectives, and the 10 Overarching Doctrines. |
 | `/constitution` | **Constitution** | Charter guidelines, 6 Core Values, Rabindranath Tagore quote, and institutional compass card. |
+| `/reflections` | **Reflections** | Thought leadership, featured video discourse ("Lecture on Leadership"), Chairman Dr. Partha S. Ghosh biography, quote, and global keynote symposium archive. |
 | `/our-team` | **Our Team** | Executive Leadership and Advisory Council in a responsive 4-column grid with animated modal biography popups. |
 | `/media` | **Our Frames** | Photo & Video gallery with category filtering, video embed players, and full-screen lightbox modal. |
 | `/initiatives` | **Initiatives** | Deep-dive into grassroots programs across Education, Healthcare, Clean Water, and Youth Mentorship. |

@@ -32,8 +32,8 @@ export default function InitiativesGrid() {
   ];
 
   return (
-    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5] border-b border-[#ECE7DF]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Header Row */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
@@ -59,45 +59,51 @@ export default function InitiativesGrid() {
         </div>
 
         {/* 3-Column Modern Image Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {initiatives.map((item, idx) => (
             <ScrollReveal key={idx} delay={idx * 0.12} className="h-full">
               <Link
                 href={item.href}
-                className="group relative h-[380px] sm:h-[400px] rounded-3xl overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between p-6 sm:p-7 border border-[#E8E2D8]"
+                className="group relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-row sm:flex-col justify-between p-2.5 sm:p-7 border border-[#E8E2D8] bg-white sm:bg-transparent h-auto sm:h-[400px]"
               >
-                {/* Background Photo */}
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                />
+                {/* Mobile: Left side thumbnail with badge / Desktop: Full background */}
+                <div className="w-28 xs:w-32 sm:w-full h-28 xs:h-32 sm:h-full shrink-0 rounded-xl sm:rounded-none overflow-hidden relative sm:absolute sm:inset-0">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent sm:from-black/90 sm:via-black/45 sm:to-black/20 group-hover:from-black/95 transition-colors" />
+                  <div className="absolute top-2 left-2 z-10 flex items-center sm:hidden">
+                    <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-md border border-white/25 text-white text-[10px] font-semibold tracking-wider">
+                      {item.icon}
+                      <span>{item.number}</span>
+                    </div>
+                  </div>
+                </div>
 
-                {/* Dark vignette gradient overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/20 group-hover:from-black/95 transition-colors" />
-
-                {/* Top Tag: Numbered Badge */}
-                <div className="relative z-10 flex items-center justify-between">
+                {/* Desktop Top Tag: Numbered Badge */}
+                <div className="relative z-10 hidden sm:flex items-center justify-between">
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/25 text-white text-[11px] font-semibold tracking-wider">
                     {item.icon}
                     <span>{item.number}</span>
                   </div>
                 </div>
 
-                {/* Content at bottom of card */}
-                <div className="relative z-10 flex items-end justify-between gap-4">
+                {/* Right (mobile) / Bottom (desktop) Content */}
+                <div className="pl-3 sm:pl-0 relative z-10 flex-1 flex items-center sm:items-end justify-between gap-3 min-w-0">
                   <div className="flex-1">
-                    <h3 className="text-xl sm:text-2xl font-serif font-normal text-white mb-1.5 leading-snug">
+                    <h3 className="text-sm sm:text-2xl font-serif font-bold sm:font-normal text-[#1E231C] sm:text-white mb-1 sm:mb-1.5 leading-snug">
                       {item.title}
                     </h3>
-                    <p className="text-xs text-white/80 font-normal line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-[#5D6558] sm:text-white/80 font-normal line-clamp-2 leading-relaxed">
                       {item.subtitle}
                     </p>
                   </div>
 
-                  {/* Circular Arrow Button (→) matching card design language */}
-                  <div className="w-10 h-10 rounded-full border border-white/30 bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#414D3C] group-hover:border-[#414D3C] transition-all shrink-0 shadow-2xs">
-                    <ArrowRightIcon className="w-4 h-4" />
+                  {/* Circular Arrow Button (→) */}
+                  <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-full border border-[#DDD7CD] sm:border-white/30 bg-[#FAF8F5] sm:bg-white/20 sm:backdrop-blur-md flex items-center justify-center text-[#414D3C] sm:text-white group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shrink-0 shadow-2xs">
+                    <ArrowRightIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
                 </div>
               </Link>

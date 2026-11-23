@@ -61,31 +61,15 @@ export default function ExecutiveLeadership() {
   }, [selectedMember]);
 
   return (
-    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5] border-b border-[#ECE7DF]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Top Header Left-Aligned */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-2.5">
-            <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">
-              EXECUTIVE STEWARDS &amp; ADVISORS
-            </span>
-            <div className="w-10 h-px bg-[#C8C2B5]" />
-          </div>
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-[#1E231C] tracking-tight mb-3">
-            The Minds Driving The Boston Pledge
-          </h3>
-          <p className="text-xs sm:text-sm text-[#5B6356] leading-relaxed max-w-2xl font-normal">
-            Every leader at The Boston Pledge serves on a completely voluntary, uncompensated basis, bridging world-class academic and corporate expertise with grassroots self-reliance.
-          </p>
-        </div>
-
+    <section className="pt-1 sm:pt-2 pb-6 sm:pb-16 bg-[#FAF8F5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center gap-2 mb-8">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-3.5 sm:mb-8">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveFilter(cat.id)}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
+              className={`px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-medium transition-all ${
                 activeFilter === cat.id
                   ? "bg-[#414D3C] text-white shadow-2xs"
                   : "bg-white text-[#384234] border border-[#DDD7CD] hover:border-[#414D3C]"
@@ -97,15 +81,15 @@ export default function ExecutiveLeadership() {
         </div>
 
         {/* Grid of Team Members - Slightly smaller compact cards with small padding */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-5">
           {filteredMembers.map((member: TeamMember) => (
             <div
               key={member.id}
-              className="bg-white rounded-2xl p-4 border border-[#ECE7DF] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-4 border border-[#ECE7DF] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
             >
-              <div>
-                {/* Photo & LinkedIn button */}
-                <div className="relative w-full h-44 sm:h-48 rounded-xl overflow-hidden bg-[#EAE6DF] mb-3 border border-[#E2DDD4]">
+              <div className="flex flex-row sm:flex-col h-full">
+                {/* Photo & LinkedIn button: Left on mobile, Top on desktop */}
+                <div className="relative w-20 xs:w-24 sm:w-full h-20 xs:h-24 sm:h-48 shrink-0 rounded-lg sm:rounded-xl overflow-hidden bg-[#EAE6DF] mb-0 sm:mb-3 border border-[#E2DDD4]">
                   <img
                     src={member.image}
                     alt={member.name}
@@ -119,39 +103,43 @@ export default function ExecutiveLeadership() {
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="absolute bottom-2.5 right-2.5 w-7 h-7 rounded-full bg-white/90 backdrop-blur-sm text-[#0A66C2] flex items-center justify-center shadow-xs hover:bg-[#0A66C2] hover:text-white transition-colors z-10"
+                      className="absolute bottom-1.5 right-1.5 sm:bottom-2.5 sm:right-2.5 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/90 backdrop-blur-sm text-[#0A66C2] flex items-center justify-center shadow-xs hover:bg-[#0A66C2] hover:text-white transition-colors z-10"
                       aria-label={`${member.name} LinkedIn Profile`}
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <LinkedInIcon className="w-3.5 h-3.5" />
+                      <LinkedInIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     </a>
                   )}
                 </div>
 
-                {/* Name & Role */}
-                <h4 className="text-base font-serif font-bold text-[#1E231C] leading-snug line-clamp-1 group-hover:text-[#414D3C] transition-colors">
-                  {member.name}
-                </h4>
-                <div className="text-[11px] font-semibold text-[#414D3C] mt-0.5 mb-2 line-clamp-1">
-                  {member.role}
+                {/* Name, Role & Details: Right on mobile, Bottom on desktop */}
+                <div className="pl-3 sm:pl-0 flex-1 flex flex-col justify-between min-w-0">
+                  <div>
+                    <h4 className="text-xs sm:text-base font-serif font-bold text-[#1E231C] leading-snug line-clamp-1 group-hover:text-[#414D3C] transition-colors">
+                      {member.name}
+                    </h4>
+                    <div className="text-[10px] sm:text-[11px] font-semibold text-[#414D3C] mt-0.5 mb-1 sm:mb-2 line-clamp-1">
+                      {member.role}
+                    </div>
+
+                    {/* Short Bio Snippet */}
+                    <p className="text-[10px] sm:text-xs text-[#5D6558] leading-relaxed line-clamp-2 font-normal mb-1.5 sm:mb-3">
+                      {member.bio}
+                    </p>
+                  </div>
+
+                  {/* View Details Action Button */}
+                  <div className="pt-1.5 sm:pt-3 border-t border-[#F2ECE3] flex items-center justify-between">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedMember(member)}
+                      className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-semibold text-[#414D3C] bg-[#FAF8F5] border border-[#DDD7CD] hover:bg-[#414D3C] hover:text-white hover:border-[#414D3C] transition-all cursor-pointer shadow-2xs"
+                    >
+                      <span>View Details</span>
+                      <ArrowRightIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                    </button>
+                  </div>
                 </div>
-
-                {/* Short Bio Snippet */}
-                <p className="text-xs text-[#5D6558] leading-relaxed line-clamp-2 font-normal mb-3">
-                  {member.bio}
-                </p>
-              </div>
-
-              {/* View Details Action Button */}
-              <div className="pt-3 border-t border-[#F2ECE3] flex items-center justify-between">
-                <button
-                  type="button"
-                  onClick={() => setSelectedMember(member)}
-                  className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-[#414D3C] bg-[#FAF8F5] border border-[#DDD7CD] hover:bg-[#414D3C] hover:text-white hover:border-[#414D3C] transition-all cursor-pointer shadow-2xs"
-                >
-                  <span>View Details</span>
-                  <ArrowRightIcon className="w-3 h-3" />
-                </button>
               </div>
             </div>
           ))}
@@ -164,7 +152,7 @@ export default function ExecutiveLeadership() {
             onClick={() => setSelectedMember(null)}
           >
             <div
-              className="bg-white rounded-3xl p-6 sm:p-8 max-w-xl w-full max-h-[90vh] overflow-y-auto border border-[#ECE7DF] shadow-2xl relative z-10"
+              className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 max-w-xl w-full max-h-[88vh] overflow-y-auto border border-[#ECE7DF] shadow-2xl relative z-10"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
@@ -213,7 +201,7 @@ export default function ExecutiveLeadership() {
               </div>
 
               {/* Modal Footer with LinkedIn & Close */}
-              <div className="pt-4 border-t border-[#F2ECE3] flex items-center justify-between gap-3">
+              <div className="pt-4 border-t border-[#F2ECE3] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 text-center sm:text-left">
                 {selectedMember.linkedin ? (
                   <a
                     href={selectedMember.linkedin}

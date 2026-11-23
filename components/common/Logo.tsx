@@ -7,7 +7,7 @@ export default function Logo({ className = "" }: { className?: string }) {
       <img
         src="/logo.png"
         alt="The Boston Pledge Logo"
-        className="h-11 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
+        className="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105"
       />
     </Link>
   );

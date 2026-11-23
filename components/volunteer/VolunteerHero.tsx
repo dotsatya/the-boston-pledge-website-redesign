@@ -8,19 +8,23 @@ export default function VolunteerHero() {
   const { hero } = volunteerData;
 
   return (
-    <section className="py-8 sm:py-10 lg:py-12 bg-[#FAF8F5] border-b border-[#ECE7DF]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="pt-8 sm:pt-10 pb-4 bg-[#FAF8F5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb Left */}
-        <nav className="flex items-center gap-2 text-xs text-[#7A8475] mb-4">
+        <nav className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs text-[#7A8475] mb-4">
           <Link href="/" className="hover:text-[#414D3C] transition-colors">
             Home
           </Link>
+          <span>/</span>
+          <span className="hover:text-[#414D3C] transition-colors">
+            Ways To Help
+          </span>
           <span>/</span>
           <span className="text-[#1E231C] font-medium">Be A Volunteer</span>
         </nav>
 
         {/* Symmetric 50/50 Top Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
           
           {/* Left Column: Title & Subtitle */}
           <div className="lg:col-span-7">
@@ -31,7 +35,7 @@ export default function VolunteerHero() {
               <div className="w-10 h-px bg-[#C8C2B5]" />
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-serif font-normal text-[#1E231C] tracking-tight leading-[1.16] mb-4">
+            <h1 className="text-2xl sm:text-3xl lg:text-[44px] font-serif font-normal text-[#1E231C] tracking-tight leading-[1.18] mb-4 break-words">
               {hero.title}
             </h1>
 

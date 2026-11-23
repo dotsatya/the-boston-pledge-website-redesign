@@ -24,7 +24,7 @@ export default function PastEventsArchive() {
 
   return (
     <section id="agenda" className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-2.5">
             <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">

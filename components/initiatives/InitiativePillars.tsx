@@ -54,8 +54,8 @@ export default function InitiativePillars() {
   return (
     <>
       {/* Program Pillars Section */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-20 lg:space-y-28">
+      <section className="pt-4 sm:pt-6 pb-12 sm:pb-16 bg-[#FAF8F5]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 lg:space-y-28">
           {pillars.map((item, idx) => (
             <div
               key={item.id}
@@ -134,7 +134,7 @@ export default function InitiativePillars() {
 
       {/* Full-Width Warm Band: Exalted Ideal Quote */}
       <section className="py-10 sm:py-12 lg:py-14 bg-[#F3EDE3] border-y border-[#E4DDD2]">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="text-4xl sm:text-5xl font-serif text-[#5E6D58] leading-none mb-6 select-none opacity-90">
             “
           </div>

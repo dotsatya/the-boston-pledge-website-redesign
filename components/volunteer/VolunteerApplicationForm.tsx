@@ -32,7 +32,7 @@ export default function VolunteerApplicationForm() {
 
   return (
     <section id="application-form" className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
-      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-3 mb-3">
@@ -90,7 +90,7 @@ export default function VolunteerApplicationForm() {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="bg-white p-7 sm:p-10 lg:p-12 rounded-3xl border border-[#ECE7DF] shadow-xs space-y-6"
+            className="bg-white p-5 sm:p-8 lg:p-12 rounded-2xl sm:rounded-3xl border border-[#ECE7DF] shadow-xs space-y-5 sm:space-y-6"
           >
             {/* Honeypot field (hidden from view for human visitors) */}
             <div className="hidden" aria-hidden="true">
@@ -276,7 +276,7 @@ export default function VolunteerApplicationForm() {
             <div className="pt-3">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs hover:shadow transition-all cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs hover:shadow transition-all cursor-pointer"
               >
                 <span>Submit Volunteer Application</span>
                 <ArrowRightIcon className="w-4 h-4" />

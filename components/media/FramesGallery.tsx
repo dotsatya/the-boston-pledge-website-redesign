@@ -5,13 +5,7 @@ import { media, videos } from "@/lib/about/media";
 import CoverImage from "../latest-updates/CoverImage";
 import { PlayIcon, CloseIcon } from "../common/Icons";
 
-type CategoryFilter =
-  | "all"
-  | "conferences"
-  | "grassroots"
-  | "education"
-  | "enterprise"
-  | "videos";
+type ViewMode = "photos" | "videos";
 
 interface ProcessedMediaItem {
   id: number;
@@ -21,9 +15,13 @@ interface ProcessedMediaItem {
   categoryLabel: string;
 }
 
+const PHOTOS_PER_PAGE = 12;
+const VIDEOS_PER_PAGE = 6;
+
 export default function FramesGallery() {
-  const [activeTab, setActiveTab] = useState<CategoryFilter>("all");
+  const [viewMode, setViewMode] = useState<ViewMode>("photos");
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   // Categorize and supplement empty captions cleanly
@@ -121,31 +119,80 @@ export default function FramesGallery() {
     });
   }, []);
 
-  // Filtered photos based on active category tab & search query
-  const filteredPhotos = useMemo(() => {
-    return processedPhotos.filter((item) => {
-      const matchesCategory =
-        activeTab === "all" || item.category === activeTab;
-      const matchesSearch =
-        !searchQuery ||
-        item.caption.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.categoryLabel.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
-    });
-  }, [processedPhotos, activeTab, searchQuery]);
+  const handleModeChange = (mode: ViewMode) => {
+    setViewMode(mode);
+    setCurrentPage(1);
+  };
 
-  // Video items filtering
+  const handleSearchChange = (query: string) => {
+    setSearchQuery(query);
+    setCurrentPage(1);
+  };
+
+  // Filtered photos based on search query
+  const filteredPhotos = useMemo(() => {
+    if (!searchQuery.trim()) return processedPhotos;
+    const q = searchQuery.toLowerCase();
+    return processedPhotos.filter((item) => {
+      return (
+        item.caption.toLowerCase().includes(q) ||
+        item.categoryLabel.toLowerCase().includes(q)
+      );
+    });
+  }, [processedPhotos, searchQuery]);
+
+  // Filtered video items based on search query
   const filteredVideos = useMemo(() => {
-    if (activeTab !== "videos" && activeTab !== "all") return [];
-    if (!searchQuery) return videos;
+    if (!searchQuery.trim()) return videos;
+    const q = searchQuery.toLowerCase();
     return videos.filter((v, i) => {
       const label = v.caption || `The Boston Pledge Video Dispatch #${i + 1}`;
       return (
-        label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        v.url.toLowerCase().includes(searchQuery.toLowerCase())
+        label.toLowerCase().includes(q) ||
+        v.url.toLowerCase().includes(q)
       );
     });
-  }, [activeTab, searchQuery]);
+  }, [searchQuery]);
+
+  // Pagination calculation based on current viewMode
+  const itemsPerPage = viewMode === "photos" ? PHOTOS_PER_PAGE : VIDEOS_PER_PAGE;
+  const currentFilteredCount = viewMode === "photos" ? filteredPhotos.length : filteredVideos.length;
+  const totalPages = Math.ceil(currentFilteredCount / itemsPerPage);
+  const safePage = Math.min(Math.max(1, currentPage), Math.max(1, totalPages));
+
+  const startIndex = (safePage - 1) * itemsPerPage;
+  const endIndex = Math.min(startIndex + itemsPerPage, currentFilteredCount);
+
+  const paginatedPhotos = useMemo(() => {
+    return filteredPhotos.slice(startIndex, startIndex + itemsPerPage);
+  }, [filteredPhotos, startIndex, itemsPerPage]);
+
+  const paginatedVideos = useMemo(() => {
+    return filteredVideos.slice(startIndex, startIndex + itemsPerPage);
+  }, [filteredVideos, startIndex, itemsPerPage]);
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+    if (typeof window !== "undefined") {
+      const el = document.getElementById("frames-gallery");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
+
+  const getPageNumbers = () => {
+    if (totalPages <= 7) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+    if (safePage <= 4) {
+      return [1, 2, 3, 4, 5, "...", totalPages];
+    }
+    if (safePage >= totalPages - 3) {
+      return [1, "...", totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+    }
+    return [1, "...", safePage - 1, safePage, safePage + 1, "...", totalPages];
+  };
 
   // Keyboard navigation for lightbox
   useEffect(() => {
@@ -168,88 +215,70 @@ export default function FramesGallery() {
   }, [lightboxIndex, filteredPhotos.length]);
 
   return (
-    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Filter Navigation Bar & Search Input */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-10 pb-8 border-b border-[#ECE7DF]">
-          {/* Category Tabs */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+    <section id="frames-gallery" className="pt-1 sm:pt-2 pb-6 sm:pb-16 bg-[#FAF8F5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Toggle Bar (Photos vs Videos) & Search Bar */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2.5 sm:gap-4 mb-3.5 sm:mb-8">
+          {/* Photos / Videos Segmented Toggle Bar */}
+          <div className="inline-flex w-full sm:w-auto bg-[#EFEAE2] p-0.5 sm:p-1.5 rounded-full border border-[#DDD6CA] shadow-2xs self-start md:self-auto">
             <button
-              onClick={() => setActiveTab("all")}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all shadow-2xs ${
-                activeTab === "all"
-                  ? "bg-[#414D3C] text-white"
-                  : "bg-white text-[#4E5748] border border-[#DDD7CD] hover:border-[#414D3C]"
+              type="button"
+              onClick={() => handleModeChange("photos")}
+              className={`flex-1 sm:flex-initial justify-center px-2.5 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-xs font-semibold transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer ${
+                viewMode === "photos"
+                  ? "bg-[#414D3C] text-white shadow-xs"
+                  : "text-[#556050] hover:text-[#1E231C]"
               }`}
             >
-              All Frames ({processedPhotos.length})
+              <span>Photos <span className="hidden sm:inline">Frames</span></span>
+              <span
+                className={`text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium ${
+                  viewMode === "photos"
+                    ? "bg-white/20 text-white"
+                    : "bg-white text-[#737E6E] border border-[#DDD6CA]"
+                }`}
+              >
+                {processedPhotos.length}
+              </span>
             </button>
+
             <button
-              onClick={() => setActiveTab("conferences")}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all shadow-2xs ${
-                activeTab === "conferences"
-                  ? "bg-[#414D3C] text-white"
-                  : "bg-white text-[#4E5748] border border-[#DDD7CD] hover:border-[#414D3C]"
-              }`}
-            >
-              Conferences &amp; Forums
-            </button>
-            <button
-              onClick={() => setActiveTab("grassroots")}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all shadow-2xs ${
-                activeTab === "grassroots"
-                  ? "bg-[#414D3C] text-white"
-                  : "bg-white text-[#4E5748] border border-[#DDD7CD] hover:border-[#414D3C]"
-              }`}
-            >
-              Grassroots &amp; Villages
-            </button>
-            <button
-              onClick={() => setActiveTab("education")}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all shadow-2xs ${
-                activeTab === "education"
-                  ? "bg-[#414D3C] text-white"
-                  : "bg-white text-[#4E5748] border border-[#DDD7CD] hover:border-[#414D3C]"
-              }`}
-            >
-              Education &amp; Children
-            </button>
-            <button
-              onClick={() => setActiveTab("enterprise")}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all shadow-2xs ${
-                activeTab === "enterprise"
-                  ? "bg-[#414D3C] text-white"
-                  : "bg-white text-[#4E5748] border border-[#DDD7CD] hover:border-[#414D3C]"
-              }`}
-            >
-              Enterprise &amp; Livelihood
-            </button>
-            <button
-              onClick={() => setActiveTab("videos")}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all shadow-2xs flex items-center gap-1.5 ${
-                activeTab === "videos"
-                  ? "bg-[#414D3C] text-white"
-                  : "bg-white text-[#4E5748] border border-[#DDD7CD] hover:border-[#414D3C]"
+              type="button"
+              onClick={() => handleModeChange("videos")}
+              className={`flex-1 sm:flex-initial justify-center px-2.5 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-xs font-semibold transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer ${
+                viewMode === "videos"
+                  ? "bg-[#414D3C] text-white shadow-xs"
+                  : "text-[#556050] hover:text-[#1E231C]"
               }`}
             >
               <PlayIcon className="w-3 h-3" />
-              <span>Video Archive ({videos.length})</span>
+              <span>Videos <span className="hidden sm:inline">Dispatches</span></span>
+              <span
+                className={`text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium ${
+                  viewMode === "videos"
+                    ? "bg-white/20 text-white"
+                    : "bg-white text-[#737E6E] border border-[#DDD6CA]"
+                }`}
+              >
+                {videos.length}
+              </span>
             </button>
           </div>
 
           {/* Quick Search Box */}
-          <div className="relative w-full sm:w-72 shrink-0">
+          <div className="relative w-full md:w-72 shrink-0">
             <input
               type="text"
-              placeholder="Filter by keyword or location..."
+              placeholder={`Search ${viewMode === "photos" ? "photos" : "videos"} by keyword...`}
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-2 rounded-full border border-[#D5CEC2] bg-white text-xs text-[#1E231C] placeholder:text-[#8E9789] focus:outline-none focus:ring-2 focus:ring-[#414D3C] transition-all shadow-2xs"
+              onChange={(e) => handleSearchChange(e.target.value)}
+              className="w-full px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full border border-[#D5CEC2] bg-white text-xs text-[#1E231C] placeholder:text-[#8E9789] focus:outline-none focus:ring-2 focus:ring-[#414D3C] transition-all shadow-2xs"
             />
             {searchQuery && (
               <button
-                onClick={() => setSearchQuery("")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#7A8374] hover:text-[#1E231C]"
+                onClick={() => handleSearchChange("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#7A8374] hover:text-[#1E231C] cursor-pointer"
+                aria-label="Clear search"
               >
                 ✕
               </button>
@@ -257,120 +286,142 @@ export default function FramesGallery() {
           </div>
         </div>
 
-        {/* PHOTO FRAMES GRID (Shown when not exclusively on video tab) */}
-        {activeTab !== "videos" && (
-          <div className="mb-14">
+        {/* Counter Summary */}
+        <div className="flex items-center justify-between text-[11px] sm:text-xs text-[#6F7869] mb-3 sm:mb-6">
+          <span>
+            {currentFilteredCount > 0 ? (
+              <>
+                Showing <strong className="text-[#1E231C] font-semibold">{startIndex + 1}–{endIndex}</strong> of{" "}
+                <strong className="text-[#1E231C] font-semibold">{currentFilteredCount}</strong>{" "}
+                {viewMode === "photos" ? "photographic frames" : "video dispatches"}
+                {searchQuery && ` matching "${searchQuery}"`}
+              </>
+            ) : (
+              `No ${viewMode === "photos" ? "photos" : "videos"} to display`
+            )}
+          </span>
+          {searchQuery && (
+            <button
+              onClick={() => handleSearchChange("")}
+              className="text-[#414D3C] underline hover:text-[#262F23] cursor-pointer"
+            >
+              Clear search
+            </button>
+          )}
+        </div>
+
+        {/* 1. PHOTOGRAPHIC FRAMES MODE */}
+        {viewMode === "photos" && (
+          <div>
             {filteredPhotos.length === 0 ? (
-              <div className="bg-white rounded-3xl p-12 text-center border border-[#ECE7DF] max-w-lg mx-auto">
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-center border border-[#ECE7DF] max-w-lg mx-auto">
                 <div className="text-3xl mb-3">🔍</div>
                 <h3 className="text-lg font-serif text-[#1E231C] mb-1">
                   No frames found
                 </h3>
                 <p className="text-xs text-[#636C5E] mb-4">
-                  We could not find any photo frames matching &ldquo;
-                  {searchQuery}&rdquo;.
+                  We could not find any photo frames matching &ldquo;{searchQuery}&rdquo;.
                 </p>
                 <button
-                  onClick={() => {
-                    setSearchQuery("");
-                    setActiveTab("all");
-                  }}
-                  className="px-4 py-2 rounded-full bg-[#414D3C] text-white text-xs font-medium"
+                  onClick={() => handleSearchChange("")}
+                  className="px-5 py-2 rounded-full bg-[#414D3C] text-white text-xs font-medium cursor-pointer"
                 >
-                  Clear Filters
+                  Clear Search
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-                {filteredPhotos.map((photo, idx) => (
-                  <div
-                    key={photo.id}
-                    onClick={() => setLightboxIndex(idx)}
-                    className="bg-white rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer"
-                  >
-                    {/* Image Viewport */}
-                    <div className="w-full h-56 sm:h-60 overflow-hidden bg-[#E9E4DC] relative">
-                      <CoverImage
-                        src={photo.url}
-                        alt={photo.caption}
-                        fallbackSrc="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-7">
+                {paginatedPhotos.map((photo, pIdx) => {
+                  const globalIdx = startIndex + pIdx;
+                  return (
+                    <div
+                      key={photo.id}
+                      onClick={() => setLightboxIndex(globalIdx)}
+                      className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer p-1.5 sm:p-0"
+                    >
+                      <div className="flex flex-row sm:flex-col h-full">
+                        {/* Image Viewport: Left on mobile, Top on desktop */}
+                        <div className="w-24 xs:w-28 sm:w-full h-24 xs:h-28 sm:h-60 shrink-0 overflow-hidden rounded-lg sm:rounded-none bg-[#E9E4DC] relative">
+                          <CoverImage
+                            src={photo.url}
+                            alt={photo.caption}
+                            fallbackSrc="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
 
-                      {/* Top Category Badge */}
-                      <div className="absolute top-3 left-3 z-10">
-                        <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-white/90 text-[#313A2D] backdrop-blur-xs border border-[#ECE7DF] shadow-2xs">
-                          {photo.categoryLabel}
-                        </span>
-                      </div>
+                          {/* Top Category Badge */}
+                          <div className="hidden sm:block absolute top-3 left-3 z-10">
+                            <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-white/90 text-[#313A2D] backdrop-blur-xs border border-[#ECE7DF] shadow-2xs">
+                              {photo.categoryLabel}
+                            </span>
+                          </div>
 
-                      {/* Hover Overlay Hint */}
-                      <div className="absolute inset-0 bg-[#242D21]/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span className="px-3 py-1.5 rounded-full bg-white/95 text-[#242D21] text-xs font-medium shadow-md">
-                          Click to View Full Frame
-                        </span>
+                          {/* Hover Overlay Hint */}
+                          <div className="absolute inset-0 bg-[#242D21]/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span className="px-3 py-1.5 rounded-full bg-white/95 text-[#242D21] text-xs font-medium shadow-md">
+                              Click to View
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Caption Bar: Right on mobile, Bottom on desktop */}
+                        <div className="pl-2.5 sm:p-5 flex-1 flex flex-col justify-between min-w-0 py-0.5 sm:py-5">
+                          <div>
+                            {/* Mobile Category Tag */}
+                            <div className="sm:hidden mb-1">
+                              <span className="text-[9px] font-bold uppercase tracking-wider text-[#414D3C]">
+                                {photo.categoryLabel}
+                              </span>
+                            </div>
+                            <p className="text-xs sm:text-sm font-serif text-[#1E231C] leading-snug group-hover:text-[#414D3C] transition-colors line-clamp-2">
+                              {photo.caption}
+                            </p>
+                          </div>
+                          <div className="pt-1.5 sm:pt-3 sm:mt-3 sm:border-t sm:border-[#F2ECE3] flex items-center justify-between text-[10px] sm:text-[11px] text-[#7A8374]">
+                            <span className="hidden sm:inline">The Boston Pledge Archive</span>
+                            <span className="font-medium text-[#414D3C] group-hover:underline">
+                              Enlarge →
+                            </span>
+                          </div>
+                        </div>
                       </div>
                     </div>
-
-                    {/* Caption Bar */}
-                    <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
-                      <p className="text-xs sm:text-sm font-serif text-[#1E231C] leading-snug group-hover:text-[#414D3C] transition-colors line-clamp-2">
-                        {photo.caption}
-                      </p>
-                      <div className="pt-3 mt-3 border-t border-[#F2ECE3] flex items-center justify-between text-[11px] text-[#7A8374]">
-                        <span>The Boston Pledge Archive</span>
-                        <span className="font-medium text-[#414D3C] group-hover:underline">
-                          Enlarge →
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </div>
         )}
 
-        {/* VIDEO DISPATCHES SECTION (Shown when activeTab === 'videos' or activeTab === 'all') */}
-        {(activeTab === "videos" || activeTab === "all") && (
-          <div className="pt-8 border-t border-[#ECE7DF]">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-2 h-2 rounded-full bg-[#414D3C]" />
-                  <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">
-                    VIDEO DISPATCHES
-                  </span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-serif text-[#1E231C] tracking-tight">
-                  Visual Dispatches &amp; Field Documentaries
-                </h2>
-              </div>
-              <p className="text-xs sm:text-sm text-[#5C6457] max-w-md">
-                Recorded symposiums, grassroots webinars, and field recordings from our community initiatives across rural India and international forums.
-              </p>
-            </div>
-
+        {/* 2. VIDEO DISPATCHES MODE */}
+        {viewMode === "videos" && (
+          <div>
             {filteredVideos.length === 0 ? (
-              <div className="bg-white rounded-3xl p-10 text-center border border-[#ECE7DF] max-w-lg mx-auto">
-                <p className="text-xs text-[#636C5E]">
-                  No video dispatches match your search.
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-8 sm:p-10 text-center border border-[#ECE7DF] max-w-lg mx-auto">
+                <p className="text-xs text-[#636C5E] mb-4">
+                  No video dispatches match &ldquo;{searchQuery}&rdquo;.
                 </p>
+                <button
+                  onClick={() => handleSearchChange("")}
+                  className="px-5 py-2 rounded-full bg-[#414D3C] text-white text-xs font-medium cursor-pointer"
+                >
+                  Clear Search
+                </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-                {filteredVideos.map((vid, idx) => {
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-7">
+                {paginatedVideos.map((vid, idx) => {
                   const isMp4 = vid.url.endsWith(".mp4");
                   const title =
                     vid.caption ||
                     (isMp4
                       ? "Children in Ballavpur Village, Birbhum — Grassroots Outreach"
-                      : `The Boston Pledge Video Dispatch #${idx + 1}`);
+                      : `The Boston Pledge Video Dispatch #${startIndex + idx + 1}`);
 
                   return (
                     <div
                       key={vid.url}
-                      className="bg-white rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between"
+                      className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between"
                     >
                       {/* Video Player Box (16:9 ratio) */}
                       <div className="w-full aspect-video bg-black relative">
@@ -401,9 +452,9 @@ export default function FramesGallery() {
                       </div>
 
                       {/* Video Info */}
-                      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                      <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between">
                         <div>
-                          <div className="flex items-center gap-2 mb-2">
+                          <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
                             <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
                             <span className="text-[10px] font-bold uppercase tracking-wider text-[#636D5E]">
                               {isMp4 ? "Field Video Footage" : "Video Recording"}
@@ -413,7 +464,7 @@ export default function FramesGallery() {
                             {title}
                           </h3>
                         </div>
-                        <div className="pt-3 mt-3 border-t border-[#F2ECE3] text-[11px] text-[#7A8374] flex items-center justify-between">
+                        <div className="pt-2 sm:pt-3 mt-2 sm:mt-3 border-t border-[#F2ECE3] text-[10px] sm:text-[11px] text-[#7A8374] flex items-center justify-between">
                           <span>Archive Source</span>
                           <span className="font-medium text-[#414D3C]">
                             The Boston Pledge
@@ -428,6 +479,65 @@ export default function FramesGallery() {
           </div>
         )}
 
+        {/* PAGINATION CONTROLS (Rendered when total pages > 1) */}
+        {totalPages > 1 && (
+          <div className="mt-6 sm:mt-12 pt-4 sm:pt-8 border-t border-[#ECE7DF] flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+            <div className="text-xs text-[#7A8475]">
+              Page <strong className="text-[#1E231C] font-semibold">{safePage}</strong> of{" "}
+              <strong className="text-[#1E231C] font-semibold">{totalPages}</strong>
+            </div>
+
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              {/* Previous Button */}
+              <button
+                onClick={() => handlePageChange(safePage - 1)}
+                disabled={safePage === 1}
+                aria-label="Previous page"
+                className="px-3 sm:px-4 py-2 rounded-full text-xs font-medium transition-all flex items-center gap-1 disabled:opacity-40 disabled:cursor-not-allowed bg-white text-[#384234] border border-[#DDD7CD] hover:border-[#414D3C] hover:bg-[#FAF8F5] cursor-pointer shadow-2xs"
+              >
+                <span>←</span>
+                <span className="hidden sm:inline">Previous</span>
+              </button>
+
+              {/* Page Numbers */}
+              <div className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto max-w-[190px] min-[400px]:max-w-[240px] sm:max-w-none py-1">
+                {getPageNumbers().map((item, idx) =>
+                  typeof item === "number" ? (
+                    <button
+                      key={item}
+                      onClick={() => handlePageChange(item)}
+                      aria-label={`Go to page ${item}`}
+                      aria-current={safePage === item ? "page" : undefined}
+                      className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full text-xs font-semibold transition-all flex items-center justify-center cursor-pointer ${
+                        safePage === item
+                          ? "bg-[#414D3C] text-white shadow-xs scale-105"
+                          : "bg-white text-[#384234] border border-[#DDD7CD] hover:border-[#414D3C] hover:bg-[#FAF8F5]"
+                      }`}
+                    >
+                      {item}
+                    </button>
+                  ) : (
+                    <span key={`ellipsis-${idx}`} className="px-1 text-xs text-[#8A9585]">
+                      …
+                    </span>
+                  )
+                )}
+              </div>
+
+              {/* Next Button */}
+              <button
+                onClick={() => handlePageChange(safePage + 1)}
+                disabled={safePage === totalPages}
+                aria-label="Next page"
+                className="px-3 sm:px-4 py-2 rounded-full text-xs font-medium transition-all flex items-center gap-1 disabled:opacity-40 disabled:cursor-not-allowed bg-white text-[#384234] border border-[#DDD7CD] hover:border-[#414D3C] hover:bg-[#FAF8F5] cursor-pointer shadow-2xs"
+              >
+                <span className="hidden sm:inline">Next</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* LIGHTBOX OVERLAY */}
         {lightboxIndex !== null && filteredPhotos[lightboxIndex] && (
           <div
@@ -437,10 +547,10 @@ export default function FramesGallery() {
             {/* Close Button */}
             <button
               onClick={() => setLightboxIndex(null)}
-              className="absolute top-5 right-5 sm:top-7 sm:right-7 w-11 h-11 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-colors z-50 cursor-pointer"
+              className="absolute top-4 right-4 sm:top-7 sm:right-7 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-colors z-50 cursor-pointer"
               aria-label="Close lightbox"
             >
-              <CloseIcon className="w-5 h-5" />
+              <CloseIcon className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             {/* Prev Button */}
@@ -453,7 +563,7 @@ export default function FramesGallery() {
                     : filteredPhotos.length - 1
                 );
               }}
-              className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-colors z-50 cursor-pointer"
+              className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-colors z-50 cursor-pointer text-lg sm:text-2xl"
               aria-label="Previous frame"
             >
               ‹
@@ -469,7 +579,7 @@ export default function FramesGallery() {
                     : 0
                 );
               }}
-              className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-colors z-50 cursor-pointer"
+              className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-colors z-50 cursor-pointer text-lg sm:text-2xl"
               aria-label="Next frame"
             >
               ›

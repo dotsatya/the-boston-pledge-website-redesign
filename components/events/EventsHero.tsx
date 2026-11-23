@@ -3,10 +3,10 @@ import Link from "next/link";
 
 export default function EventsHero() {
   return (
-    <section className="py-8 sm:py-10 lg:py-12 bg-[#FAF8F5] border-b border-[#ECE7DF]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="pt-4 sm:pt-10 pb-2 sm:pb-4 bg-[#FAF8F5]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb Left */}
-        <nav className="flex items-center gap-2 text-xs text-[#7A8475] mb-4">
+        <nav className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs text-[#7A8475] mb-2 sm:mb-4">
           <Link href="/" className="hover:text-[#414D3C] transition-colors">
             Home
           </Link>
@@ -15,15 +15,15 @@ export default function EventsHero() {
         </nav>
 
         {/* Overline with accent dash Left */}
-        <div className="flex items-center gap-3 mb-3">
+        <div className="flex items-center gap-3 mb-1.5 sm:mb-3">
           <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">
-            EVENTS & CONFERENCES
+            EVENTS &amp; CONFERENCES
           </span>
           <div className="w-10 h-px bg-[#C8C2B5]" />
         </div>
 
         {/* Heading Left */}
-        <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-serif font-normal text-[#1E231C] tracking-tight leading-[1.18] mb-4 max-w-3xl">
+        <h1 className="text-xl sm:text-3xl lg:text-[44px] font-serif font-normal text-[#1E231C] tracking-tight leading-[1.18] mb-2 sm:mb-4 max-w-3xl break-words">
           Gathering Minds to Shape Tomorrow.
         </h1>
 

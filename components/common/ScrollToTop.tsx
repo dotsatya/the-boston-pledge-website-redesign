@@ -26,7 +26,7 @@ export default function ScrollToTop() {
           exit={{ opacity: 0, scale: 0.8, y: 12 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           aria-label="Scroll to top"
-          className="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-white/95 backdrop-blur-md shadow-md hover:shadow-xl flex items-center justify-center transition-all group cursor-pointer border border-[#E9E4DC]"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/95 backdrop-blur-md shadow-md hover:shadow-xl flex items-center justify-center transition-all group cursor-pointer border border-[#E9E4DC]"
         >
           {/* Circular SVG Scroll Progress Ring */}
           <svg
