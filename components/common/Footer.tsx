@@ -48,11 +48,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/initiatives" className="hover:text-white transition-colors">
-                  Initiatives
-                </Link>
-              </li>
-              <li>
                 <Link href="/events" className="hover:text-white transition-colors">
                   Events
                 </Link>
@@ -115,57 +110,17 @@ export default function Footer() {
                   placeholder="Your email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full min-w-0 bg-white text-[#1E231C] placeholder:text-[#8E9789] text-xs rounded-full py-2 pl-3.5 pr-10 focus:outline-none focus:ring-2 focus:ring-[#8FA587]"
+                  className="w-full min-w-0 bg-white text-[#1E231C] placeholder:text-[#8E9789] text-xs rounded-full h-9 pl-3.5 pr-10 focus:outline-none focus:ring-2 focus:ring-[#8FA587]"
                 />
                 <button
                   type="submit"
                   aria-label="Submit newsletter subscription"
-                  className="absolute right-1 top-1 bottom-1 w-7 h-7 rounded-full bg-[#414D3C] hover:bg-[#343F30] text-white flex items-center justify-center transition-colors cursor-pointer"
+                  className="absolute right-1 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-[#414D3C] hover:bg-[#343F30] text-white flex items-center justify-center transition-colors cursor-pointer shrink-0"
                 >
-                  <ArrowRightIcon className="w-3 h-3" />
+                  <ArrowRightIcon className="w-3.5 h-3.5" />
                 </button>
               </form>
             )}
-
-            {/* Social Icons */}
-            <div className="flex items-center gap-2.5 mt-3 sm:mt-4">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn"
-                className="w-6.5 h-6.5 sm:w-7 sm:h-7 rounded-full bg-[#313D2D] hover:bg-[#414D3C] flex items-center justify-center text-[#C2CDC0] hover:text-white transition-colors"
-              >
-                <LinkedInIcon className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
-              </a>
-              <a
-                href="https://x.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="X (Twitter)"
-                className="w-6.5 h-6.5 sm:w-7 sm:h-7 rounded-full bg-[#313D2D] hover:bg-[#414D3C] flex items-center justify-center text-[#C2CDC0] hover:text-white transition-colors"
-              >
-                <XIcon className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
-              </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="YouTube"
-                className="w-6.5 h-6.5 sm:w-7 sm:h-7 rounded-full bg-[#313D2D] hover:bg-[#414D3C] flex items-center justify-center text-[#C2CDC0] hover:text-white transition-colors"
-              >
-                <YouTubeIcon className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-                className="w-6.5 h-6.5 sm:w-7 sm:h-7 rounded-full bg-[#313D2D] hover:bg-[#414D3C] flex items-center justify-center text-[#C2CDC0] hover:text-white transition-colors"
-              >
-                <InstagramIcon className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
-              </a>
-            </div>
           </div>
         </div>
 

@@ -117,14 +117,14 @@ export default function EventsFeed() {
     <section id="events-feed" className="pt-2 sm:pt-3 pb-12 sm:pb-16 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Controls: Filter Pills & Search bar */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-4 mb-3 sm:mb-8">
-          {/* Desktop Filter Pills */}
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 sm:gap-4 mb-4 sm:mb-8">
+          {/* Tablet & Desktop Filter Pills */}
           <div className="hidden sm:flex sm:flex-wrap items-center gap-2">
             {filters.map((filter) => (
               <button
                 key={filter.id}
                 onClick={() => handleFilterChange(filter.id)}
-                className={`px-4 py-2 rounded-full text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer ${
+                className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer ${
                   activeFilter === filter.id
                     ? "bg-[#414D3C] text-white shadow-xs"
                     : "bg-white text-[#384234] border border-[#DDD7CD] hover:border-[#414D3C]"
@@ -143,14 +143,24 @@ export default function EventsFeed() {
           </div>
 
           {/* Search Box & Mobile Compact Category Select */}
-          <div className="w-full sm:w-auto flex items-center gap-2">
-            <input
-              type="text"
-              placeholder="Search events by topic, year..."
-              value={searchQuery}
-              onChange={(e) => handleSearchChange(e.target.value)}
-              className="flex-1 sm:w-72 px-3.5 py-1.5 sm:py-2 text-xs rounded-full border border-[#D5CEC2] bg-white text-[#1E231C] placeholder:text-[#8FA587] focus:outline-none focus:ring-2 focus:ring-[#414D3C] hidden sm:block"
-            />
+          <div className="w-full lg:w-auto flex items-center gap-2">
+            <div className="relative flex-1 sm:w-72 lg:w-80">
+              <input
+                type="text"
+                placeholder="Search events by topic, year..."
+                value={searchQuery}
+                onChange={(e) => handleSearchChange(e.target.value)}
+                className="w-full pl-8 sm:pl-9 pr-3.5 py-1.5 sm:py-2 text-xs rounded-full border border-[#D5CEC2] bg-white text-[#1E231C] placeholder:text-[#8FA587] focus:outline-none focus:ring-2 focus:ring-[#414D3C] hidden sm:block"
+              />
+              <svg
+                className="w-3.5 h-3.5 text-[#8FA587] absolute left-3 top-1/2 -translate-y-1/2 hidden sm:block pointer-events-none"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
 
             {/* Mobile Dropdown: Single clean compact row instead of 3 rows of wrapping pills */}
             <select
@@ -193,7 +203,7 @@ export default function EventsFeed() {
         {/* Events Grid */}
         {filteredEvents.length > 0 ? (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8 items-stretch">
               {currentEvents.map((event) => (
                 <EventCard key={event.id} event={event} />
               ))}

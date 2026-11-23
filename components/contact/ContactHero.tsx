@@ -28,8 +28,8 @@ export default function ContactHero() {
         </h1>
 
         {/* Subtitle Left */}
-        <p className="text-xs sm:text-sm lg:text-base text-[#555E50] leading-relaxed max-w-2xl font-normal">
-          We&apos;re here to help! Reach out with any questions, feedback, or partnership inquiries.
+        <p className="text-xs sm:text-sm lg:text-base text-[#555E50] leading-relaxed max-w-3xl font-normal">
+          We&apos;re here to help! Reach out with any questions, feedback, or inquiries regarding our grassroots programs, academic forums, or partnerships.
         </p>
       </div>
     </section>

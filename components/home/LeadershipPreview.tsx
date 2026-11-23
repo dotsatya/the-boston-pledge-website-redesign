@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRightIcon } from "../common/Icons";
 import { ourTeamDetails } from "@/lib/ourTeamDetails";
 import ScrollReveal from "../common/ScrollReveal";
@@ -33,30 +34,35 @@ export default function LeadershipPreview() {
 
             <Link
               href="/our-team"
-              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-medium text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all"
+              className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-medium text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs"
             >
               <span>Learn More</span>
               <ArrowRightIcon className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          {/* Right 4-column team portraits matching demo with real details */}
-          <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-4 gap-2.5 sm:gap-6">
+          {/* Right 4-column team portraits with clean card padding & next/image */}
+          <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5 items-stretch">
             {leaders.map((leader, idx) => (
-              <ScrollReveal key={leader.id} delay={idx * 0.1}>
-                <Link href="/our-team" className="flex flex-row sm:flex-col bg-white rounded-xl sm:rounded-2xl p-2 sm:p-0 border border-[#ECE7DF] sm:border-0 shadow-2xs sm:shadow-none group">
-                  <div className="w-20 h-20 sm:w-full sm:h-52 shrink-0 rounded-lg sm:rounded-2xl overflow-hidden bg-[#EAE6DF] mb-0 sm:mb-3 shadow-2xs border border-[#E2DDD4]">
-                    <img
+              <ScrollReveal key={leader.id} delay={idx * 0.1} className="h-full">
+                <Link
+                  href="/our-team"
+                  className="flex flex-row sm:flex-col bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-2.5 lg:p-3 border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 group h-full"
+                >
+                  <div className="relative w-20 h-20 sm:w-full sm:h-48 lg:h-52 shrink-0 rounded-lg sm:rounded-xl overflow-hidden bg-[#EAE6DF] border border-[#E8E2D8]/60">
+                    <Image
                       src={leader.image}
                       alt={leader.name}
+                      width={400}
+                      height={480}
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  <div className="pl-2.5 sm:pl-0 flex-1 min-w-0 flex flex-col justify-center sm:block">
-                    <h3 className="text-xs sm:text-sm font-semibold text-[#1E231C] group-hover:text-[#414D3C] transition-colors">
+                  <div className="pl-3 sm:pl-0 pt-0 sm:pt-3 pb-0.5 sm:pb-1 flex-1 min-w-0 flex flex-col justify-center sm:justify-start">
+                    <h3 className="text-xs sm:text-sm font-semibold text-[#1E231C] group-hover:text-[#414D3C] transition-colors leading-snug truncate">
                       {leader.name}
                     </h3>
-                    <p className="text-[10px] sm:text-xs text-[#636C5E] mt-0.5 font-normal line-clamp-1">
+                    <p className="text-[10px] sm:text-xs text-[#636C5E] mt-0.5 font-normal truncate">
                       {leader.role}
                     </p>
                   </div>

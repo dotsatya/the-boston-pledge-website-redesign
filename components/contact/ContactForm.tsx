@@ -24,25 +24,17 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="pt-4 sm:pt-6 pb-12 sm:pb-16 bg-[#FAF8F5]">
+    <section className="pt-2 sm:pt-4 pb-12 sm:pb-16 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Symmetric 50/50 Balanced Grid with matching stretch alignment */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           
           {/* Left Column: Direct Contact Details (Symmetric 6 Cols) */}
           <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
-            <div className="hidden md:block">
-              <div className="flex items-center gap-3 mb-2.5">
-                <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">
-                  DIRECT CHANNELS
-                </span>
-                <div className="w-10 h-px bg-[#C8C2B5]" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-[#1E231C] tracking-tight mb-3">
-                How Can We Assist You?
-              </h2>
-              <p className="text-xs sm:text-sm text-[#5C6457] leading-relaxed font-normal">
-                We&apos;re here to help! Reach out with any questions, feedback, or inquiries regarding our grassroots programs, academic forums, or partnerships.
+            <div>
+              <h2 className="text-xl font-serif text-[#1E231C]">Direct Channels</h2>
+              <p className="text-xs text-[#7A8374] mt-1">
+                Reach our team directly by phone, email, or scheduled visit.
               </p>
             </div>
 

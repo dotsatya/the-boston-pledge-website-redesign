@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { ourTeamDetails, TeamMember } from "@/lib/ourTeamDetails";
 import { LinkedInIcon, CloseIcon, ArrowRightIcon } from "../common/Icons";
 
@@ -81,22 +82,21 @@ export default function ExecutiveLeadership() {
         </div>
 
         {/* Grid of Team Members - Slightly smaller compact cards with small padding */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-5 items-stretch">
           {filteredMembers.map((member: TeamMember) => (
             <div
               key={member.id}
-              className="bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-4 border border-[#ECE7DF] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-4 border border-[#ECE7DF] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group h-full"
             >
-              <div className="flex flex-row sm:flex-col h-full">
+              <div className="flex flex-row sm:flex-col h-full justify-between">
                 {/* Photo & LinkedIn button: Left on mobile, Top on desktop */}
                 <div className="relative w-20 xs:w-24 sm:w-full h-20 xs:h-24 sm:h-48 shrink-0 rounded-lg sm:rounded-xl overflow-hidden bg-[#EAE6DF] mb-0 sm:mb-3 border border-[#E2DDD4]">
-                  <img
+                  <Image
                     src={member.image}
                     alt={member.name}
+                    width={400}
+                    height={480}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => {
-                      (e.target as HTMLElement).style.display = "none";
-                    }}
                   />
                   {member.linkedin && (
                     <a

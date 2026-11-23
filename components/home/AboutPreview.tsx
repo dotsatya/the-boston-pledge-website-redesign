@@ -8,9 +8,8 @@ export default function AboutPreview() {
     <section className="py-6 sm:py-10 lg:py-12 bg-[#FAF8F5] relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
-          
           {/* Left: Boston Skyline Photo with Bottom-Left Mission Pill */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 hidden lg:block">
             <ScrollReveal delay={0.05}>
               <div className="w-full h-[180px] sm:h-[260px] lg:h-[320px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xs relative border border-[#E5DFD4] group">
                 <img
@@ -44,12 +43,14 @@ export default function AboutPreview() {
               </div>
 
               <h2 className="text-xl sm:text-3xl lg:text-[34px] font-serif font-normal text-[#1E231C] leading-[1.2] tracking-tight mb-2.5 sm:mb-4">
-                A Legacy of Service. <br className="hidden sm:inline" />
-                A Future of Impact.
+                A Legacy of Service. <br className="hidden sm:inline" />A Future
+                of Impact.
               </h2>
 
               <p className="text-xs sm:text-sm text-[#5B6356] leading-relaxed mb-3.5 sm:mb-6 font-normal">
-                For over 25 years, The Boston Pledge has been working across the globe to create lasting change through education, leadership and community development.
+                For over 25 years, The Boston Pledge has been working across the
+                globe to create lasting change through education, leadership and
+                community development.
               </p>
 
               <Link
@@ -76,7 +77,9 @@ export default function AboutPreview() {
                   <div className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#1E231C] tracking-tight">
                     30+
                   </div>
-                  <div className="text-[11px] sm:text-xs text-[#636C5E] mt-0.5 sm:mt-1 font-medium">Active Volunteers</div>
+                  <div className="text-[11px] sm:text-xs text-[#636C5E] mt-0.5 sm:mt-1 font-medium">
+                    Active Volunteers
+                  </div>
                 </div>
 
                 <div className="hidden lg:block w-16 h-px bg-[#E2DCD1] my-4" />
@@ -89,12 +92,13 @@ export default function AboutPreview() {
                   <div className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#1E231C] tracking-tight">
                     100+
                   </div>
-                  <div className="text-[11px] sm:text-xs text-[#636C5E] mt-0.5 sm:mt-1 font-medium">Global Initiatives</div>
+                  <div className="text-[11px] sm:text-xs text-[#636C5E] mt-0.5 sm:mt-1 font-medium">
+                    Global Initiatives
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
           </div>
-
         </div>
       </div>
     </section>

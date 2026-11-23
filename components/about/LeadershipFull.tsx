@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ourTeamDetails } from "@/lib/ourTeamDetails";
 import { ArrowRightIcon } from "../common/Icons";
 
@@ -31,23 +32,30 @@ export default function LeadershipFull() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-4 lg:gap-4 items-stretch">
           {team.map((member) => (
-            <Link key={member.id} href="/our-team" className="flex flex-row sm:flex-col bg-white rounded-xl sm:rounded-2xl p-2 sm:p-0 border border-[#ECE7DF] sm:border-0 shadow-2xs sm:shadow-none group">
-              <div className="w-20 xs:w-24 sm:w-full h-20 xs:h-24 sm:h-48 shrink-0 rounded-lg sm:rounded-2xl overflow-hidden bg-[#EAE6DF] mb-0 sm:mb-3 shadow-xs border border-[#E2DDD4]">
-                <img
+            <Link
+              key={member.id}
+              href="/our-team"
+              className="flex flex-row sm:flex-col bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-2.5 lg:p-3 border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 group h-full justify-between"
+            >
+              <div className="relative w-20 xs:w-24 sm:w-full h-20 xs:h-24 sm:h-48 lg:h-44 shrink-0 rounded-lg sm:rounded-xl overflow-hidden bg-[#EAE6DF] border border-[#E8E2D8]/60">
+                <Image
                   src={member.image}
                   alt={member.name}
+                  width={300}
+                  height={360}
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-              <div className="pl-3 sm:pl-0 flex-1 min-w-0 flex flex-col justify-center sm:block">
-                <h4 className="text-xs sm:text-sm font-semibold text-[#1E231C] group-hover:text-[#414D3C] transition-colors leading-snug">
-                  {member.name}
-                </h4>
-                <p className="text-[10px] sm:text-xs text-[#414D3C] font-medium line-clamp-1 mt-0.5">{member.role}</p>
-                <p className="text-[10px] sm:text-[11px] text-[#697263] mt-1 sm:mt-1.5 line-clamp-2 leading-relaxed font-normal">
-                  {member.bio}
+              <div className="pl-3 sm:pl-0 pt-0 sm:pt-2.5 pb-0.5 flex-1 min-w-0 flex flex-col justify-start">
+                <div className="sm:min-h-[2.5rem] flex items-center">
+                  <h4 className="text-xs sm:text-sm font-semibold text-[#1E231C] group-hover:text-[#414D3C] transition-colors leading-snug line-clamp-2">
+                    {member.name}
+                  </h4>
+                </div>
+                <p className="text-[10px] sm:text-xs text-[#414D3C] font-medium line-clamp-1 truncate mt-0.5">
+                  {member.role}
                 </p>
               </div>
             </Link>

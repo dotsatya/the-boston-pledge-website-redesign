@@ -6,7 +6,6 @@ export default function LegacyStory() {
     <section className="pt-2 sm:pt-4 pb-6 sm:pb-16 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-10 lg:gap-14 items-center">
-          
           {/* Left Column: Photo with Floating Glassmorphic Badge */}
           <div className="lg:col-span-6 relative">
             <div className="w-full h-[180px] sm:h-[440px] lg:h-[480px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xs border border-[#E5DFD4] relative bg-[#EAE6DF] group">
@@ -47,14 +46,16 @@ export default function LegacyStory() {
             </h2>
 
             <p className="text-xs sm:text-base text-[#4E5748] leading-relaxed mb-2.5 sm:mb-4 font-normal">
-              Following the 2001 North American Bengali Conference (NABC) in Boston, Massachusetts, renowned strategist and former McKinsey senior partner Dr. Partha S. Ghosh joined forces with distinguished professors and community leaders to answer an urgent question: how can the immense intellectual and financial capability of privileged regions be systematically deployed to empower marginalized people at the base of the socio-economic pyramid?
-            </p>
-
-            <p className="text-xs sm:text-base text-[#4E5748] leading-relaxed font-normal">
-              Unlike traditional charities that provide one-time relief, The Boston Pledge acts as an incubator of permanent self-reliance. Inspired by Swami Vivekananda&apos;s teaching—<em className="italic font-serif">&quot;Our real awakening takes place when we dedicate our life to an exalted ideal&quot;</em>—TBP mobilizes volunteer expertise across corporate, academic, and civic disciplines.
+              Following the 2001 North American Bengali Conference (NABC) in
+              Boston, Massachusetts, renowned strategist and former McKinsey
+              senior partner Dr. Partha S. Ghosh joined forces with
+              distinguished professors and community leaders to answer an urgent
+              question: how can the immense intellectual and financial
+              capability of privileged regions be systematically deployed to
+              empower marginalized people at the base of the socio-economic
+              pyramid?
             </p>
           </div>
-
         </div>
       </div>
     </section>

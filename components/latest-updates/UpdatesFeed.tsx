@@ -31,13 +31,13 @@ export default function UpdatesFeed() {
   return (
     <section className="pt-2 sm:pt-3 pb-12 sm:pb-16 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Desktop Category Filter Pills */}
-        <div className="hidden sm:flex flex-wrap items-center justify-center gap-2.5 mb-8">
+        {/* Desktop & Tablet Category Filter Pills */}
+        <div className="hidden sm:flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-6 sm:mb-8">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-5 py-2 rounded-full text-xs font-medium transition-all ${
+              className={`px-4 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs font-medium transition-all cursor-pointer ${
                 activeCategory === cat.id
                   ? "bg-[#414D3C] text-white shadow-xs"
                   : "bg-white text-[#384234] border border-[#DDD7CD] hover:border-[#414D3C]"
@@ -48,7 +48,7 @@ export default function UpdatesFeed() {
           ))}
         </div>
 
-        {/* Mobile Category Dropdown Select: Single clean row */}
+        {/* Mobile Category Dropdown Select */}
         <div className="sm:hidden mb-3 flex justify-center">
           <select
             value={activeCategory}
@@ -63,8 +63,8 @@ export default function UpdatesFeed() {
           </select>
         </div>
 
-        {/* Articles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6 lg:gap-8">
+        {/* Articles Grid: 1 col on mobile, 2 on tablet, 3 on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8 items-stretch">
           {filtered.map((item: LatestUpdate) => {
             const coverImg = getUpdateCoverImage(item);
             const fallback = getUpdateFallbackImage(item);
@@ -72,13 +72,13 @@ export default function UpdatesFeed() {
             return (
               <article
                 key={item.id}
-                className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-all flex flex-col justify-between group p-1.5 sm:p-0"
+                className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-all flex flex-col justify-between group p-1.5 sm:p-0 h-full"
               >
-                <div className="flex flex-row sm:flex-col h-full">
-                  {/* Left on mobile, Top on desktop */}
+                <div className="flex flex-row sm:flex-col flex-1 min-w-0">
+                  {/* Left on mobile, Top on tablet/desktop */}
                   <Link
                     href={`/latest-updates/${item.slug}`}
-                    className="block relative w-24 sm:w-full h-24 sm:h-44 shrink-0 overflow-hidden rounded-lg sm:rounded-none bg-[#EAE6DF]"
+                    className="block relative w-24 sm:w-full h-24 sm:h-40 lg:h-42 shrink-0 overflow-hidden rounded-lg sm:rounded-none bg-[#EAE6DF]"
                   >
                     <CoverImage
                       src={coverImg}
@@ -88,21 +88,39 @@ export default function UpdatesFeed() {
                     />
                   </Link>
 
-                  {/* Right on mobile, Bottom on desktop */}
-                  <div className="pl-2.5 sm:p-5 flex-1 flex flex-col justify-between min-w-0 py-0.5 sm:py-5">
+                  {/* Right on mobile, Bottom on tablet/desktop */}
+                  <div className="pl-2.5 sm:px-4 sm:pt-3.5 sm:pb-3 flex-1 flex flex-col justify-between min-w-0 py-0.5">
                     <div>
-                      <div className="flex items-center justify-between text-[9px] sm:text-[11px] mb-0.5 sm:mb-2">
+                      <div className="flex items-center justify-between text-[9px] sm:text-[11px] mb-0.5 sm:mb-1.5">
                         <span className="font-semibold text-[#414D3C] uppercase tracking-wider truncate mr-1">
                           {item.category}
                         </span>
-                        <span className="text-[#7C8578] shrink-0 text-[9px] sm:text-[11px]">{item.dateLabel}</span>
+                        <span className="text-[#7C8578] shrink-0 text-[9px] sm:text-[11px]">
+                          {item.dateLabel}
+                        </span>
                       </div>
                       <Link href={`/latest-updates/${item.slug}`}>
-                        <h3 className="text-xs sm:text-base lg:text-lg font-serif font-bold text-[#1E231C] mb-1 sm:mb-2 group-hover:text-[#414D3C] transition-colors leading-snug line-clamp-2">
+                        <h3
+                          className="text-xs sm:text-[15px] font-serif font-bold text-[#1E231C] mb-1 sm:mb-1.5 group-hover:text-[#414D3C] transition-colors leading-snug line-clamp-2 sm:h-10.5 overflow-hidden"
+                          style={{
+                            display: "-webkit-box",
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
+                          }}
+                        >
                           {item.title}
                         </h3>
                       </Link>
-                      <p className="hidden sm:block text-xs text-[#5D6558] leading-relaxed mb-2 line-clamp-2">
+                      <p
+                        className="max-sm:hidden text-xs text-[#5D6558] leading-normal line-clamp-2 sm:h-9 overflow-hidden"
+                        style={{
+                          display: "-webkit-box",
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                        }}
+                      >
                         {item.summary}
                       </p>
                     </div>
@@ -123,17 +141,17 @@ export default function UpdatesFeed() {
                   </div>
                 </div>
 
-                {/* Desktop Card Footer */}
-                <div className="hidden sm:flex px-5 py-3.5 items-center justify-between border-t border-[#F5F1EA]">
+                {/* Desktop & Tablet Card Footer */}
+                <div className="hidden sm:flex px-4 py-2.5 sm:py-3 items-center justify-between border-t border-[#F5F1EA] mt-auto">
                   <span className="text-[11px] text-[#7C8578] font-medium">
-                    Event & Update
+                    Event &amp; Update
                   </span>
                   <Link
                     href={`/latest-updates/${item.slug}`}
                     className="inline-flex items-center gap-2 text-xs font-semibold text-[#414D3C] group-hover:text-[#252F21]"
                   >
                     <span>Read Full Update</span>
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-[#D5CFBF] bg-white flex items-center justify-center text-[#414D3C] group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shadow-2xs">
+                    <div className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-full border border-[#D5CFBF] bg-white flex items-center justify-center text-[#414D3C] group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shadow-2xs">
                       <ArrowRightIcon className="w-3 h-3" />
                     </div>
                   </Link>

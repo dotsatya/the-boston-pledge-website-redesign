@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import Logo from "./Logo";
 import GoogleTranslate from "./GoogleTranslate";
 import { ArrowRightIcon, CaretDownIcon, MenuIcon, CloseIcon } from "./Icons";
@@ -29,44 +28,80 @@ export default function Navbar() {
     "Ways To Help": false,
   });
 
-  // Framer Motion Smart Auto-Hiding Scroll State
-  const { scrollY } = useScroll();
-  const [hidden, setHidden] = useState(false);
+  // Smart Hide-on-Scroll-Down, Show-on-Scroll-Up State
+  const [visible, setVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
+  const lastScrollY = useRef(0);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() ?? 0;
-    const diff = latest - previous;
-
-    // Subtle shadow when scrolled past top
-    setIsScrolled(latest > 20);
-
-    // Keep header visible if mobile drawer is currently open
-    if (mobileOpen) {
-      setHidden(false);
-      return;
-    }
-
-    // Always keep header visible when near the top of the page
-    if (latest <= 60) {
-      setHidden(false);
-      return;
-    }
-
-    // Scrolling down: smoothly hide
-    if (diff > 8) {
-      setHidden(true);
-      setActiveDropdown(null);
-    }
-    // Scrolling up: reveal immediately
-    else if (diff < -5) {
-      setHidden(false);
-    }
-  });
-
-  // Keep header visible upon route changes
   useEffect(() => {
-    setHidden(false);
+    let ticking = false;
+
+    // Initialize to current scroll position
+    lastScrollY.current =
+      typeof window !== "undefined"
+        ? window.pageYOffset || document.documentElement.scrollTop || 0
+        : 0;
+
+    const updateHeader = () => {
+      const currentScrollY = Math.max(
+        0,
+        window.pageYOffset || document.documentElement.scrollTop || 0
+      );
+
+      // Subtle shadow when scrolled past top
+      setIsScrolled(currentScrollY > 15);
+
+      // Keep header visible if mobile drawer is currently open
+      if (mobileOpen) {
+        setVisible(true);
+        lastScrollY.current = currentScrollY;
+        ticking = false;
+        return;
+      }
+
+      // Always keep header visible near the top of the page (within 80px)
+      if (currentScrollY <= 80) {
+        setVisible(true);
+        lastScrollY.current = currentScrollY;
+        ticking = false;
+        return;
+      }
+
+      const diff = currentScrollY - lastScrollY.current;
+
+      // Require accumulated delta of at least 8px before switching
+      if (Math.abs(diff) < 8) {
+        ticking = false;
+        return; // Keep accumulating
+      }
+
+      if (diff > 0) {
+        // Scrolling DOWN -> smoothly hide header
+        setVisible(false);
+        setActiveDropdown(null);
+      } else {
+        // Scrolling UP -> reveal header immediately
+        setVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [mobileOpen]);
+
+  // Reset header visibility and close menus on route changes
+  useEffect(() => {
+    setVisible(true);
     setActiveDropdown(null);
     setMobileOpen(false);
   }, [pathname]);
@@ -102,7 +137,6 @@ export default function Navbar() {
     },
     { label: "Initiatives", href: "/initiatives" },
     { label: "Events", href: "/events" },
-    { label: "Latest Updates", href: "/latest-updates" },
     {
       label: "Ways To Help",
       dropdown: [
@@ -204,19 +238,10 @@ export default function Navbar() {
   };
 
   return (
-    <motion.header
-      variants={{
-        visible: { y: "0%" },
-        hidden: { y: "-100%" },
-      }}
-      animate={hidden ? "hidden" : "visible"}
-      transition={{
-        duration: 0.45,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      className={`sticky top-0 z-50 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#E9E4DC] transition-shadow duration-300 ${
-        isScrolled ? "shadow-sm" : ""
-      }`}
+    <header
+      className={`sticky top-0 z-50 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#E9E4DC] transition-transform duration-300 ease-in-out ${
+        visible ? "translate-y-0" : "-translate-y-full"
+      } ${isScrolled ? "shadow-sm" : ""}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between" ref={navRef}>
         {/* Logo */}
@@ -470,6 +495,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </motion.header>
+    </header>
   );
 }

@@ -409,7 +409,7 @@ export default function FramesGallery() {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-7">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-7 items-stretch">
                 {paginatedVideos.map((vid, idx) => {
                   const isMp4 = vid.url.endsWith(".mp4");
                   const title =
@@ -421,7 +421,7 @@ export default function FramesGallery() {
                   return (
                     <div
                       key={vid.url}
-                      className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between"
+                      className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between h-full"
                     >
                       {/* Video Player Box (16:9 ratio) */}
                       <div className="w-full aspect-video bg-black relative">
@@ -460,7 +460,7 @@ export default function FramesGallery() {
                               {isMp4 ? "Field Video Footage" : "Video Recording"}
                             </span>
                           </div>
-                          <h3 className="text-xs sm:text-sm font-semibold text-[#1E231C] leading-snug line-clamp-2">
+                          <h3 className="text-xs sm:text-sm font-semibold text-[#1E231C] leading-snug line-clamp-2 sm:h-10 overflow-hidden">
                             {title}
                           </h3>
                         </div>
