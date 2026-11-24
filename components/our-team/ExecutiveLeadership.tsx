@@ -62,10 +62,10 @@ export default function ExecutiveLeadership() {
   }, [selectedMember]);
 
   return (
-    <section className="pt-1 sm:pt-2 pb-6 sm:pb-8 lg:pb-10 bg-[#FAF8F5]">
+    <section className="pt-1 sm:pt-2 pb-5 sm:pb-6 lg:pb-8 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-3.5 sm:mb-8">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-3 sm:mb-5">
           {categories.map((cat) => (
             <button
               key={cat.id}
@@ -82,15 +82,15 @@ export default function ExecutiveLeadership() {
         </div>
 
         {/* Grid of Team Members - Slightly smaller compact cards with small padding */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-5 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5 items-stretch">
           {filteredMembers.map((member: TeamMember) => (
             <div
               key={member.id}
-              className="bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-4 border border-[#ECE7DF] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group h-full"
+              className="bg-white rounded-xl sm:rounded-2xl p-2 sm:p-2.5 border border-[#ECE7DF] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group h-full"
             >
               <div className="flex flex-row sm:flex-col h-full justify-between">
                 {/* Photo & LinkedIn button: Left on mobile, Top on desktop */}
-                <div className="relative w-20 xs:w-24 sm:w-full h-20 xs:h-24 sm:h-48 shrink-0 rounded-lg sm:rounded-xl overflow-hidden bg-[#EAE6DF] mb-0 sm:mb-3 border border-[#E2DDD4]">
+                <div className="relative w-20 xs:w-20 sm:w-full h-20 xs:h-20 sm:h-36 lg:h-40 shrink-0 rounded-lg sm:rounded-xl overflow-hidden bg-[#EAE6DF] mb-0 sm:mb-2.5 border border-[#E2DDD4]">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -103,7 +103,7 @@ export default function ExecutiveLeadership() {
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="absolute bottom-1.5 right-1.5 sm:bottom-2.5 sm:right-2.5 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/90 backdrop-blur-sm text-[#0A66C2] flex items-center justify-center shadow-xs hover:bg-[#0A66C2] hover:text-white transition-colors z-10"
+                      className="absolute bottom-1.5 right-1.5 sm:bottom-2 sm:right-2 w-5.5 h-5.5 sm:w-6.5 sm:h-6.5 rounded-full bg-white/90 backdrop-blur-sm text-[#0A66C2] flex items-center justify-center shadow-xs hover:bg-[#0A66C2] hover:text-white transition-colors z-10"
                       aria-label={`${member.name} LinkedIn Profile`}
                       onClick={(e) => e.stopPropagation()}
                     >
@@ -113,23 +113,23 @@ export default function ExecutiveLeadership() {
                 </div>
 
                 {/* Name, Role & Details: Right on mobile, Bottom on desktop */}
-                <div className="pl-3 sm:pl-0 flex-1 flex flex-col justify-between min-w-0">
+                <div className="pl-2.5 sm:pl-0 flex-1 flex flex-col justify-between min-w-0">
                   <div>
                     <h4 className="text-xs sm:text-base font-serif font-bold text-[#1E231C] leading-snug line-clamp-1 group-hover:text-[#414D3C] transition-colors">
                       {member.name}
                     </h4>
-                    <div className="text-[10px] sm:text-[11px] font-semibold text-[#414D3C] mt-0.5 mb-1 sm:mb-2 line-clamp-1">
+                    <div className="text-[10px] sm:text-[11px] font-semibold text-[#414D3C] mt-0.5 mb-1 sm:mb-1.5 line-clamp-1">
                       {member.role}
                     </div>
 
                     {/* Short Bio Snippet */}
-                    <p className="text-[10px] sm:text-xs text-[#5D6558] leading-relaxed line-clamp-2 font-normal mb-1.5 sm:mb-3">
+                    <p className="text-[10px] sm:text-xs text-[#5D6558] leading-relaxed line-clamp-2 font-normal mb-1.5 sm:mb-2">
                       {member.bio}
                     </p>
                   </div>
 
                   {/* View Details Action Button */}
-                  <div className="pt-1.5 sm:pt-3 border-t border-[#F2ECE3] flex items-center justify-between">
+                  <div className="pt-1.5 sm:pt-2 border-t border-[#F2ECE3] flex items-center justify-between">
                     <button
                       type="button"
                       onClick={() => setSelectedMember(member)}

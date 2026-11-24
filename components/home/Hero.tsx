@@ -8,11 +8,11 @@ export default function Hero() {
   const [showStoryModal, setShowStoryModal] = useState(false);
 
   return (
-    <section className="relative overflow-hidden bg-[#FAF8F5] pt-6 pb-6 sm:pb-8 lg:pt-8 lg:pb-10">
+    <section className="relative overflow-hidden bg-[#FAF8F5] pt-4 sm:pt-6 lg:pt-7 pb-4 sm:pb-6 lg:pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
           {/* Left Column: Text & CTAs matching demo */}
-          <div className="lg:col-span-6 z-10 py-4 lg:pr-4">
+          <div className="lg:col-span-6 z-10 py-2 lg:pr-4">
             {/* Pill Tag */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#D5CEC2] text-xs font-medium text-[#485342] mb-6 bg-white/60 shadow-2xs">
               <span className="w-3.5 h-2 rounded-full border border-[#8C9585] inline-block bg-white/80" />

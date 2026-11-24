@@ -10,7 +10,7 @@ export default function LeadershipPreview() {
   const leaders = ourTeamDetails.slice(0, 4);
 
   return (
-    <section className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
+    <section className="pt-5 sm:pt-7 lg:pt-8 pb-8 sm:pb-12 lg:pb-16 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 lg:gap-10 items-start">
           {/* Left Column Text matching demo */}
@@ -28,7 +28,7 @@ export default function LeadershipPreview() {
               </h2>
             </Link>
 
-            <p className="text-xs sm:text-sm text-[#5B6356] leading-relaxed mb-3.5 sm:mb-6 font-normal">
+            <p className="text-xs sm:text-sm text-[#5B6356] leading-relaxed mb-2.5 sm:mb-4 font-normal">
               A diverse team united by a shared commitment to global impact.
             </p>
 
@@ -47,9 +47,9 @@ export default function LeadershipPreview() {
               <ScrollReveal key={leader.id} delay={idx * 0.1} className="h-full">
                 <Link
                   href="/about/our-team"
-                  className="flex flex-row sm:flex-col bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-2.5 lg:p-3 border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 group h-full"
+                  className="flex flex-row sm:flex-col bg-white rounded-xl sm:rounded-2xl p-2 sm:p-2 border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 group h-full"
                 >
-                  <div className="relative w-20 h-20 sm:w-full sm:h-48 lg:h-52 shrink-0 rounded-lg sm:rounded-xl overflow-hidden bg-[#EAE6DF] border border-[#E8E2D8]/60">
+                  <div className="relative w-20 h-20 sm:w-full sm:h-36 lg:h-38 shrink-0 rounded-lg sm:rounded-xl overflow-hidden bg-[#EAE6DF] border border-[#E8E2D8]/60">
                     <Image
                       src={leader.image}
                       alt={leader.name}
@@ -58,7 +58,7 @@ export default function LeadershipPreview() {
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  <div className="pl-3 sm:pl-0 pt-0 sm:pt-3 pb-0.5 sm:pb-1 flex-1 min-w-0 flex flex-col justify-center sm:justify-start">
+                  <div className="pl-2.5 sm:pl-0 pt-0 sm:pt-2 pb-0.5 sm:pb-0.5 flex-1 min-w-0 flex flex-col justify-center sm:justify-start">
                     <h3 className="text-xs sm:text-sm font-semibold text-[#1E231C] group-hover:text-[#414D3C] transition-colors leading-snug truncate">
                       {leader.name}
                     </h3>

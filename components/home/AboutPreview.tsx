@@ -5,7 +5,7 @@ import ScrollReveal from "../common/ScrollReveal";
 
 export default function AboutPreview() {
   return (
-    <section className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5] relative z-10">
+    <section className="py-5 sm:py-7 lg:py-8 bg-[#FAF8F5] relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
           {/* Left: Boston Skyline Photo with Bottom-Left Mission Pill */}

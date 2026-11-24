@@ -10,7 +10,7 @@ export default function LatestEventsSection() {
   const events = getAllEvents().slice(0, 3);
 
   return (
-    <section className="py-4 sm:py-6 lg:py-7 bg-[#F3EDE3]">
+    <section className="py-8 sm:py-12 lg:py-16 bg-[#F3EDE3]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 lg:gap-10 items-start">
           {/* Left Column Text matching demo screenshot */}

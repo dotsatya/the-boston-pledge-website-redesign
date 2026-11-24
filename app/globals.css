@@ -43,6 +43,13 @@ body {
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
+@media (min-width: 1024px) {
+  .upcoming-event-mask {
+    mask-image: linear-gradient(to right, transparent 0%, black 22%, black 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 22%, black 100%);
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
