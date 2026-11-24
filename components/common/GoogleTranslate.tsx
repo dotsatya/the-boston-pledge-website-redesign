@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import { GlobeIcon, CaretDownIcon, CloseIcon } from "./Icons";
+import React, { useState, useEffect, useRef, useMemo } from "react";
+import { GlobeIcon, CaretDownIcon, CloseIcon, SearchIcon } from "./Icons";
+import { GLOBAL_LANGUAGES, LanguageOption } from "@/lib/languages";
 
 declare global {
   interface Window {
@@ -21,33 +22,6 @@ declare global {
     googleTranslateElementInit?: () => void;
   }
 }
-
-interface LanguageOption {
-  code: string;
-  name: string;
-  nativeName: string;
-  flag: string;
-}
-
-export const FEATURED_LANGUAGES: LanguageOption[] = [
-  { code: "en", name: "English", nativeName: "English", flag: "🇺🇸" },
-  { code: "bn", name: "Bengali", nativeName: "বাংলা", flag: "🇧🇩" },
-  { code: "hi", name: "Hindi", nativeName: "हिन्दी", flag: "🇮🇳" },
-  { code: "es", name: "Spanish", nativeName: "Español", flag: "🇪🇸" },
-  { code: "fr", name: "French", nativeName: "Français", flag: "🇫🇷" },
-  { code: "de", name: "German", nativeName: "Deutsch", flag: "🇩🇪" },
-  {
-    code: "zh-CN",
-    name: "Chinese (Simplified)",
-    nativeName: "简体中文",
-    flag: "🇨🇳",
-  },
-  { code: "ja", name: "Japanese", nativeName: "日本語", flag: "🇯🇵" },
-  { code: "ar", name: "Arabic", nativeName: "العربية", flag: "🇸🇦" },
-  { code: "pt", name: "Portuguese", nativeName: "Português", flag: "🇧🇷" },
-  { code: "ru", name: "Russian", nativeName: "Русский", flag: "🇷🇺" },
-  { code: "it", name: "Italian", nativeName: "Italiano", flag: "🇮🇹" },
-];
 
 export default function GoogleTranslate({
   className = "",
@@ -182,19 +156,20 @@ export default function GoogleTranslate({
     window.location.reload();
   };
 
-  const activeLanguageObj = FEATURED_LANGUAGES.find(
+  const activeLanguageObj = GLOBAL_LANGUAGES.find(
     (l) => l.code === currentLang,
   );
 
-  const filteredLanguages = FEATURED_LANGUAGES.filter((lang) => {
-    if (!searchFilter.trim()) return true;
-    const q = searchFilter.toLowerCase();
-    return (
-      lang.name.toLowerCase().includes(q) ||
-      lang.nativeName.toLowerCase().includes(q) ||
-      lang.code.toLowerCase().includes(q)
+  const filteredLanguages = useMemo(() => {
+    if (!searchFilter.trim()) return GLOBAL_LANGUAGES;
+    const q = searchFilter.toLowerCase().trim();
+    return GLOBAL_LANGUAGES.filter(
+      (lang) =>
+        lang.name.toLowerCase().includes(q) ||
+        lang.nativeName.toLowerCase().includes(q) ||
+        lang.code.toLowerCase().includes(q),
     );
-  });
+  }, [searchFilter]);
 
   return (
     <div className={`relative inline-block ${className}`} ref={dropdownRef}>
@@ -211,13 +186,11 @@ export default function GoogleTranslate({
         }`}
       >
         <span className="flex items-center gap-1.5">
-          {activeLanguageObj && activeLanguageObj.code !== "en" ? (
-            <span className="text-sm leading-none">
-              {activeLanguageObj.flag}
-            </span>
-          ) : (
-            <GlobeIcon className="w-3.5 h-3.5 text-[#414D3C]" />
-          )}
+          <GlobeIcon
+            className={`w-3.5 h-3.5 ${
+              currentLang !== "en" ? "text-white" : "text-[#414D3C]"
+            }`}
+          />
           <span className="hidden xs:inline-block truncate max-w-[75px] sm:max-w-[110px]">
             {activeLanguageObj ? activeLanguageObj.nativeName : "Language"}
           </span>
@@ -268,62 +241,99 @@ export default function GoogleTranslate({
             </button>
           </div>
 
-          {/* Quick Search Input */}
-          <div className="mb-3">
+          {/* Global Search Input */}
+          <div className="relative mb-2.5">
+            <div className="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-[#7A8475]">
+              <SearchIcon className="w-3.5 h-3.5" />
+            </div>
             <input
               type="text"
-              placeholder="Search language..."
+              placeholder="Search all global languages..."
               value={searchFilter}
               onChange={(e) => setSearchFilter(e.target.value)}
-              className="w-full px-3 py-1.5 text-xs rounded-xl border border-[#D5CEC2] bg-[#FAF8F5] text-[#1E231C] placeholder:text-[#9EA898] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#414D3C]"
+              className="w-full pl-8 pr-7 py-2 text-xs rounded-xl border border-[#D5CEC2] bg-[#FAF8F5] text-[#1E231C] placeholder:text-[#9EA898] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#414D3C]"
             />
+            {searchFilter && (
+              <button
+                type="button"
+                onClick={() => setSearchFilter("")}
+                className="absolute inset-y-0 right-0 pr-2.5 flex items-center text-xs text-[#7A8475] hover:text-[#1E231C]"
+                aria-label="Clear search"
+              >
+                ✕
+              </button>
+            )}
           </div>
 
-          {/* Featured Languages List */}
-          <div className="max-h-[180px] overflow-y-auto pr-1 space-y-1 mb-3 scrollbar-thin">
-            {filteredLanguages.map((lang) => {
-              const isActive = currentLang === lang.code;
-              return (
-                <button
-                  key={lang.code}
-                  type="button"
-                  onClick={() => handleSelectLanguage(lang.code)}
-                  className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs transition-all cursor-pointer ${
-                    isActive
-                      ? "bg-[#414D3C] text-white font-semibold"
-                      : "text-[#2F372C] hover:bg-[#FAF8F5] hover:text-[#181E16]"
-                  }`}
-                >
-                  <span className="flex items-center gap-2.5">
-                    <span className="text-sm leading-none">{lang.flag}</span>
-                    <span className="font-medium">{lang.nativeName}</span>
-                    <span
-                      className={`text-[10px] ${
-                        isActive ? "text-white/70" : "text-[#7A8374]"
-                      }`}
-                    >
-                      ({lang.name})
+          {/* Languages Status Counter */}
+          <div className="flex items-center justify-between text-[10px] text-[#7A8475] mb-2 px-1">
+            <span>
+              {searchFilter
+                ? `${filteredLanguages.length} ${
+                    filteredLanguages.length === 1 ? "language" : "languages"
+                  } found`
+                : "All Global Languages"}
+            </span>
+            <span className="text-[#8F9A8A]">
+              {GLOBAL_LANGUAGES.length} supported
+            </span>
+          </div>
+
+          {/* Scrollable Global Languages List */}
+          <div className="max-h-[250px] sm:max-h-[280px] overflow-y-auto pr-1 space-y-1 mb-2 scrollbar-thin">
+            {filteredLanguages.length === 0 ? (
+              <div className="py-6 text-center text-xs text-[#7A8475]">
+                No language found matching &ldquo;{searchFilter}&rdquo;
+              </div>
+            ) : (
+              filteredLanguages.map((lang) => {
+                const isActive = currentLang === lang.code;
+                return (
+                  <button
+                    key={lang.code}
+                    type="button"
+                    onClick={() => handleSelectLanguage(lang.code)}
+                    className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs transition-all cursor-pointer ${
+                      isActive
+                        ? "bg-[#414D3C] text-white font-semibold"
+                        : "text-[#2F372C] hover:bg-[#FAF8F5] hover:text-[#181E16]"
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <span className="font-medium">{lang.nativeName}</span>
+                      <span
+                        className={`text-[10px] ${
+                          isActive ? "text-white/70" : "text-[#7A8374]"
+                        }`}
+                      >
+                        ({lang.name})
+                      </span>
                     </span>
-                  </span>
-                  {isActive && (
-                    <span className="text-xs font-bold text-white">✓</span>
-                  )}
-                </button>
-              );
-            })}
+                    {isActive && (
+                      <span className="text-xs font-bold text-white">✓</span>
+                    )}
+                  </button>
+                );
+              })
+            )}
           </div>
 
-          {/* Native Google Translate Element */}
-          <div className="pt-2.5 border-t border-[#F0EBE1]">
-            <div
-              id="google_translate_element"
-              className="min-h-[34px] flex items-center"
-            />
-          </div>
+          {/* Hidden Google Translate Mount (Kept in DOM for script initialization) */}
+          <div
+            id="google_translate_element"
+            className="opacity-0 pointer-events-none absolute -z-10 h-0 w-0 overflow-hidden"
+            aria-hidden="true"
+          />
 
           {/* Reset button if translated */}
           {currentLang !== "en" && (
-            <div className="mt-2.5 pt-2 border-t border-[#F0EBE1] flex items-center justify-end text-[11px]">
+            <div className="mt-2.5 pt-2 border-t border-[#F0EBE1] flex items-center justify-between text-[11px]">
+              <span className="text-[#7A8475]">
+                Active:{" "}
+                <strong className="text-[#1E231C]">
+                  {activeLanguageObj?.name || currentLang}
+                </strong>
+              </span>
               <button
                 type="button"
                 onClick={handleResetToEnglish}

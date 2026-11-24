@@ -98,43 +98,15 @@ body {
   display: none !important;
 }
 
-/* Custom styling for Google Translate element inside our selector */
+/* Google Translate element hidden from view while remaining accessible for script execution */
 #google_translate_element {
-  display: block;
-  width: 100%;
-}
-
-#google_translate_element .goog-te-gadget {
-  font-family: inherit !important;
-  font-size: 0px !important;
-  color: transparent !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 4px !important;
-}
-
-#google_translate_element .goog-te-gadget > span {
-  display: none !important;
-}
-
-#google_translate_element .goog-te-combo {
-  background-color: #faf8f5 !important;
-  border: 1px solid #d5cec2 !important;
-  border-radius: 9999px !important;
-  padding: 6px 12px !important;
-  font-size: 11px !important;
-  color: #1e231c !important;
-  font-family: inherit !important;
-  font-weight: 500 !important;
-  outline: none !important;
-  cursor: pointer !important;
-  width: 100% !important;
-  transition: all 0.2s ease !important;
-}
-
-#google_translate_element .goog-te-combo:hover,
-#google_translate_element .goog-te-combo:focus {
-  border-color: #414d3c !important;
-  background-color: #ffffff !important;
-  box-shadow: 0 0 0 2px rgba(65, 77, 60, 0.15) !important;
+  position: absolute !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0px !important;
+  width: 0px !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
 }
