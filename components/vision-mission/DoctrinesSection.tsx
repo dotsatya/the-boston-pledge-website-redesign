@@ -1,5 +1,6 @@
 import React from "react";
 import { Doctrine } from "@/lib/about/vision-mission";
+import ScrollReveal from "../common/ScrollReveal";
 
 interface DoctrinesSectionProps {
   title: string;
@@ -38,21 +39,22 @@ export default function DoctrinesSection({
         </div>
 
         {/* 10 Principles Grid - Compact Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3">
-          {principles.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-xl sm:rounded-2xl px-4 py-3 sm:px-5 sm:py-3.5 border border-[#E8E2D8] shadow-2xs hover:shadow-xs hover:border-[#D0C8B8] transition-all duration-200 flex items-center gap-3.5 sm:gap-4 group"
-            >
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#FAF8F5] border border-[#DDD6CB] flex items-center justify-center text-[11px] sm:text-xs font-bold text-[#414D3C] group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shrink-0">
-                {String(item.id).padStart(2, "0")}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3 items-stretch">
+          {principles.map((item, idx) => (
+            <ScrollReveal key={item.id} delay={(idx % 2) * 0.08} className="h-full">
+              <div
+                className="bg-white rounded-xl sm:rounded-2xl px-4 py-3 sm:px-5 sm:py-3.5 border border-[#E8E2D8] shadow-2xs hover:shadow-xs hover:border-[#D0C8B8] transition-all duration-200 flex items-center gap-3.5 sm:gap-4 group h-full"
+              >
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#FAF8F5] border border-[#DDD6CB] flex items-center justify-center text-[11px] sm:text-xs font-bold text-[#414D3C] group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shrink-0">
+                  {String(item.id).padStart(2, "0")}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs sm:text-sm text-[#2D362A] leading-snug sm:leading-relaxed font-normal">
+                    {item.content}
+                  </p>
+                </div>
               </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-xs sm:text-sm text-[#2D362A] leading-snug sm:leading-relaxed font-normal">
-                  {item.content}
-                </p>
-              </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

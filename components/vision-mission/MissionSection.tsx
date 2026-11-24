@@ -1,4 +1,5 @@
 import React from "react";
+import ScrollReveal from "../common/ScrollReveal";
 
 interface MissionSectionProps {
   title: string;
@@ -48,26 +49,27 @@ export default function MissionSection({ title, image, objectives }: MissionSect
             {/* 3 Streamlined Compact Mission Objectives Cards */}
             <div className="space-y-2">
               {objectives.map((obj, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white rounded-xl px-3.5 py-2.5 sm:py-3 border border-[#E8E2D8] shadow-2xs hover:shadow-xs transition-shadow flex items-start gap-2.5 sm:gap-3"
-                >
-                  <div className="w-6 h-6 rounded-md bg-[#FAF8F5] border border-[#DDD6CB] flex items-center justify-center text-[11px] font-bold text-[#414D3C] shrink-0 mt-0.5">
-                    0{idx + 1}
+                <ScrollReveal key={idx} delay={idx * 0.08}>
+                  <div
+                    className="bg-white rounded-xl px-3.5 py-2.5 sm:py-3 border border-[#E8E2D8] shadow-2xs hover:shadow-xs transition-shadow flex items-start gap-2.5 sm:gap-3"
+                  >
+                    <div className="w-6 h-6 rounded-md bg-[#FAF8F5] border border-[#DDD6CB] flex items-center justify-center text-[11px] font-bold text-[#414D3C] shrink-0 mt-0.5">
+                      0{idx + 1}
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-xs sm:text-[13px] font-semibold text-[#1E231C] leading-snug mb-0.5">
+                        {idx === 0
+                          ? "Bridge Privileged and Undernourished Regions"
+                          : idx === 1
+                          ? "Mobilize Multi-Dimensional Capital"
+                          : "Celebrate Unity in Diversity"}
+                      </h3>
+                      <p className="text-[11px] text-[#4E5748] leading-relaxed font-normal">
+                        {obj}
+                      </p>
+                    </div>
                   </div>
-                  <div className="min-w-0">
-                    <h3 className="text-xs sm:text-[13px] font-semibold text-[#1E231C] leading-snug mb-0.5">
-                      {idx === 0
-                        ? "Bridge Privileged and Undernourished Regions"
-                        : idx === 1
-                        ? "Mobilize Multi-Dimensional Capital"
-                        : "Celebrate Unity in Diversity"}
-                    </h3>
-                    <p className="text-[11px] text-[#4E5748] leading-relaxed font-normal">
-                      {obj}
-                    </p>
-                  </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>

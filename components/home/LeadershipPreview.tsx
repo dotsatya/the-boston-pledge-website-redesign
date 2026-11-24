@@ -10,7 +10,7 @@ export default function LeadershipPreview() {
   const leaders = ourTeamDetails.slice(0, 4);
 
   return (
-    <section className="pt-5 sm:pt-7 lg:pt-8 pb-8 sm:pb-12 lg:pb-16 bg-[#FAF8F5]">
+    <section className="pt-6 sm:pt-8 lg:pt-10 pb-8 sm:pb-10 lg:pb-14 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 lg:gap-10 items-start">
           {/* Left Column Text matching demo */}

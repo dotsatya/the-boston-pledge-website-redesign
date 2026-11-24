@@ -4,6 +4,7 @@ import { LatestUpdate, getAllUpdates } from "@/lib/latestUpdates";
 import UpdateBlockRenderer, { getUpdateCoverImage, getUpdateFallbackImage } from "./UpdateBlockRenderer";
 import CoverImage from "./CoverImage";
 import { CalendarIcon } from "../common/Icons";
+import ScrollReveal from "../common/ScrollReveal";
 
 export default function UpdateDetail({ update }: { update: LatestUpdate }) {
   const allUpdates = getAllUpdates();
@@ -80,30 +81,32 @@ export default function UpdateDetail({ update }: { update: LatestUpdate }) {
 
         {/* Related Updates */}
         {related.length > 0 && (
-          <aside className="mt-8">
-            <h3 className="text-xl sm:text-2xl font-serif text-[#1E231C] mb-6">
-              More Updates & Insights
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {related.map((item) => (
-                <Link
-                  key={item.id}
-                  href={`/latest-updates/${item.slug}`}
-                  className="group flex flex-col bg-white p-5 rounded-2xl border border-[#E8E2D8] hover:shadow-sm transition-all"
-                >
-                  <div className="text-[11px] font-semibold text-[#414D3C] uppercase tracking-wider mb-1">
-                    {item.category}
-                  </div>
-                  <h4 className="text-sm font-serif font-medium text-[#1E231C] group-hover:text-[#414D3C] transition-colors mb-2 line-clamp-2">
-                    {item.title}
-                  </h4>
-                  <div className="text-[11px] text-[#788273] mt-auto">
-                    {item.dateLabel}
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </aside>
+          <ScrollReveal>
+            <aside className="mt-8">
+              <h3 className="text-xl sm:text-2xl font-serif text-[#1E231C] mb-6">
+                More Updates & Insights
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {related.map((item) => (
+                  <Link
+                    key={item.id}
+                    href={`/latest-updates/${item.slug}`}
+                    className="group flex flex-col bg-white p-5 rounded-2xl border border-[#E8E2D8] hover:shadow-sm transition-all"
+                  >
+                    <div className="text-[11px] font-semibold text-[#414D3C] uppercase tracking-wider mb-1">
+                      {item.category}
+                    </div>
+                    <h4 className="text-sm font-serif font-medium text-[#1E231C] group-hover:text-[#414D3C] transition-colors mb-2 line-clamp-2">
+                      {item.title}
+                    </h4>
+                    <div className="text-[11px] text-[#788273] mt-auto">
+                      {item.dateLabel}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </aside>
+          </ScrollReveal>
         )}
       </div>
     </article>

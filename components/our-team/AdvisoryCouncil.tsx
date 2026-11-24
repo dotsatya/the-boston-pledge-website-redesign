@@ -1,4 +1,5 @@
 import React from "react";
+import ScrollReveal from "../common/ScrollReveal";
 
 export default function AdvisoryCouncil() {
   const advisors = [
@@ -43,16 +44,19 @@ export default function AdvisoryCouncil() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-5 items-stretch">
           {advisors.map((adv, idx) => (
-            <div
-              key={idx}
-              className="bg-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-[#ECE7DF] shadow-2xs hover:shadow-md transition-all duration-300"
-            >
-              <h4 className="text-base font-semibold text-[#1E231C] mb-1">{adv.name}</h4>
-              <div className="text-xs font-medium text-[#414D3C] mb-2">{adv.focus}</div>
-              <p className="text-xs text-[#5D6558] leading-relaxed">{adv.desc}</p>
-            </div>
+            <ScrollReveal key={idx} delay={idx * 0.08} className="h-full">
+              <div
+                className="bg-white p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-[#ECE7DF] shadow-2xs hover:shadow-md transition-all duration-300 h-full flex flex-col justify-between"
+              >
+                <div>
+                  <h4 className="text-base font-semibold text-[#1E231C] mb-1">{adv.name}</h4>
+                  <div className="text-xs font-medium text-[#414D3C] mb-2">{adv.focus}</div>
+                  <p className="text-xs text-[#5D6558] leading-relaxed">{adv.desc}</p>
+                </div>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

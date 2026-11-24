@@ -1,6 +1,7 @@
 import React from "react";
 import CoverImage from "../latest-updates/CoverImage";
 import { GlobeIcon } from "../common/Icons";
+import ScrollReveal from "../common/ScrollReveal";
 
 interface VisionSectionProps {
   title: string;
@@ -99,29 +100,30 @@ export default function VisionSection({ title, description, image }: VisionSecti
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 sm:gap-6 lg:gap-8 items-stretch">
             {pillars.map((pillar, idx) => (
-              <div
-                key={pillar.title}
-                className="p-3.5 sm:p-7 rounded-xl sm:rounded-2xl bg-white border border-[#E8E3D8] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-2 sm:mb-4">
-                    <span className="inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 text-[11px] sm:text-xs font-bold text-[#414D3C] rounded-lg sm:rounded-xl bg-[#FAF8F5] border border-[#DDD7CD] group-hover:bg-[#414D3C] group-hover:text-white transition-colors">
-                      0{idx + 1}
-                    </span>
-                    <span className="text-[10px] sm:text-[11px] font-medium text-[#7A8475] uppercase tracking-wider">
-                      Pillar 0{idx + 1}
-                    </span>
+              <ScrollReveal key={pillar.title} delay={idx * 0.1} className="h-full">
+                <div
+                  className="p-3.5 sm:p-7 rounded-xl sm:rounded-2xl bg-white border border-[#E8E3D8] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group h-full"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-2 sm:mb-4">
+                      <span className="inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 text-[11px] sm:text-xs font-bold text-[#414D3C] rounded-lg sm:rounded-xl bg-[#FAF8F5] border border-[#DDD7CD] group-hover:bg-[#414D3C] group-hover:text-white transition-colors">
+                        0{idx + 1}
+                      </span>
+                      <span className="text-[10px] sm:text-[11px] font-medium text-[#7A8475] uppercase tracking-wider">
+                        Pillar 0{idx + 1}
+                      </span>
+                    </div>
+                    <h4 className="text-sm sm:text-lg font-semibold text-[#1E231C] mb-1 sm:mb-2 leading-snug">
+                      {pillar.title}
+                    </h4>
+                    <p className="text-xs sm:text-sm text-[#555E50] leading-relaxed">
+                      {pillar.desc}
+                    </p>
                   </div>
-                  <h4 className="text-sm sm:text-lg font-semibold text-[#1E231C] mb-1 sm:mb-2 leading-snug">
-                    {pillar.title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-[#555E50] leading-relaxed">
-                    {pillar.desc}
-                  </p>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

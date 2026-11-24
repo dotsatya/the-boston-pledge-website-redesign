@@ -1,4 +1,5 @@
 import React from "react";
+import ScrollReveal from "../common/ScrollReveal";
 
 export default function DonateImpactCards() {
   const impactAreas = [
@@ -42,34 +43,35 @@ export default function DonateImpactCards() {
         </div>
 
         {/* 3 Impact Areas */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-6 lg:gap-7">
-          {impactAreas.map((item) => (
-            <div
-              key={item.tag}
-              className="bg-white rounded-xl sm:rounded-2xl p-3.5 sm:p-7 border border-[#E8E2D8] shadow-2xs hover:shadow-xs transition-all duration-300 flex flex-col justify-between"
-            >
-              <div>
-                <div className="mb-2 sm:mb-4">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#F3EDE3] text-[#414D3C] border border-[#DDD5C7]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#414D3C]" />
-                    <span>{item.tag}</span>
-                  </span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-6 lg:gap-7 items-stretch">
+          {impactAreas.map((item, idx) => (
+            <ScrollReveal key={item.tag} delay={idx * 0.1} className="h-full">
+              <div
+                className="bg-white rounded-xl sm:rounded-2xl p-3.5 sm:p-7 border border-[#E8E2D8] shadow-2xs hover:shadow-xs transition-all duration-300 flex flex-col justify-between h-full"
+              >
+                <div>
+                  <div className="mb-2 sm:mb-4">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#F3EDE3] text-[#414D3C] border border-[#DDD5C7]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#414D3C]" />
+                      <span>{item.tag}</span>
+                    </span>
+                  </div>
+
+                  <h3 className="text-sm sm:text-lg font-serif font-semibold text-[#1E231C] mb-1 sm:mb-2 leading-snug">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-[#555E50] leading-relaxed font-normal">
+                    {item.desc}
+                  </p>
                 </div>
 
-                <h3 className="text-sm sm:text-lg font-serif font-semibold text-[#1E231C] mb-1 sm:mb-2 leading-snug">
-                  {item.title}
-                </h3>
-
-                <p className="text-xs sm:text-sm text-[#555E50] leading-relaxed font-normal">
-                  {item.desc}
-                </p>
+                <div className="pt-2.5 sm:pt-4 mt-3 sm:mt-6 border-t border-[#F2ECE3] text-[10px] sm:text-[11px] text-[#7A8374] flex items-center justify-between">
+                  <span>Direct Grassroots Reach</span>
+                  <span className="font-semibold text-[#414D3C]">100% Pro Bono Directed</span>
+                </div>
               </div>
-
-              <div className="pt-2.5 sm:pt-4 mt-3 sm:mt-6 border-t border-[#F2ECE3] text-[10px] sm:text-[11px] text-[#7A8374] flex items-center justify-between">
-                <span>Direct Grassroots Reach</span>
-                <span className="font-semibold text-[#414D3C]">100% Pro Bono Directed</span>
-              </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

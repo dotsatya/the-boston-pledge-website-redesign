@@ -1,4 +1,5 @@
 import React from "react";
+import ScrollReveal from "../common/ScrollReveal";
 
 export default function PastEventsArchive() {
   const pastEvents = [
@@ -38,21 +39,22 @@ export default function PastEventsArchive() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {pastEvents.map((event, idx) => (
-            <div
-              key={idx}
-              className="bg-white p-6 sm:p-7 rounded-2xl border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
-            >
-              <div>
-                <span className="text-xs font-semibold text-[#5A6455]">{event.date}</span>
-                <h4 className="text-base sm:text-lg font-serif font-bold text-[#1E231C] mt-2 mb-2 leading-snug">
-                  {event.title}
-                </h4>
-                <p className="text-xs text-[#5D6558] leading-relaxed mb-4">{event.desc}</p>
+            <ScrollReveal key={idx} delay={idx * 0.1} className="h-full">
+              <div
+                className="bg-white p-6 sm:p-7 rounded-2xl border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full"
+              >
+                <div>
+                  <span className="text-xs font-semibold text-[#5A6455]">{event.date}</span>
+                  <h4 className="text-base sm:text-lg font-serif font-bold text-[#1E231C] mt-2 mb-2 leading-snug">
+                    {event.title}
+                  </h4>
+                  <p className="text-xs text-[#5D6558] leading-relaxed mb-4">{event.desc}</p>
+                </div>
+                <div className="text-[11px] text-[#7E8879] pt-4 border-t border-[#F5F1EA] font-medium">
+                  📍 {event.location}
+                </div>
               </div>
-              <div className="text-[11px] text-[#7E8879] pt-4 border-t border-[#F5F1EA] font-medium">
-                📍 {event.location}
-              </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

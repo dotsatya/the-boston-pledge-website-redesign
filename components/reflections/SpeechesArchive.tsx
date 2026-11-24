@@ -3,6 +3,7 @@
 import React, { useState, useMemo } from "react";
 import { reflectionsData, SpeechItem } from "@/components/about/Reflections";
 import { CalendarIcon, MapPinIcon } from "../common/Icons";
+import ScrollReveal from "../common/ScrollReveal";
 
 export default function SpeechesArchive() {
   const { speeches } = reflectionsData;
@@ -111,49 +112,50 @@ export default function SpeechesArchive() {
 
         {/* Speeches Grid */}
         {filteredSpeeches.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-6 items-stretch">
             {filteredSpeeches.map((speech: SpeechItem, index) => (
-              <div
-                key={speech.id}
-                className="bg-white rounded-xl sm:rounded-2xl p-3.5 sm:p-7 border border-[#ECE7DF] hover:border-[#414D3C]/40 hover:shadow-xs transition-all flex flex-col justify-between group"
-              >
-                <div>
-                  {/* Top metadata row */}
-                  <div className="flex items-center justify-between gap-3 mb-3">
-                    <span className="text-[11px] font-mono font-semibold text-[#8F988A]">
-                      #{String(speech.id).padStart(2, "0")}
-                    </span>
-                    {speech.category && (
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold tracking-wide uppercase bg-[#FAF8F5] text-[#5A6455] border border-[#E8E2D7]">
-                        {speech.category}
+              <ScrollReveal key={speech.id} delay={(index % 2) * 0.08} className="h-full">
+                <div
+                  className="bg-white rounded-xl sm:rounded-2xl p-3.5 sm:p-7 border border-[#ECE7DF] hover:border-[#414D3C]/40 hover:shadow-xs transition-all flex flex-col justify-between group h-full"
+                >
+                  <div>
+                    {/* Top metadata row */}
+                    <div className="flex items-center justify-between gap-3 mb-3">
+                      <span className="text-[11px] font-mono font-semibold text-[#8F988A]">
+                        #{String(speech.id).padStart(2, "0")}
                       </span>
-                    )}
+                      {speech.category && (
+                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold tracking-wide uppercase bg-[#FAF8F5] text-[#5A6455] border border-[#E8E2D7]">
+                          {speech.category}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Speech Title */}
+                    <h3 className="text-sm sm:text-base font-serif font-semibold text-[#1E231C] group-hover:text-[#414D3C] transition-colors leading-snug mb-3">
+                      {speech.title}
+                    </h3>
+
+                    {/* Forum / Host Institution */}
+                    <p className="text-xs text-[#555E50] font-medium mb-4 flex items-start gap-1.5">
+                      <span className="text-[#8F988A] shrink-0 font-normal">at</span>
+                      <span className="leading-snug">{speech.forum}</span>
+                    </p>
                   </div>
 
-                  {/* Speech Title */}
-                  <h3 className="text-sm sm:text-base font-serif font-semibold text-[#1E231C] group-hover:text-[#414D3C] transition-colors leading-snug mb-3">
-                    {speech.title}
-                  </h3>
-
-                  {/* Forum / Host Institution */}
-                  <p className="text-xs text-[#555E50] font-medium mb-4 flex items-start gap-1.5">
-                    <span className="text-[#8F988A] shrink-0 font-normal">at</span>
-                    <span className="leading-snug">{speech.forum}</span>
-                  </p>
+                  {/* Footer Badges: Location & Date */}
+                  <div className="pt-4 border-t border-[#F2ECE3] flex flex-wrap items-center justify-between gap-3 text-xs text-[#7A8475]">
+                    <div className="flex items-center gap-1.5">
+                      <MapPinIcon className="w-3.5 h-3.5 text-[#414D3C] shrink-0" />
+                      <span>{speech.location}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 font-medium text-[#414D3C]">
+                      <CalendarIcon className="w-3.5 h-3.5 text-[#7A8475] shrink-0" />
+                      <span>{speech.date}</span>
+                    </div>
+                  </div>
                 </div>
-
-                {/* Footer Badges: Location & Date */}
-                <div className="pt-4 border-t border-[#F2ECE3] flex flex-wrap items-center justify-between gap-3 text-xs text-[#7A8475]">
-                  <div className="flex items-center gap-1.5">
-                    <MapPinIcon className="w-3.5 h-3.5 text-[#414D3C] shrink-0" />
-                    <span>{speech.location}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5 font-medium text-[#414D3C]">
-                    <CalendarIcon className="w-3.5 h-3.5 text-[#7A8475] shrink-0" />
-                    <span>{speech.date}</span>
-                  </div>
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         ) : (

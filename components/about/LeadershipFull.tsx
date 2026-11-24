@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ourTeamDetails } from "@/lib/ourTeamDetails";
 import { ArrowRightIcon } from "../common/Icons";
+import ScrollReveal from "../common/ScrollReveal";
 
 export default function LeadershipFull() {
   const team = ourTeamDetails.slice(0, 6);
@@ -33,32 +34,33 @@ export default function LeadershipFull() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-4 lg:gap-4 items-stretch">
-          {team.map((member) => (
-            <Link
-              key={member.id}
-              href="/about/our-team"
-              className="flex flex-row sm:flex-col bg-white rounded-xl sm:rounded-2xl p-2 sm:p-2 border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 group h-full justify-between"
-            >
-              <div className="relative w-20 xs:w-20 sm:w-full h-20 xs:h-20 sm:h-36 lg:h-38 shrink-0 rounded-lg sm:rounded-xl overflow-hidden bg-[#EAE6DF] border border-[#E8E2D8]/60">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={300}
-                  height={360}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="pl-2.5 sm:pl-0 pt-0 sm:pt-2 pb-0.5 flex-1 min-w-0 flex flex-col justify-start">
-                <div className="sm:min-h-[2.5rem] flex items-center">
-                  <h4 className="text-xs sm:text-sm font-semibold text-[#1E231C] group-hover:text-[#414D3C] transition-colors leading-snug line-clamp-2">
-                    {member.name}
-                  </h4>
+          {team.map((member, idx) => (
+            <ScrollReveal key={member.id} delay={idx * 0.08} className="h-full">
+              <Link
+                href="/about/our-team"
+                className="flex flex-row sm:flex-col bg-white rounded-xl sm:rounded-2xl p-2 sm:p-2 border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 group h-full justify-between"
+              >
+                <div className="relative w-20 xs:w-20 sm:w-full h-20 xs:h-20 sm:h-36 lg:h-38 shrink-0 rounded-lg sm:rounded-xl overflow-hidden bg-[#EAE6DF] border border-[#E8E2D8]/60">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={300}
+                    height={360}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-                <p className="text-[10px] sm:text-xs text-[#414D3C] font-medium line-clamp-1 truncate mt-0.5">
-                  {member.role}
-                </p>
-              </div>
-            </Link>
+                <div className="pl-2.5 sm:pl-0 pt-0 sm:pt-2 pb-0.5 flex-1 min-w-0 flex flex-col justify-start">
+                  <div className="sm:min-h-[2.5rem] flex items-center">
+                    <h4 className="text-xs sm:text-sm font-semibold text-[#1E231C] group-hover:text-[#414D3C] transition-colors leading-snug line-clamp-2">
+                      {member.name}
+                    </h4>
+                  </div>
+                  <p className="text-[10px] sm:text-xs text-[#414D3C] font-medium line-clamp-1 truncate mt-0.5">
+                    {member.role}
+                  </p>
+                </div>
+              </Link>
+            </ScrollReveal>
           ))}
         </div>
       </div>

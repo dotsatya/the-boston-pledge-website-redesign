@@ -13,7 +13,7 @@ export default function NewsSection() {
   const news = getLatestUpdates(3);
 
   return (
-    <section className="pt-8 sm:pt-12 lg:pt-16 pb-10 sm:pb-14 lg:pb-16 bg-[#FAF8F5]">
+    <section className="pt-8 sm:pt-10 lg:pt-14 pb-10 sm:pb-12 lg:pb-16 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 lg:gap-10 items-start">
           {/* Left Column Text matching demo */}

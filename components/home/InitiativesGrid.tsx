@@ -33,7 +33,7 @@ export default function InitiativesGrid() {
   ];
 
   return (
-    <section className="py-5 sm:py-7 lg:py-8 bg-[#FAF8F5]">
+    <section className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Header Row */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-4 sm:mb-6">

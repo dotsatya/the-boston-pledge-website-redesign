@@ -1,13 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRightIcon } from "../common/Icons";
+import ScrollReveal from "../common/ScrollReveal";
 
 export default function ConstitutionCTA() {
   return (
     <section className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Contained Floating Card with Compatible Compass SVGs */}
-        <div className="bg-[#242D21] rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 text-center text-white relative overflow-hidden shadow-md border border-[#3A4635]">
+        <ScrollReveal>
+          {/* Contained Floating Card with Compatible Compass SVGs */}
+          <div className="bg-[#242D21] rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 text-center text-white relative overflow-hidden shadow-md border border-[#3A4635]">
           
           {/* Decorative Compass & Geometric Watermark SVGs */}
           <div className="absolute -right-16 -top-16 w-80 h-80 sm:w-96 sm:h-96 opacity-10 pointer-events-none text-white">
@@ -91,7 +93,8 @@ export default function ConstitutionCTA() {
             </div>
           </div>
         </div>
-      </div>
+      </ScrollReveal>
+    </div>
     </section>
   );
 }

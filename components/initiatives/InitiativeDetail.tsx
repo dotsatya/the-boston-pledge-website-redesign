@@ -11,6 +11,7 @@ import {
   GlobeIcon,
   RocketIcon,
 } from "../common/Icons";
+import ScrollReveal from "../common/ScrollReveal";
 
 function PillarBadgeIcon({
   name,
@@ -420,64 +421,66 @@ export default function InitiativeDetail({ pillar }: { pillar: Pillar }) {
         </div>
 
         {/* Footer CTAs and Other Pillars Navigation */}
-        <div className="mt-12 sm:mt-16 pt-8 border-t border-[#E5DFD4] space-y-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <Link
-              href="/initiatives"
-              className="inline-flex items-center gap-2 text-xs font-semibold text-[#414D3C] hover:text-[#1E231C] transition-colors"
-            >
-              <ArrowLeftIcon className="w-3.5 h-3.5" />
-              <span>Back to All Initiatives</span>
-            </Link>
-
-            <Link
-              href="/donate"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs hover:shadow"
-            >
-              <span>Support This Initiative</span>
-              <ArrowRightIcon className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          {/* Prev / Next Navigation */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#ECE7DF]">
-            {prevPillar ? (
+        <ScrollReveal>
+          <div className="mt-12 sm:mt-16 pt-8 border-t border-[#E5DFD4] space-y-8">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <Link
-                href={`/initiatives/${prevPillar.id}`}
-                className="p-4 rounded-xl bg-white border border-[#ECE7DF] hover:border-[#414D3C] transition-colors flex items-center gap-3 text-left group"
+                href="/initiatives"
+                className="inline-flex items-center gap-2 text-xs font-semibold text-[#414D3C] hover:text-[#1E231C] transition-colors"
               >
-                <ArrowLeftIcon className="w-4 h-4 text-[#5A6455] group-hover:-translate-x-1 transition-transform" />
-                <div>
-                  <div className="text-[10px] uppercase font-bold text-[#7A8475]">
-                    Previous Initiative
-                  </div>
-                  <div className="text-xs font-semibold text-[#1E231C]">
-                    {prevPillar.title}
-                  </div>
-                </div>
+                <ArrowLeftIcon className="w-3.5 h-3.5" />
+                <span>Back to All Initiatives</span>
               </Link>
-            ) : (
-              <div />
-            )}
 
-            {nextPillar ? (
               <Link
-                href={`/initiatives/${nextPillar.id}`}
-                className="p-4 rounded-xl bg-white border border-[#ECE7DF] hover:border-[#414D3C] transition-colors flex items-center justify-between text-right group sm:col-start-2"
+                href="/donate"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs hover:shadow"
               >
-                <div>
-                  <div className="text-[10px] uppercase font-bold text-[#7A8475]">
-                    Next Initiative
-                  </div>
-                  <div className="text-xs font-semibold text-[#1E231C]">
-                    {nextPillar.title}
-                  </div>
-                </div>
-                <ArrowRightIcon className="w-4 h-4 text-[#5A6455] group-hover:translate-x-1 transition-transform" />
+                <span>Support This Initiative</span>
+                <ArrowRightIcon className="w-3.5 h-3.5" />
               </Link>
-            ) : null}
+            </div>
+
+            {/* Prev / Next Navigation */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#ECE7DF]">
+              {prevPillar ? (
+                <Link
+                  href={`/initiatives/${prevPillar.id}`}
+                  className="p-4 rounded-xl bg-white border border-[#ECE7DF] hover:border-[#414D3C] transition-colors flex items-center gap-3 text-left group"
+                >
+                  <ArrowLeftIcon className="w-4 h-4 text-[#5A6455] group-hover:-translate-x-1 transition-transform" />
+                  <div>
+                    <div className="text-[10px] uppercase font-bold text-[#7A8475]">
+                      Previous Initiative
+                    </div>
+                    <div className="text-xs font-semibold text-[#1E231C]">
+                      {prevPillar.title}
+                    </div>
+                  </div>
+                </Link>
+              ) : (
+                <div />
+              )}
+
+              {nextPillar ? (
+                <Link
+                  href={`/initiatives/${nextPillar.id}`}
+                  className="p-4 rounded-xl bg-white border border-[#ECE7DF] hover:border-[#414D3C] transition-colors flex items-center justify-between text-right group sm:col-start-2"
+                >
+                  <div>
+                    <div className="text-[10px] uppercase font-bold text-[#7A8475]">
+                      Next Initiative
+                    </div>
+                    <div className="text-xs font-semibold text-[#1E231C]">
+                      {nextPillar.title}
+                    </div>
+                  </div>
+                  <ArrowRightIcon className="w-4 h-4 text-[#5A6455] group-hover:translate-x-1 transition-transform" />
+                </Link>
+              ) : null}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </article>
   );

@@ -4,6 +4,7 @@ import React, { useState, useMemo, useEffect } from "react";
 import { media, videos } from "@/lib/about/media";
 import CoverImage from "../latest-updates/CoverImage";
 import { PlayIcon, CloseIcon, CaretDownIcon } from "../common/Icons";
+import ScrollReveal from "../common/ScrollReveal";
 
 type ViewMode = "photos" | "videos";
 
@@ -303,58 +304,59 @@ export default function FramesGallery() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-7">
                 {displayedPhotos.map((photo, pIdx) => {
                   return (
-                    <div
-                      key={photo.id}
-                      onClick={() => setLightboxIndex(pIdx)}
-                      className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer p-1.5 sm:p-0"
-                    >
-                      <div className="flex flex-row sm:flex-col h-full">
-                        {/* Image Viewport: Left on mobile, Top on desktop */}
-                        <div className="w-24 xs:w-28 sm:w-full h-24 xs:h-28 sm:h-60 shrink-0 overflow-hidden rounded-lg sm:rounded-none bg-[#E9E4DC] relative">
-                          <CoverImage
-                            src={photo.url}
-                            alt={photo.caption}
-                            fallbackSrc="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80"
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                          />
+                    <ScrollReveal key={photo.id} delay={(pIdx % 3) * 0.08} className="h-full">
+                      <div
+                        onClick={() => setLightboxIndex(pIdx)}
+                        className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer p-1.5 sm:p-0 h-full"
+                      >
+                        <div className="flex flex-row sm:flex-col h-full">
+                          {/* Image Viewport: Left on mobile, Top on desktop */}
+                          <div className="w-24 xs:w-28 sm:w-full h-24 xs:h-28 sm:h-60 shrink-0 overflow-hidden rounded-lg sm:rounded-none bg-[#E9E4DC] relative">
+                            <CoverImage
+                              src={photo.url}
+                              alt={photo.caption}
+                              fallbackSrc="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80"
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            />
 
-                          {/* Top Category Badge */}
-                          <div className="hidden sm:block absolute top-3 left-3 z-10">
-                            <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-white/90 text-[#313A2D] backdrop-blur-xs border border-[#ECE7DF] shadow-2xs">
-                              {photo.categoryLabel}
-                            </span>
-                          </div>
-
-                          {/* Hover Overlay Hint */}
-                          <div className="absolute inset-0 bg-[#242D21]/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span className="px-3 py-1.5 rounded-full bg-white/95 text-[#242D21] text-xs font-medium shadow-md">
-                              Click to View
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* Caption Bar: Right on mobile, Bottom on desktop */}
-                        <div className="pl-2.5 sm:p-5 flex-1 flex flex-col justify-between min-w-0 py-0.5 sm:py-5">
-                          <div>
-                            {/* Mobile Category Tag */}
-                            <div className="sm:hidden mb-1">
-                              <span className="text-[9px] font-bold uppercase tracking-wider text-[#414D3C]">
+                            {/* Top Category Badge */}
+                            <div className="hidden sm:block absolute top-3 left-3 z-10">
+                              <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-white/90 text-[#313A2D] backdrop-blur-xs border border-[#ECE7DF] shadow-2xs">
                                 {photo.categoryLabel}
                               </span>
                             </div>
-                            <p className="text-xs sm:text-sm font-serif text-[#1E231C] leading-snug group-hover:text-[#414D3C] transition-colors line-clamp-2">
-                              {photo.caption}
-                            </p>
+
+                            {/* Hover Overlay Hint */}
+                            <div className="absolute inset-0 bg-[#242D21]/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                              <span className="px-3 py-1.5 rounded-full bg-white/95 text-[#242D21] text-xs font-medium shadow-md">
+                                Click to View
+                              </span>
+                            </div>
                           </div>
-                          <div className="pt-1.5 sm:pt-3 sm:mt-3 sm:border-t sm:border-[#F2ECE3] flex items-center justify-between text-[10px] sm:text-[11px] text-[#7A8374]">
-                            <span className="hidden sm:inline">The Boston Pledge Archive</span>
-                            <span className="font-medium text-[#414D3C] group-hover:underline">
-                              Enlarge →
-                            </span>
+
+                          {/* Caption Bar: Right on mobile, Bottom on desktop */}
+                          <div className="pl-2.5 sm:p-5 flex-1 flex flex-col justify-between min-w-0 py-0.5 sm:py-5">
+                            <div>
+                              {/* Mobile Category Tag */}
+                              <div className="sm:hidden mb-1">
+                                <span className="text-[9px] font-bold uppercase tracking-wider text-[#414D3C]">
+                                  {photo.categoryLabel}
+                                </span>
+                              </div>
+                              <p className="text-xs sm:text-sm font-serif text-[#1E231C] leading-snug group-hover:text-[#414D3C] transition-colors line-clamp-2">
+                                {photo.caption}
+                              </p>
+                            </div>
+                            <div className="pt-1.5 sm:pt-3 sm:mt-3 sm:border-t sm:border-[#F2ECE3] flex items-center justify-between text-[10px] sm:text-[11px] text-[#7A8374]">
+                              <span className="hidden sm:inline">The Boston Pledge Archive</span>
+                              <span className="font-medium text-[#414D3C] group-hover:underline">
+                                Enlarge →
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </ScrollReveal>
                   );
                 })}
               </div>
@@ -388,59 +390,60 @@ export default function FramesGallery() {
                       : `The Boston Pledge Video Dispatch #${idx + 1}`);
 
                   return (
-                    <div
-                      key={vid.url}
-                      className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between h-full"
-                    >
-                      {/* Video Player Box (16:9 ratio) */}
-                      <div className="w-full aspect-video bg-black relative">
-                        {isMp4 ? (
-                          <video
-                            controls
-                            preload="metadata"
-                            poster={
-                              "poster" in vid && vid.poster
-                                ? vid.poster
-                                : undefined
-                            }
-                            className="w-full h-full object-cover"
-                          >
-                            <source src={vid.url} type="video/mp4" />
-                            Your browser does not support HTML5 video.
-                          </video>
-                        ) : (
-                          <iframe
-                            src={vid.url}
-                            title={title}
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            loading="lazy"
-                            className="w-full h-full border-0"
-                          />
-                        )}
-                      </div>
+                    <ScrollReveal key={vid.url} delay={(idx % 3) * 0.08} className="h-full">
+                      <div
+                        className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-shadow flex flex-col justify-between h-full"
+                      >
+                        {/* Video Player Box (16:9 ratio) */}
+                        <div className="w-full aspect-video bg-black relative">
+                          {isMp4 ? (
+                            <video
+                              controls
+                              preload="metadata"
+                              poster={
+                                "poster" in vid && vid.poster
+                                  ? vid.poster
+                                  : undefined
+                              }
+                              className="w-full h-full object-cover"
+                            >
+                              <source src={vid.url} type="video/mp4" />
+                              Your browser does not support HTML5 video.
+                            </video>
+                          ) : (
+                            <iframe
+                              src={vid.url}
+                              title={title}
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                              loading="lazy"
+                              className="w-full h-full border-0"
+                            />
+                          )}
+                        </div>
 
-                      {/* Video Info */}
-                      <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between">
-                        <div>
-                          <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
-                            <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-                            <span className="text-[10px] font-bold uppercase tracking-wider text-[#636D5E]">
-                              {isMp4 ? "Field Video Footage" : "Video Recording"}
+                        {/* Video Info */}
+                        <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between">
+                          <div>
+                            <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
+                              <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
+                              <span className="text-[10px] font-bold uppercase tracking-wider text-[#636D5E]">
+                                {isMp4 ? "Field Video Footage" : "Video Recording"}
+                              </span>
+                            </div>
+                            <h3 className="text-xs sm:text-sm font-semibold text-[#1E231C] leading-snug line-clamp-2 sm:h-10 overflow-hidden">
+                              {title}
+                            </h3>
+                          </div>
+                          <div className="pt-2 sm:pt-3 mt-2 sm:mt-3 border-t border-[#F2ECE3] text-[10px] sm:text-[11px] text-[#7A8374] flex items-center justify-between">
+                            <span>Archive Source</span>
+                            <span className="font-medium text-[#414D3C]">
+                              The Boston Pledge
                             </span>
                           </div>
-                          <h3 className="text-xs sm:text-sm font-semibold text-[#1E231C] leading-snug line-clamp-2 sm:h-10 overflow-hidden">
-                            {title}
-                          </h3>
-                        </div>
-                        <div className="pt-2 sm:pt-3 mt-2 sm:mt-3 border-t border-[#F2ECE3] text-[10px] sm:text-[11px] text-[#7A8374] flex items-center justify-between">
-                          <span>Archive Source</span>
-                          <span className="font-medium text-[#414D3C]">
-                            The Boston Pledge
-                          </span>
                         </div>
                       </div>
-                    </div>
+                    </ScrollReveal>
                   );
                 })}
               </div>

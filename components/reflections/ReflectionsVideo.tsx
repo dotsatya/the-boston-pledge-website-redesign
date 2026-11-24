@@ -1,6 +1,7 @@
 import React from "react";
 import { reflectionsData } from "@/components/about/Reflections";
 import { ArrowUpRight, PlayIcon, YouTubeIcon } from "../common/Icons";
+import ScrollReveal from "../common/ScrollReveal";
 
 export default function ReflectionsVideo() {
   const { featuredVideo } = reflectionsData;
@@ -41,66 +42,72 @@ export default function ReflectionsVideo() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 items-center">
           {/* 16:9 Video Embed Card */}
           <div className="lg:col-span-8">
-            <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden bg-[#1E231C] shadow-sm border border-[#E2DDD4]">
-              <iframe
-                src={featuredVideo.embedUrl}
-                title={`${featuredVideo.title} — ${featuredVideo.subtitle}`}
-                className="absolute inset-0 w-full h-full border-0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
+            <ScrollReveal>
+              <div className="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden bg-[#1E231C] shadow-sm border border-[#E2DDD4]">
+                <iframe
+                  src={featuredVideo.embedUrl}
+                  title={`${featuredVideo.title} — ${featuredVideo.subtitle}`}
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* Context & Key Highlights Card */}
-          <div className="lg:col-span-4 flex flex-col justify-between self-stretch bg-white rounded-xl sm:rounded-2xl p-4 sm:p-7 border border-[#ECE7DF] shadow-xs">
-            <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-semibold text-[#414D3C] bg-[#F4F0E8] border border-[#E5DFD4] mb-2.5 sm:mb-4">
-                <PlayIcon className="w-3 h-3 text-[#414D3C]" />
-                <span>Executive Dialogue</span>
-              </div>
+          <div className="lg:col-span-4 flex flex-col justify-between self-stretch">
+            <ScrollReveal delay={0.1} className="h-full">
+              <div className="h-full flex flex-col justify-between bg-white rounded-xl sm:rounded-2xl p-4 sm:p-7 border border-[#ECE7DF] shadow-xs">
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-semibold text-[#414D3C] bg-[#F4F0E8] border border-[#E5DFD4] mb-2.5 sm:mb-4">
+                    <PlayIcon className="w-3 h-3 text-[#414D3C]" />
+                    <span>Executive Dialogue</span>
+                  </div>
 
-              <h3 className="text-base sm:text-xl font-serif text-[#1E231C] leading-snug mb-2 sm:mb-3">
-                Philosophical Foundations & Modern Governance
-              </h3>
+                  <h3 className="text-base sm:text-xl font-serif text-[#1E231C] leading-snug mb-2 sm:mb-3">
+                    Philosophical Foundations & Modern Governance
+                  </h3>
 
-              <p className="text-xs sm:text-sm text-[#555E50] leading-relaxed mb-3 sm:mb-6 font-normal">
-                {featuredVideo.description}
-              </p>
+                  <p className="text-xs sm:text-sm text-[#555E50] leading-relaxed mb-3 sm:mb-6 font-normal">
+                    {featuredVideo.description}
+                  </p>
 
-              {/* Thematic Pillars */}
-              <div className="space-y-2 pt-3 sm:pt-4 border-t border-[#ECE7DF]">
-                <h4 className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#5A6455]">
-                  Central Themes
-                </h4>
-                <div className="flex flex-wrap gap-1 sm:gap-1.5">
-                  {[
-                    "Leadership in the 21st Century",
-                    "Global Renaissance",
-                    "Reinventing Capitalism",
-                    "Grassroots Empowerment",
-                    "Conscience & Ethics",
-                  ].map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-block px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[10px] sm:text-[11px] font-medium text-[#414D3C] bg-[#FAF8F5] border border-[#ECE7DF]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  {/* Thematic Pillars */}
+                  <div className="space-y-2 pt-3 sm:pt-4 border-t border-[#ECE7DF]">
+                    <h4 className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#5A6455]">
+                      Central Themes
+                    </h4>
+                    <div className="flex flex-wrap gap-1 sm:gap-1.5">
+                      {[
+                        "Leadership in the 21st Century",
+                        "Global Renaissance",
+                        "Reinventing Capitalism",
+                        "Grassroots Empowerment",
+                        "Conscience & Ethics",
+                      ].map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-block px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[10px] sm:text-[11px] font-medium text-[#414D3C] bg-[#FAF8F5] border border-[#ECE7DF]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-3 sm:pt-6 mt-3 sm:mt-6 border-t border-[#ECE7DF] flex items-center justify-between text-[11px] sm:text-xs text-[#7A8475]">
+                  <span>Speaker: Dr. Partha S. Ghosh</span>
+                  <a
+                    href="#chairman"
+                    className="text-[#414D3C] font-semibold hover:underline inline-flex items-center gap-1"
+                  >
+                    Read Biography ↓
+                  </a>
                 </div>
               </div>
-            </div>
-
-            <div className="pt-3 sm:pt-6 mt-3 sm:mt-6 border-t border-[#ECE7DF] flex items-center justify-between text-[11px] sm:text-xs text-[#7A8475]">
-              <span>Speaker: Dr. Partha S. Ghosh</span>
-              <a
-                href="#chairman"
-                className="text-[#414D3C] font-semibold hover:underline inline-flex items-center gap-1"
-              >
-                Read Biography ↓
-              </a>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { GradCapIcon, BookOpenIcon, CommunityIcon } from "../common/Icons";
+import ScrollReveal from "../common/ScrollReveal";
 
 export default function MissionPillars() {
   const pillars = [
@@ -41,29 +42,30 @@ export default function MissionPillars() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
-            {pillars.map((pillar) => (
-              <div
-                key={pillar.number}
-                className="bg-white p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <span className="inline-block text-[10px] sm:text-[11px] font-bold text-[#414D3C] px-2 py-0.5 rounded-lg bg-[#FAF8F5] border border-[#DDD7CD]">
-                      {pillar.number}
-                    </span>
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#414D3C] flex items-center justify-center">
-                      {pillar.icon}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-6 lg:gap-8 items-stretch">
+            {pillars.map((pillar, idx) => (
+              <ScrollReveal key={pillar.number} delay={idx * 0.1} className="h-full">
+                <div
+                  className="bg-white p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-3 sm:mb-4">
+                      <span className="inline-block text-[10px] sm:text-[11px] font-bold text-[#414D3C] px-2 py-0.5 rounded-lg bg-[#FAF8F5] border border-[#DDD7CD]">
+                        {pillar.number}
+                      </span>
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#414D3C] flex items-center justify-center">
+                        {pillar.icon}
+                      </div>
                     </div>
+                    <h3 className="text-base sm:text-lg lg:text-xl font-serif font-bold text-[#1E231C] mb-1.5 sm:mb-2 leading-snug">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#555E50] leading-relaxed font-normal">
+                      {pillar.desc}
+                    </p>
                   </div>
-                  <h3 className="text-base sm:text-lg lg:text-xl font-serif font-bold text-[#1E231C] mb-1.5 sm:mb-2 leading-snug">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#555E50] leading-relaxed font-normal">
-                    {pillar.desc}
-                  </p>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

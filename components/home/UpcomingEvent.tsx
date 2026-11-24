@@ -6,13 +6,13 @@ import ScrollReveal from "../common/ScrollReveal";
 
 export default function UpcomingEvent() {
   return (
-    <section className="py-5 sm:py-7 lg:py-8 bg-[#FAF8F5]">
+    <section className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="bg-[#F4EEE5] rounded-2xl lg:rounded-3xl border border-[#E6E0D5] overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-3.5 sm:gap-5 lg:gap-0 p-3.5 sm:p-5 lg:p-0">
+            <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch gap-4 sm:gap-6 lg:gap-0 p-4 sm:p-6 lg:p-0">
               {/* Event Information */}
-              <div className="lg:col-span-5 relative z-10 min-w-0 flex flex-col justify-center lg:pl-8 lg:pr-4 lg:py-6">
+              <div className="lg:col-span-5 relative z-10 min-w-0 flex flex-col justify-center lg:pl-8 lg:pr-5 lg:py-7">
                 <div className="flex items-center gap-2.5 sm:gap-3 mb-1.5 sm:mb-2">
                   <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-[#5A6455] whitespace-nowrap">
                     UPCOMING EVENT
@@ -52,7 +52,7 @@ export default function UpcomingEvent() {
               </div>
 
               {/* Event Image - Left fade blend on laptop/desktop only, clean rounded photo on mobile */}
-              <div className="lg:col-span-4 relative min-w-0 w-full h-44 sm:h-56 lg:h-full lg:min-h-[240px] rounded-xl sm:rounded-2xl lg:rounded-none overflow-hidden">
+              <div className="lg:col-span-4 relative min-w-0 w-full h-48 sm:h-56 lg:h-full lg:min-h-[250px] rounded-xl sm:rounded-2xl lg:rounded-none overflow-hidden">
                 <div className="w-full h-full upcoming-event-mask overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=85"
@@ -66,7 +66,7 @@ export default function UpcomingEvent() {
               </div>
 
               {/* Event Quote */}
-              <div className="lg:col-span-3 min-w-0 flex items-center justify-center lg:border-l lg:border-[#DDD6CA] pt-3 sm:pt-4 lg:pt-0 border-t border-[#E6E0D5]/70 lg:border-t-0 px-2 lg:px-6 lg:py-6">
+              <div className="lg:col-span-3 min-w-0 flex items-center justify-center lg:border-l lg:border-[#DDD6CA] pt-3.5 sm:pt-4 lg:pt-0 border-t border-[#E6E0D5]/70 lg:border-t-0 px-3 lg:px-7 lg:py-7">
                 <p className="text-xs sm:text-sm lg:text-sm xl:text-base font-serif italic text-[#4A5344] leading-relaxed text-center lg:text-left">
                   &ldquo;A premier gathering of global leaders, visionaries, and changemakers.&rdquo;
                 </p>

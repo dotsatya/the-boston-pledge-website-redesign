@@ -23,10 +23,12 @@ export default function Navbar() {
   const [currentHash, setCurrentHash] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({
-    "About Us": false,
-    "Ways To Help": false,
-  });
+  const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>(
+    {
+      "About Us": false,
+      "Ways To Help": false,
+    },
+  );
 
   // Smart Hide-on-Scroll-Down, Show-on-Scroll-Up State
   const [visible, setVisible] = useState(true);
@@ -45,7 +47,7 @@ export default function Navbar() {
     const updateHeader = () => {
       const currentScrollY = Math.max(
         0,
-        window.pageYOffset || document.documentElement.scrollTop || 0
+        window.pageYOffset || document.documentElement.scrollTop || 0,
       );
 
       // Subtle shadow when scrolled past top
@@ -243,7 +245,10 @@ export default function Navbar() {
         visible ? "translate-y-0" : "-translate-y-full"
       } ${isScrolled ? "shadow-sm" : ""}`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between" ref={navRef}>
+      <div
+        className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between"
+        ref={navRef}
+      >
         {/* Logo */}
         <Logo />
 
@@ -263,7 +268,9 @@ export default function Navbar() {
                 >
                   <button
                     type="button"
-                    onClick={() => setActiveDropdown(isOpen ? null : item.label)}
+                    onClick={() =>
+                      setActiveDropdown(isOpen ? null : item.label)
+                    }
                     aria-expanded={isOpen}
                     className={`inline-flex items-center gap-1.5 text-xs xl:text-sm font-medium py-1 transition-colors relative ${
                       active || isOpen
@@ -306,7 +313,9 @@ export default function Navbar() {
                             onClick={() => {
                               setActiveDropdown(null);
                               if (sub.href.includes("#")) {
-                                setCurrentHash(sub.href.slice(sub.href.indexOf("#")));
+                                setCurrentHash(
+                                  sub.href.slice(sub.href.indexOf("#")),
+                                );
                               } else {
                                 setCurrentHash("");
                               }
@@ -391,33 +400,36 @@ export default function Navbar() {
 
       {/* Mobile Drawer with Accordion Submenus */}
       {mobileOpen && (
-        <div className="lg:hidden bg-[#FAF8F5] border-t border-[#E9E4DC] px-6 py-5 shadow-lg max-h-[85vh] overflow-y-auto">
-          <div className="flex flex-col space-y-2">
+        <div className="lg:hidden bg-[#FAF8F5] border-t border-[#E9E4DC] px-4 sm:px-6 py-3 sm:py-4 shadow-lg max-h-[82vh] overflow-y-auto">
+          <div className="flex flex-col space-y-1 sm:space-y-1.5">
             {navLinks.map((item) => {
               const active = isItemActive(item);
 
               if (item.dropdown) {
                 const isExpanded = mobileExpanded[item.label];
                 return (
-                  <div key={item.label} className="border-b border-[#EFECE6] py-1">
+                  <div
+                    key={item.label}
+                    className="border-b border-[#EFECE6]/70 py-0.5"
+                  >
                     <button
                       type="button"
                       onClick={() => toggleMobileAccordion(item.label)}
-                      className={`w-full py-2.5 px-3 rounded-xl text-base flex items-center justify-between transition-all ${
+                      className={`w-full py-2 px-3 rounded-lg text-sm sm:text-base flex items-center justify-between transition-all ${
                         active
-                          ? "bg-[#414D3C]/10 text-[#181E16] font-semibold border-l-4 border-[#414D3C]"
+                          ? "bg-[#414D3C]/8 text-[#181E16] font-semibold border-l-2.5 sm:border-l-3 border-[#414D3C]"
                           : "text-[#2F372C] hover:text-[#181E16] font-medium"
                       }`}
                     >
                       <span>{item.label}</span>
                       <CaretDownIcon
-                        className={`w-4 h-4 text-[#687363] transition-transform duration-200 ${
+                        className={`w-3.5 h-3.5 text-[#687363] transition-transform duration-200 ${
                           isExpanded ? "rotate-180" : ""
                         }`}
                       />
                     </button>
                     {isExpanded && (
-                      <div className="pl-4 border-l-2 border-[#D5CEC2] my-1.5 space-y-1">
+                      <div className="pl-3.5 border-l border-[#D5CEC2]/80 my-1 space-y-0.5">
                         {item.dropdown.map((sub) => {
                           const isSubActive = isSubItemActive(sub.href);
                           return (
@@ -427,14 +439,16 @@ export default function Navbar() {
                               onClick={() => {
                                 setMobileOpen(false);
                                 if (sub.href.includes("#")) {
-                                  setCurrentHash(sub.href.slice(sub.href.indexOf("#")));
+                                  setCurrentHash(
+                                    sub.href.slice(sub.href.indexOf("#")),
+                                  );
                                 } else {
                                   setCurrentHash("");
                                 }
                               }}
-                              className={`flex items-center justify-between py-2 px-3 rounded-lg text-sm transition-all ${
+                              className={`flex items-center justify-between py-1.5 px-2.5 rounded-md text-xs sm:text-sm transition-all ${
                                 isSubActive
-                                  ? "bg-[#414D3C]/15 text-[#181E16] font-semibold border-l-2 border-[#414D3C]"
+                                  ? "bg-[#414D3C]/10 text-[#181E16] font-medium border-l-2 border-[#414D3C]"
                                   : "text-[#4E584A] hover:text-[#1E231C]"
                               }`}
                             >
@@ -445,7 +459,9 @@ export default function Navbar() {
                                 <span>{sub.label}</span>
                               </span>
                               {isSubActive && (
-                                <span className="text-xs text-[#414D3C] font-bold">✓</span>
+                                <span className="text-[11px] text-[#414D3C] font-bold">
+                                  ✓
+                                </span>
                               )}
                             </Link>
                           );
@@ -464,15 +480,15 @@ export default function Navbar() {
                     setMobileOpen(false);
                     setCurrentHash("");
                   }}
-                  className={`py-2.5 px-3 rounded-xl text-base flex items-center justify-between transition-all ${
+                  className={`py-2 px-3 rounded-lg text-sm sm:text-base flex items-center justify-between transition-all ${
                     active
-                      ? "bg-[#414D3C]/10 text-[#181E16] font-semibold border-l-4 border-[#414D3C]"
-                      : "text-[#2F372C] hover:text-[#181E16] border-b border-[#EFECE6] font-medium"
+                      ? "bg-[#414D3C]/8 text-[#181E16] font-semibold border-l-2.5 sm:border-l-3 border-[#414D3C]"
+                      : "text-[#2F372C] hover:text-[#181E16] border-b border-[#EFECE6]/70 font-medium"
                   }`}
                 >
                   <span>{item.label}</span>
                   <span
-                    className={`text-xs ${
+                    className={`text-[11px] ${
                       active ? "text-[#414D3C] font-bold" : "text-[#8FA587]"
                     }`}
                   >
@@ -482,14 +498,14 @@ export default function Navbar() {
               );
             })}
 
-            <div className="pt-4">
+            <div className="pt-2.5 pb-1">
               <Link
                 href="/donate"
                 onClick={() => setMobileOpen(false)}
-                className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-full text-sm font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs"
+                className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs"
               >
                 <span>Donate</span>
-                <ArrowRightIcon className="w-4 h-4" />
+                <ArrowRightIcon className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>

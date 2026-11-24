@@ -1,5 +1,6 @@
 import React from "react";
 import { MapPinIcon, ArrowUpRight } from "../common/Icons";
+import ScrollReveal from "../common/ScrollReveal";
 
 export default function ContactMap() {
   const mapAddress = "7 Wainwright Rd Unit 66, Winchester, MA 01890";
@@ -46,19 +47,21 @@ export default function ContactMap() {
         </div>
 
         {/* Live Interactive Map Card - Unobstructed view of Google Maps with native controls */}
-        <div className="w-full h-[400px] sm:h-[480px] lg:h-[520px] rounded-3xl overflow-hidden border border-[#ECE7DF] shadow-xs bg-[#EAE6DF]">
-          <iframe
-            src={embedUrl}
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="The Boston Pledge Headquarters Live Location"
-            className="w-full h-full"
-          />
-        </div>
+        <ScrollReveal>
+          <div className="w-full h-[400px] sm:h-[480px] lg:h-[520px] rounded-3xl overflow-hidden border border-[#ECE7DF] shadow-xs bg-[#EAE6DF]">
+            <iframe
+              src={embedUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="The Boston Pledge Headquarters Live Location"
+              className="w-full h-full"
+            />
+          </div>
+        </ScrollReveal>
 
       </div>
     </section>

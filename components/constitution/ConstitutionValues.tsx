@@ -1,5 +1,6 @@
 import React from "react";
 import { constitutionData } from "@/lib/about/constitution";
+import ScrollReveal from "../common/ScrollReveal";
 
 export default function ConstitutionValues() {
   const { constitution } = constitutionData;
@@ -55,7 +56,7 @@ export default function ConstitutionValues() {
         </div>
 
         {/* 6 Core Values Grid (Symmetric 3 Columns) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4 items-stretch">
           {constitution.coreValues.map((value, idx) => {
             const meta = valueMeta[value.id] || {
               title: value.label,
@@ -63,40 +64,41 @@ export default function ConstitutionValues() {
             };
 
             return (
-              <div
-                key={value.id}
-                className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-[#E8E2D8] shadow-2xs hover:shadow-xs transition-all duration-200 flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-2.5">
-                    <span className="inline-flex items-center justify-center w-7 h-7 text-xs font-bold text-[#414D3C] rounded-lg bg-[#FAF8F5] border border-[#DDD7CD] group-hover:bg-[#414D3C] group-hover:text-white transition-colors">
-                      0{idx + 1}
-                    </span>
-                    <span className="text-[10px] font-semibold text-[#8C9587] uppercase tracking-wider">
-                      Tenet 0{idx + 1}
-                    </span>
+              <ScrollReveal key={value.id} delay={(idx % 3) * 0.08} className="h-full">
+                <div
+                  className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-[#E8E2D8] shadow-2xs hover:shadow-xs transition-all duration-200 flex flex-col justify-between group h-full"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-2.5">
+                      <span className="inline-flex items-center justify-center w-7 h-7 text-xs font-bold text-[#414D3C] rounded-lg bg-[#FAF8F5] border border-[#DDD7CD] group-hover:bg-[#414D3C] group-hover:text-white transition-colors">
+                        0{idx + 1}
+                      </span>
+                      <span className="text-[10px] font-semibold text-[#8C9587] uppercase tracking-wider">
+                        Tenet 0{idx + 1}
+                      </span>
+                    </div>
+
+                    <h3 className="text-sm sm:text-base font-serif font-semibold text-[#1E231C] mb-1.5 leading-snug group-hover:text-[#414D3C] transition-colors">
+                      {meta.title}
+                    </h3>
+
+                    <blockquote className="text-xs sm:text-sm font-medium text-[#2F382B] leading-relaxed mb-2 italic">
+                      &ldquo;{value.label}&rdquo;
+                    </blockquote>
+
+                    <p className="text-xs text-[#636C5E] leading-relaxed font-normal">
+                      {meta.subtitle}
+                    </p>
                   </div>
 
-                  <h3 className="text-sm sm:text-base font-serif font-semibold text-[#1E231C] mb-1.5 leading-snug group-hover:text-[#414D3C] transition-colors">
-                    {meta.title}
-                  </h3>
-
-                  <blockquote className="text-xs sm:text-sm font-medium text-[#2F382B] leading-relaxed mb-2 italic">
-                    &ldquo;{value.label}&rdquo;
-                  </blockquote>
-
-                  <p className="text-xs text-[#636C5E] leading-relaxed font-normal">
-                    {meta.subtitle}
-                  </p>
+                  <div className="pt-2.5 mt-3 border-t border-[#F2ECE3] flex items-center justify-between text-[11px] text-[#7A8374]">
+                    <span>Article Tenet</span>
+                    <span className="font-semibold text-[#414D3C]">
+                      The Boston Pledge Charter
+                    </span>
+                  </div>
                 </div>
-
-                <div className="pt-2.5 mt-3 border-t border-[#F2ECE3] flex items-center justify-between text-[11px] text-[#7A8374]">
-                  <span>Article Tenet</span>
-                  <span className="font-semibold text-[#414D3C]">
-                    The Boston Pledge Charter
-                  </span>
-                </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>

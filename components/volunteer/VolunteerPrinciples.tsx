@@ -2,6 +2,7 @@ import React from "react";
 import CoverImage from "../latest-updates/CoverImage";
 import { volunteerData } from "@/lib/volunteerData";
 import { SparkleIcon } from "../common/Icons";
+import ScrollReveal from "../common/ScrollReveal";
 
 export default function VolunteerPrinciples() {
   const { principles } = volunteerData;
@@ -59,24 +60,25 @@ export default function VolunteerPrinciples() {
             </div>
 
             {/* 6 Principles in a 2-Column Sleek Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
-              {principles.items.map((item) => (
-                <div
-                  key={item.id}
-                  className="bg-white rounded-xl p-3 sm:p-3.5 border border-[#E8E2D8] shadow-2xs hover:shadow-xs transition-shadow flex items-start gap-2.5"
-                >
-                  <div className="w-6 h-6 rounded-md bg-[#FAF8F5] border border-[#DDD6CB] flex items-center justify-center text-[11px] font-bold text-[#414D3C] shrink-0 mt-0.5">
-                    0{item.id}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 items-stretch">
+              {principles.items.map((item, idx) => (
+                <ScrollReveal key={item.id} delay={(idx % 2) * 0.08} className="h-full">
+                  <div
+                    className="bg-white rounded-xl p-3 sm:p-3.5 border border-[#E8E2D8] shadow-2xs hover:shadow-xs transition-shadow flex items-start gap-2.5 h-full"
+                  >
+                    <div className="w-6 h-6 rounded-md bg-[#FAF8F5] border border-[#DDD6CB] flex items-center justify-center text-[11px] font-bold text-[#414D3C] shrink-0 mt-0.5">
+                      0{item.id}
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-xs font-semibold text-[#1E231C] mb-0.5 leading-snug break-words">
+                        {item.title}
+                      </h3>
+                      <p className="text-[11px] text-[#525B4E] leading-relaxed font-normal">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
-                  <div className="min-w-0">
-                    <h3 className="text-xs font-semibold text-[#1E231C] mb-0.5 leading-snug break-words">
-                      {item.title}
-                    </h3>
-                    <p className="text-[11px] text-[#525B4E] leading-relaxed font-normal">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>

@@ -9,6 +9,7 @@ import {
 } from "./UpdateBlockRenderer";
 import CoverImage from "./CoverImage";
 import { ArrowRightIcon } from "../common/Icons";
+import ScrollReveal from "../common/ScrollReveal";
 
 export default function UpdatesFeed() {
   const allUpdates = getAllUpdates();
@@ -65,43 +66,55 @@ export default function UpdatesFeed() {
 
         {/* Articles Grid: 1 col on mobile, 2 on tablet, 3 on desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8 items-stretch">
-          {filtered.map((item: LatestUpdate) => {
+          {filtered.map((item: LatestUpdate, idx: number) => {
             const coverImg = getUpdateCoverImage(item);
             const fallback = getUpdateFallbackImage(item);
 
             return (
-              <article
-                key={item.id}
-                className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-all flex flex-col justify-between group p-1.5 sm:p-0 h-full"
-              >
-                <div className="flex flex-row sm:flex-col flex-1 min-w-0">
-                  {/* Left on mobile, Top on tablet/desktop */}
-                  <Link
-                    href={`/latest-updates/${item.slug}`}
-                    className="block relative w-24 sm:w-full h-24 sm:h-40 lg:h-42 shrink-0 overflow-hidden rounded-lg sm:rounded-none bg-[#EAE6DF]"
-                  >
-                    <CoverImage
-                      src={coverImg}
-                      fallbackSrc={fallback}
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </Link>
+              <ScrollReveal key={item.id} delay={(idx % 3) * 0.08} className="h-full">
+                <article
+                  className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-all flex flex-col justify-between group p-1.5 sm:p-0 h-full"
+                >
+                  <div className="flex flex-row sm:flex-col flex-1 min-w-0">
+                    {/* Left on mobile, Top on tablet/desktop */}
+                    <Link
+                      href={`/latest-updates/${item.slug}`}
+                      className="block relative w-24 sm:w-full h-24 sm:h-40 lg:h-42 shrink-0 overflow-hidden rounded-lg sm:rounded-none bg-[#EAE6DF]"
+                    >
+                      <CoverImage
+                        src={coverImg}
+                        fallbackSrc={fallback}
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </Link>
 
-                  {/* Right on mobile, Bottom on tablet/desktop */}
-                  <div className="pl-2.5 sm:px-4 sm:pt-3.5 sm:pb-3 flex-1 flex flex-col justify-between min-w-0 py-0.5">
-                    <div>
-                      <div className="flex items-center justify-between text-[9px] sm:text-[11px] mb-0.5 sm:mb-1.5">
-                        <span className="font-semibold text-[#414D3C] uppercase tracking-wider truncate mr-1">
-                          {item.category}
-                        </span>
-                        <span className="text-[#7C8578] shrink-0 text-[9px] sm:text-[11px]">
-                          {item.dateLabel}
-                        </span>
-                      </div>
-                      <Link href={`/latest-updates/${item.slug}`}>
-                        <h3
-                          className="text-xs sm:text-[15px] font-serif font-bold text-[#1E231C] mb-1 sm:mb-1.5 group-hover:text-[#414D3C] transition-colors leading-snug line-clamp-2 sm:h-10.5 overflow-hidden"
+                    {/* Right on mobile, Bottom on tablet/desktop */}
+                    <div className="pl-2.5 sm:px-4 sm:pt-3.5 sm:pb-3 flex-1 flex flex-col justify-between min-w-0 py-0.5">
+                      <div>
+                        <div className="flex items-center justify-between text-[9px] sm:text-[11px] mb-0.5 sm:mb-1.5">
+                          <span className="font-semibold text-[#414D3C] uppercase tracking-wider truncate mr-1">
+                            {item.category}
+                          </span>
+                          <span className="text-[#7C8578] shrink-0 text-[9px] sm:text-[11px]">
+                            {item.dateLabel}
+                          </span>
+                        </div>
+                        <Link href={`/latest-updates/${item.slug}`}>
+                          <h3
+                            className="text-xs sm:text-[15px] font-serif font-bold text-[#1E231C] mb-1 sm:mb-1.5 group-hover:text-[#414D3C] transition-colors leading-snug line-clamp-2 sm:h-10.5 overflow-hidden"
+                            style={{
+                              display: "-webkit-box",
+                              WebkitLineClamp: 2,
+                              WebkitBoxOrient: "vertical",
+                              overflow: "hidden",
+                            }}
+                          >
+                            {item.title}
+                          </h3>
+                        </Link>
+                        <p
+                          className="max-sm:hidden text-xs text-[#5D6558] leading-normal line-clamp-2 sm:h-9 overflow-hidden"
                           style={{
                             display: "-webkit-box",
                             WebkitLineClamp: 2,
@@ -109,54 +122,43 @@ export default function UpdatesFeed() {
                             overflow: "hidden",
                           }}
                         >
-                          {item.title}
-                        </h3>
-                      </Link>
-                      <p
-                        className="max-sm:hidden text-xs text-[#5D6558] leading-normal line-clamp-2 sm:h-9 overflow-hidden"
-                        style={{
-                          display: "-webkit-box",
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                        }}
-                      >
-                        {item.summary}
-                      </p>
-                    </div>
+                          {item.summary}
+                        </p>
+                      </div>
 
-                    {/* Mobile inline link */}
-                    <div className="pt-1.5 sm:hidden flex items-center justify-between border-t border-[#F5F1EA]/60">
-                      <span className="text-[9px] text-[#7A8374]">
-                        {item.dateLabel}
-                      </span>
-                      <Link
-                        href={`/latest-updates/${item.slug}`}
-                        className="inline-flex items-center gap-1 text-[10px] font-semibold text-[#414D3C]"
-                      >
-                        <span>Read</span>
-                        <ArrowRightIcon className="w-2 h-2" />
-                      </Link>
+                      {/* Mobile inline link */}
+                      <div className="pt-1.5 sm:hidden flex items-center justify-between border-t border-[#F5F1EA]/60">
+                        <span className="text-[9px] text-[#7A8374]">
+                          {item.dateLabel}
+                        </span>
+                        <Link
+                          href={`/latest-updates/${item.slug}`}
+                          className="inline-flex items-center gap-1 text-[10px] font-semibold text-[#414D3C]"
+                        >
+                          <span>Read</span>
+                          <ArrowRightIcon className="w-2 h-2" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Desktop & Tablet Card Footer */}
-                <div className="hidden sm:flex px-4 py-2.5 sm:py-3 items-center justify-between border-t border-[#F5F1EA] mt-auto">
-                  <span className="text-[11px] text-[#7C8578] font-medium">
-                    Event &amp; Update
-                  </span>
-                  <Link
-                    href={`/latest-updates/${item.slug}`}
-                    className="inline-flex items-center gap-2 text-xs font-semibold text-[#414D3C] group-hover:text-[#252F21]"
-                  >
-                    <span>Read Full Update</span>
-                    <div className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-full border border-[#D5CFBF] bg-white flex items-center justify-center text-[#414D3C] group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shadow-2xs">
-                      <ArrowRightIcon className="w-3 h-3" />
-                    </div>
-                  </Link>
-                </div>
-              </article>
+                  {/* Desktop & Tablet Card Footer */}
+                  <div className="hidden sm:flex px-4 py-2.5 sm:py-3 items-center justify-between border-t border-[#F5F1EA] mt-auto">
+                    <span className="text-[11px] text-[#7C8578] font-medium">
+                      Event &amp; Update
+                    </span>
+                    <Link
+                      href={`/latest-updates/${item.slug}`}
+                      className="inline-flex items-center gap-2 text-xs font-semibold text-[#414D3C] group-hover:text-[#252F21]"
+                    >
+                      <span>Read Full Update</span>
+                      <div className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-full border border-[#D5CFBF] bg-white flex items-center justify-center text-[#414D3C] group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shadow-2xs">
+                        <ArrowRightIcon className="w-3 h-3" />
+                      </div>
+                    </Link>
+                  </div>
+                </article>
+              </ScrollReveal>
             );
           })}
         </div>
