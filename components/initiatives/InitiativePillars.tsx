@@ -65,15 +65,15 @@ export default function InitiativePillars() {
                 </div>
 
                 {/* Floating Glassmorphic Badge with Dynamic Icon */}
-                <div className="absolute -bottom-5 right-6 sm:bottom-6 sm:right-6 bg-white/95 backdrop-blur-md px-5 py-3 rounded-2xl shadow-md border border-[#EBE5DB] flex items-center gap-3 z-20">
-                  <div className="w-9 h-9 rounded-xl bg-[#FAF8F5] border border-[#E2DDD3] flex items-center justify-center text-[#414D3C] shrink-0">
+                <div className="absolute bottom-2.5 right-2.5 sm:bottom-6 sm:right-6 bg-white/95 backdrop-blur-md px-3.5 sm:px-5 py-2 sm:py-3 rounded-xl sm:rounded-2xl shadow-md border border-[#EBE5DB] flex items-center gap-2.5 sm:gap-3 z-20">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-[#FAF8F5] border border-[#E2DDD3] flex items-center justify-center text-[#414D3C] shrink-0">
                     <PillarBadgeIcon name={item.icon} className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-sm font-bold font-serif text-[#1E231C] leading-none">
+                    <div className="text-xs sm:text-sm font-bold font-serif text-[#1E231C] leading-none">
                       {item.badge}
                     </div>
-                    <div className="text-[10px] text-[#7A8475] font-medium mt-1 uppercase tracking-wider">
+                    <div className="text-[9px] sm:text-[10px] text-[#7A8475] font-medium mt-0.5 sm:mt-1 uppercase tracking-wider">
                       Grassroot Impact
                     </div>
                   </div>
@@ -85,11 +85,11 @@ export default function InitiativePillars() {
                 className={`lg:col-span-6 ${idx % 2 === 1 ? "lg:order-1" : ""}`}
               >
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="inline-block text-[11px] font-bold text-[#414D3C] px-2.5 py-0.5 rounded bg-[#EFE9DF] border border-[#DCD5C9]">
+                  <span className="inline-block text-[10px] sm:text-[11px] font-bold text-[#414D3C] px-2.5 py-0.5 rounded bg-[#EFE9DF] border border-[#DCD5C9]">
                     PILLAR {item.number}
                   </span>
-                  <div className="w-8 h-px bg-[#C8C2B5]" />
-                  <span className="text-xs font-semibold text-[#5A6455] uppercase tracking-wider">
+                  <div className="w-6 sm:w-8 h-px bg-[#C8C2B5]" />
+                  <span className="text-[11px] sm:text-xs font-semibold text-[#5A6455] uppercase tracking-wider">
                     {item.title}
                   </span>
                 </div>
@@ -116,7 +116,7 @@ export default function InitiativePillars() {
 
                 <Link
                   href={`/initiatives/${item.id}`}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs hover:shadow"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs hover:shadow text-center"
                 >
                   <span>View Details</span>
                   <ArrowRightIcon className="w-3.5 h-3.5" />
@@ -128,21 +128,21 @@ export default function InitiativePillars() {
       </section>
 
       {/* Full-Width Warm Band: Exalted Ideal Quote */}
-      <section className="py-10 sm:py-12 lg:py-14 bg-[#F3EDE3] border-y border-[#E4DDD2]">
+      <section className="py-6 sm:py-8 lg:py-10 bg-[#F3EDE3] border-y border-[#E4DDD2]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-4xl sm:text-5xl font-serif text-[#5E6D58] leading-none mb-6 select-none opacity-90">
+          <div className="text-2xl sm:text-3xl lg:text-4xl font-serif text-[#5E6D58] leading-none mb-1.5 sm:mb-2 select-none opacity-90">
             “
           </div>
-          <blockquote className="text-lg sm:text-xl lg:text-2xl font-serif italic text-[#242D21] leading-relaxed mb-6 font-normal">
+          <blockquote className="text-base sm:text-lg lg:text-xl font-serif italic text-[#242D21] leading-relaxed mb-2.5 sm:mb-3 font-normal max-w-3xl mx-auto">
             Our real awakening takes place when we dedicate our life to an
             exalted ideal.
           </blockquote>
-          <div className="inline-flex items-center justify-center gap-3">
-            <div className="w-10 h-px bg-[#BEB6A8]" />
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-[#414D3C]">
+          <div className="inline-flex items-center justify-center gap-2 sm:gap-3">
+            <div className="w-6 sm:w-8 h-px bg-[#BEB6A8]" />
+            <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-[#414D3C]">
               Swami Vivekananda
             </span>
-            <div className="w-10 h-px bg-[#BEB6A8]" />
+            <div className="w-6 sm:w-8 h-px bg-[#BEB6A8]" />
           </div>
         </div>
       </section>

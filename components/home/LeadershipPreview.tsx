@@ -10,16 +10,16 @@ export default function LeadershipPreview() {
   const leaders = ourTeamDetails.slice(0, 4);
 
   return (
-    <section className="py-6 sm:py-12 lg:py-14 bg-[#FAF8F5]">
+    <section className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 lg:gap-10 items-start">
           {/* Left Column Text matching demo */}
           <div className="lg:col-span-3">
-            <div className="flex items-center gap-3 mb-2 sm:mb-2.5">
-              <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">
+            <div className="flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-2.5">
+              <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-[#5A6455] whitespace-nowrap">
                 OUR LEADERSHIP
               </span>
-              <div className="w-10 h-px bg-[#C8C2B5]" />
+              <div className="w-8 sm:w-10 h-px bg-[#C8C2B5]" />
             </div>
 
             <Link href="/about/our-team" className="group">
@@ -42,7 +42,7 @@ export default function LeadershipPreview() {
           </div>
 
           {/* Right 4-column team portraits with clean card padding & next/image */}
-          <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5 items-stretch">
+          <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5 items-stretch">
             {leaders.map((leader, idx) => (
               <ScrollReveal key={leader.id} delay={idx * 0.1} className="h-full">
                 <Link

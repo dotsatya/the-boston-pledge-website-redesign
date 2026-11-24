@@ -43,17 +43,17 @@ export default function InitiativeDetail({ pillar }: { pillar: Pillar }) {
   const otherPillars = pillars.filter((p) => p.id !== pillar.id);
 
   return (
-    <article className="py-8 sm:py-10 lg:py-14 bg-[#FAF8F5]">
+    <article className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb Navigation */}
-        <nav className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs text-[#6B7565] mb-6 sm:mb-8">
-          <Link href="/" className="hover:text-[#1E231C] transition-colors">
+        <nav className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs text-[#7A8475] mb-2.5 sm:mb-4">
+          <Link href="/" className="hover:text-[#414D3C] transition-colors">
             Home
           </Link>
           <span>/</span>
           <Link
             href="/initiatives"
-            className="hover:text-[#1E231C] transition-colors"
+            className="hover:text-[#414D3C] transition-colors"
           >
             Initiatives
           </Link>

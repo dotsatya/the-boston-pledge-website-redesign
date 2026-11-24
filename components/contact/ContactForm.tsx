@@ -24,7 +24,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="pt-2 sm:pt-4 pb-12 sm:pb-16 bg-[#FAF8F5]">
+    <section className="pt-2 sm:pt-4 pb-6 sm:pb-8 lg:pb-10 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Symmetric 50/50 Balanced Grid with matching stretch alignment */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">

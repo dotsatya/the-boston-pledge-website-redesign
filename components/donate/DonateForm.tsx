@@ -43,7 +43,7 @@ export default function DonateForm() {
   };
 
   return (
-    <section id="donate-form" className="pt-2 sm:pt-4 pb-6 sm:pb-16 bg-[#FAF8F5] overflow-hidden">
+    <section id="donate-form" className="pt-2 sm:pt-4 pb-6 sm:pb-8 lg:pb-10 bg-[#FAF8F5] overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {submitted ? (
           <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 text-center border border-[#ECE7DF] shadow-xs">

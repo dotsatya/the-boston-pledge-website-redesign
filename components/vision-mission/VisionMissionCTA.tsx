@@ -4,9 +4,9 @@ import { ArrowRightIcon } from "../common/Icons";
 
 export default function VisionMissionCTA() {
   return (
-    <section className="py-6 sm:py-10 lg:py-12 bg-[#FAF8F5]">
+    <section className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#242D21] rounded-2xl sm:rounded-3xl p-5 sm:p-12 lg:p-16 text-center text-white relative overflow-hidden shadow-md">
+        <div className="bg-[#242D21] rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 text-center text-white relative overflow-hidden shadow-md border border-[#3A4635]">
           {/* Subtle decorative background circle */}
           <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-96 h-96 rounded-full bg-white/5 pointer-events-none" />
           <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/3 w-96 h-96 rounded-full bg-[#414D3C]/30 pointer-events-none" />

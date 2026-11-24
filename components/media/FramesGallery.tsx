@@ -3,7 +3,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { media, videos } from "@/lib/about/media";
 import CoverImage from "../latest-updates/CoverImage";
-import { PlayIcon, CloseIcon } from "../common/Icons";
+import { PlayIcon, CloseIcon, CaretDownIcon } from "../common/Icons";
 
 type ViewMode = "photos" | "videos";
 
@@ -21,7 +21,8 @@ const VIDEOS_PER_PAGE = 6;
 export default function FramesGallery() {
   const [viewMode, setViewMode] = useState<ViewMode>("photos");
   const [searchQuery, setSearchQuery] = useState("");
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [visiblePhotosCount, setVisiblePhotosCount] = useState<number>(PHOTOS_PER_PAGE);
+  const [visibleVideosCount, setVisibleVideosCount] = useState<number>(VIDEOS_PER_PAGE);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   // Categorize and supplement empty captions cleanly
@@ -121,12 +122,12 @@ export default function FramesGallery() {
 
   const handleModeChange = (mode: ViewMode) => {
     setViewMode(mode);
-    setCurrentPage(1);
   };
 
   const handleSearchChange = (query: string) => {
     setSearchQuery(query);
-    setCurrentPage(1);
+    setVisiblePhotosCount(PHOTOS_PER_PAGE);
+    setVisibleVideosCount(VIDEOS_PER_PAGE);
   };
 
   // Filtered photos based on search query
@@ -154,44 +155,25 @@ export default function FramesGallery() {
     });
   }, [searchQuery]);
 
-  // Pagination calculation based on current viewMode
-  const itemsPerPage = viewMode === "photos" ? PHOTOS_PER_PAGE : VIDEOS_PER_PAGE;
-  const currentFilteredCount = viewMode === "photos" ? filteredPhotos.length : filteredVideos.length;
-  const totalPages = Math.ceil(currentFilteredCount / itemsPerPage);
-  const safePage = Math.min(Math.max(1, currentPage), Math.max(1, totalPages));
+  const displayedPhotos = useMemo(() => {
+    return filteredPhotos.slice(0, visiblePhotosCount);
+  }, [filteredPhotos, visiblePhotosCount]);
 
-  const startIndex = (safePage - 1) * itemsPerPage;
-  const endIndex = Math.min(startIndex + itemsPerPage, currentFilteredCount);
+  const displayedVideos = useMemo(() => {
+    return filteredVideos.slice(0, visibleVideosCount);
+  }, [filteredVideos, visibleVideosCount]);
 
-  const paginatedPhotos = useMemo(() => {
-    return filteredPhotos.slice(startIndex, startIndex + itemsPerPage);
-  }, [filteredPhotos, startIndex, itemsPerPage]);
+  const hasMore =
+    viewMode === "photos"
+      ? visiblePhotosCount < filteredPhotos.length
+      : visibleVideosCount < filteredVideos.length;
 
-  const paginatedVideos = useMemo(() => {
-    return filteredVideos.slice(startIndex, startIndex + itemsPerPage);
-  }, [filteredVideos, startIndex, itemsPerPage]);
-
-  const handlePageChange = (newPage: number) => {
-    setCurrentPage(newPage);
-    if (typeof window !== "undefined") {
-      const el = document.getElementById("frames-gallery");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+  const handleLoadMore = () => {
+    if (viewMode === "photos") {
+      setVisiblePhotosCount((prev) => prev + PHOTOS_PER_PAGE);
+    } else {
+      setVisibleVideosCount((prev) => prev + VIDEOS_PER_PAGE);
     }
-  };
-
-  const getPageNumbers = () => {
-    if (totalPages <= 7) {
-      return Array.from({ length: totalPages }, (_, i) => i + 1);
-    }
-    if (safePage <= 4) {
-      return [1, 2, 3, 4, 5, "...", totalPages];
-    }
-    if (safePage >= totalPages - 3) {
-      return [1, "...", totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
-    }
-    return [1, "...", safePage - 1, safePage, safePage + 1, "...", totalPages];
   };
 
   // Keyboard navigation for lightbox
@@ -286,29 +268,17 @@ export default function FramesGallery() {
           </div>
         </div>
 
-        {/* Counter Summary */}
-        <div className="flex items-center justify-between text-[11px] sm:text-xs text-[#6F7869] mb-3 sm:mb-6">
-          <span>
-            {currentFilteredCount > 0 ? (
-              <>
-                Showing <strong className="text-[#1E231C] font-semibold">{startIndex + 1}–{endIndex}</strong> of{" "}
-                <strong className="text-[#1E231C] font-semibold">{currentFilteredCount}</strong>{" "}
-                {viewMode === "photos" ? "photographic frames" : "video dispatches"}
-                {searchQuery && ` matching "${searchQuery}"`}
-              </>
-            ) : (
-              `No ${viewMode === "photos" ? "photos" : "videos"} to display`
-            )}
-          </span>
-          {searchQuery && (
+        {/* Search Clear Row if active */}
+        {searchQuery && (
+          <div className="flex justify-end text-[11px] sm:text-xs mb-3 sm:mb-4">
             <button
               onClick={() => handleSearchChange("")}
               className="text-[#414D3C] underline hover:text-[#262F23] cursor-pointer"
             >
-              Clear search
+              Clear search &ldquo;{searchQuery}&rdquo;
             </button>
-          )}
-        </div>
+          </div>
+        )}
 
         {/* 1. PHOTOGRAPHIC FRAMES MODE */}
         {viewMode === "photos" && (
@@ -331,12 +301,11 @@ export default function FramesGallery() {
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-7">
-                {paginatedPhotos.map((photo, pIdx) => {
-                  const globalIdx = startIndex + pIdx;
+                {displayedPhotos.map((photo, pIdx) => {
                   return (
                     <div
                       key={photo.id}
-                      onClick={() => setLightboxIndex(globalIdx)}
+                      onClick={() => setLightboxIndex(pIdx)}
                       className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer p-1.5 sm:p-0"
                     >
                       <div className="flex flex-row sm:flex-col h-full">
@@ -410,13 +379,13 @@ export default function FramesGallery() {
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-7 items-stretch">
-                {paginatedVideos.map((vid, idx) => {
+                {displayedVideos.map((vid, idx) => {
                   const isMp4 = vid.url.endsWith(".mp4");
                   const title =
                     vid.caption ||
                     (isMp4
                       ? "Children in Ballavpur Village, Birbhum — Grassroots Outreach"
-                      : `The Boston Pledge Video Dispatch #${startIndex + idx + 1}`);
+                      : `The Boston Pledge Video Dispatch #${idx + 1}`);
 
                   return (
                     <div
@@ -479,62 +448,16 @@ export default function FramesGallery() {
           </div>
         )}
 
-        {/* PAGINATION CONTROLS (Rendered when total pages > 1) */}
-        {totalPages > 1 && (
-          <div className="mt-6 sm:mt-12 pt-4 sm:pt-8 border-t border-[#ECE7DF] flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
-            <div className="text-xs text-[#7A8475]">
-              Page <strong className="text-[#1E231C] font-semibold">{safePage}</strong> of{" "}
-              <strong className="text-[#1E231C] font-semibold">{totalPages}</strong>
-            </div>
-
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              {/* Previous Button */}
-              <button
-                onClick={() => handlePageChange(safePage - 1)}
-                disabled={safePage === 1}
-                aria-label="Previous page"
-                className="px-3 sm:px-4 py-2 rounded-full text-xs font-medium transition-all flex items-center gap-1 disabled:opacity-40 disabled:cursor-not-allowed bg-white text-[#384234] border border-[#DDD7CD] hover:border-[#414D3C] hover:bg-[#FAF8F5] cursor-pointer shadow-2xs"
-              >
-                <span>←</span>
-                <span className="hidden sm:inline">Previous</span>
-              </button>
-
-              {/* Page Numbers */}
-              <div className="flex items-center gap-1 sm:gap-1.5 overflow-x-auto max-w-[190px] min-[400px]:max-w-[240px] sm:max-w-none py-1">
-                {getPageNumbers().map((item, idx) =>
-                  typeof item === "number" ? (
-                    <button
-                      key={item}
-                      onClick={() => handlePageChange(item)}
-                      aria-label={`Go to page ${item}`}
-                      aria-current={safePage === item ? "page" : undefined}
-                      className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full text-xs font-semibold transition-all flex items-center justify-center cursor-pointer ${
-                        safePage === item
-                          ? "bg-[#414D3C] text-white shadow-xs scale-105"
-                          : "bg-white text-[#384234] border border-[#DDD7CD] hover:border-[#414D3C] hover:bg-[#FAF8F5]"
-                      }`}
-                    >
-                      {item}
-                    </button>
-                  ) : (
-                    <span key={`ellipsis-${idx}`} className="px-1 text-xs text-[#8A9585]">
-                      …
-                    </span>
-                  )
-                )}
-              </div>
-
-              {/* Next Button */}
-              <button
-                onClick={() => handlePageChange(safePage + 1)}
-                disabled={safePage === totalPages}
-                aria-label="Next page"
-                className="px-3 sm:px-4 py-2 rounded-full text-xs font-medium transition-all flex items-center gap-1 disabled:opacity-40 disabled:cursor-not-allowed bg-white text-[#384234] border border-[#DDD7CD] hover:border-[#414D3C] hover:bg-[#FAF8F5] cursor-pointer shadow-2xs"
-              >
-                <span className="hidden sm:inline">Next</span>
-                <span>→</span>
-              </button>
-            </div>
+        {/* Load More Button */}
+        {hasMore && (
+          <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-[#ECE7DF] flex justify-center">
+            <button
+              onClick={handleLoadMore}
+              className="inline-flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] active:scale-95 transition-all shadow-xs hover:shadow-md cursor-pointer group"
+            >
+              <span>{viewMode === "photos" ? "Show More Frames" : "Show More Videos"}</span>
+              <CaretDownIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5" />
+            </button>
           </div>
         )}
 

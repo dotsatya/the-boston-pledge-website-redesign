@@ -35,17 +35,17 @@ export default function SpeechesArchive() {
   }, [speeches.items, selectedCategory, searchQuery]);
 
   return (
-    <section id="speeches" className="py-6 sm:py-12 lg:py-20 bg-[#FAF8F5]">
+    <section id="speeches" className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-4 sm:mb-10">
-          <div className="flex items-center gap-3 mb-1.5 sm:mb-2.5">
-            <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">
-              GLOBAL ADDRESSES & SYMPOSIUMS
+        <div className="max-w-3xl mb-3 sm:mb-6">
+          <div className="flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-2.5">
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-[#5A6455] whitespace-nowrap">
+              GLOBAL ADDRESSES &amp; SYMPOSIUMS
             </span>
-            <div className="w-10 h-px bg-[#C8C2B5]" />
+            <div className="w-8 sm:w-10 h-px bg-[#C8C2B5]" />
           </div>
-          <h2 className="text-xl sm:text-3xl lg:text-4xl font-serif text-[#1E231C] tracking-tight mb-2 sm:mb-3">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-[#1E231C] tracking-tight mb-2 sm:mb-3">
             {speeches.sectionTitle}
           </h2>
           <p className="text-xs sm:text-sm lg:text-base text-[#555E50] leading-relaxed font-normal">

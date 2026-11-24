@@ -6,19 +6,19 @@ export default function ChairmanBio() {
   const { chairman } = reflectionsData;
 
   return (
-    <section id="chairman" className="py-6 sm:py-12 lg:py-16 bg-[#FAF8F5] border-b border-[#ECE7DF]">
+    <section id="chairman" className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5] border-b border-[#ECE7DF]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Overline */}
-        <div className="flex items-center gap-3 mb-1.5 sm:mb-2.5">
-          <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">
+        <div className="flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-2.5">
+          <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-[#5A6455] whitespace-nowrap">
             THE BOSTON PLEDGE CHAIRMAN
           </span>
-          <div className="w-10 h-px bg-[#C8C2B5]" />
+          <div className="w-8 sm:w-10 h-px bg-[#C8C2B5]" />
         </div>
 
         {/* Section Title */}
-        <div className="mb-4 sm:mb-10 max-w-3xl">
-          <h2 className="text-xl sm:text-3xl lg:text-4xl font-serif text-[#1E231C] tracking-tight">
+        <div className="mb-3 sm:mb-6 max-w-3xl">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-[#1E231C] tracking-tight">
             {chairman.name}
           </h2>
           <p className="text-xs sm:text-base text-[#414D3C] font-medium mt-0.5 sm:mt-1">

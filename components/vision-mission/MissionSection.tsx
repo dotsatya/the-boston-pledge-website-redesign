@@ -11,7 +11,7 @@ interface MissionSectionProps {
 
 export default function MissionSection({ title, image, objectives }: MissionSectionProps) {
   return (
-    <section className="py-6 sm:py-8 bg-[#FAF8F5]">
+    <section className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
           
@@ -29,14 +29,14 @@ export default function MissionSection({ title, image, objectives }: MissionSect
           {/* Right Column: Mission Objectives (Compact 7 cols) */}
           <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col justify-center">
             <div className="mb-3">
-              <div className="flex items-center gap-3 mb-1.5">
-                <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">
+              <div className="flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-2.5">
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-[#5A6455] whitespace-nowrap">
                   {title.toUpperCase()}
                 </span>
-                <div className="w-8 h-px bg-[#C8C2B5]" />
+                <div className="w-8 sm:w-10 h-px bg-[#C8C2B5]" />
               </div>
 
-              <h2 className="text-xl sm:text-2xl font-serif font-normal text-[#1E231C] leading-[1.2] tracking-tight mb-1">
+              <h2 className="text-2xl sm:text-3xl font-serif font-normal text-[#1E231C] leading-[1.2] tracking-tight mb-1.5 sm:mb-2">
                 Action with Purpose and Compassion
               </h2>
 

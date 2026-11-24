@@ -8,15 +8,15 @@ export default function ConstitutionQuote() {
   const lines = quote.text.split("\n");
 
   return (
-    <section className="py-6 sm:py-10 lg:py-16 bg-[#F3EDE3] border-y border-[#E4DDD2]">
+    <section className="py-6 sm:py-8 lg:py-10 bg-[#F3EDE3] border-y border-[#E4DDD2]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Decorative Green Quotation Mark */}
-        <div className="text-3xl sm:text-5xl font-serif text-[#5E6D58] leading-none mb-2 sm:mb-4 select-none opacity-90">
+        <div className="text-2xl sm:text-3xl lg:text-4xl font-serif text-[#5E6D58] leading-none mb-1.5 sm:mb-2 select-none opacity-90">
           “
         </div>
 
         {/* Poetic Quote Body in Editorial Serif */}
-        <blockquote className="text-sm sm:text-xl lg:text-2xl font-serif italic text-[#242D21] leading-relaxed mb-3 sm:mb-6 font-normal">
+        <blockquote className="text-base sm:text-lg lg:text-xl font-serif italic text-[#242D21] leading-relaxed mb-2.5 sm:mb-3 font-normal max-w-3xl mx-auto">
           {lines.map((line, i) => (
             <React.Fragment key={i}>
               <span>{line}</span>
@@ -26,14 +26,14 @@ export default function ConstitutionQuote() {
         </blockquote>
 
         {/* Author Overline Attribution */}
-        <div className="inline-flex items-center justify-center gap-3">
-          <div className="w-8 sm:w-10 h-px bg-[#BEB6A8]" />
-          <span className="text-[11px] sm:text-sm font-semibold uppercase tracking-[0.18em] text-[#414D3C]">
+        <div className="inline-flex items-center justify-center gap-2 sm:gap-3">
+          <div className="w-6 sm:w-8 h-px bg-[#BEB6A8]" />
+          <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-[#414D3C]">
             {quote.author}
           </span>
-          <div className="w-8 sm:w-10 h-px bg-[#BEB6A8]" />
+          <div className="w-6 sm:w-8 h-px bg-[#BEB6A8]" />
         </div>
-        <div className="text-[11px] text-[#788273] mt-1 font-medium">
+        <div className="text-[10px] sm:text-[11px] text-[#788273] mt-0.5 font-medium">
           Nobel Laureate in Literature (1913) · From &ldquo;Gitanjali&rdquo;
         </div>
       </div>

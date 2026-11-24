@@ -13,16 +13,16 @@ export default function NewsSection() {
   const news = getLatestUpdates(3);
 
   return (
-    <section className="py-6 sm:py-12 lg:py-14 bg-[#FAF8F5]">
+    <section className="py-4 sm:py-6 lg:py-7 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 lg:gap-10 items-start">
           {/* Left Column Text matching demo */}
           <div className="lg:col-span-3">
-            <div className="flex items-center gap-3 mb-2 sm:mb-2.5">
-              <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">
-                NEWS & INSIGHTS
+            <div className="flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-2.5">
+              <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-[#5A6455] whitespace-nowrap">
+                NEWS &amp; INSIGHTS
               </span>
-              <div className="w-10 h-px bg-[#C8C2B5]" />
+              <div className="w-8 sm:w-10 h-px bg-[#C8C2B5]" />
             </div>
 
             <Link href="/latest-updates" className="group">
@@ -31,7 +31,7 @@ export default function NewsSection() {
               </h2>
             </Link>
 
-            <p className="text-xs sm:text-sm text-[#5B6356] leading-relaxed mb-3.5 sm:mb-6 font-normal">
+            <p className="text-xs sm:text-sm text-[#5B6356] leading-relaxed mb-2.5 sm:mb-4 font-normal">
               Stay informed with the latest news, publications and stories from
               our work.
             </p>
@@ -59,7 +59,7 @@ export default function NewsSection() {
                   >
                   {/* Left (mobile) / Top (desktop) Image */}
                   <div className="p-0 sm:p-2 sm:pb-0 shrink-0">
-                    <div className="w-24 sm:w-full h-24 sm:h-48 overflow-hidden rounded-lg sm:rounded-xl bg-[#EAE6DF] relative">
+                    <div className="w-20 sm:w-full h-20 sm:h-36 lg:h-38 overflow-hidden rounded-lg sm:rounded-xl bg-[#EAE6DF] relative">
                       <CoverImage
                         src={coverImg}
                         fallbackSrc={fallback}
@@ -83,23 +83,23 @@ export default function NewsSection() {
                   </div>
 
                   {/* Right (mobile) / Bottom (desktop) Details Body */}
-                  <div className="pl-3 sm:px-4 sm:pb-4 sm:pt-0 bg-white flex flex-col justify-center sm:justify-between sm:-mt-3 relative z-10 flex-1 min-w-0">
+                  <div className="pl-2.5 sm:px-3.5 sm:pb-3 sm:pt-0 bg-white flex flex-col justify-center sm:justify-between sm:-mt-3 relative z-10 flex-1 min-w-0">
                     <div className="flex items-center sm:items-stretch justify-between gap-2">
                       <div className="flex-1 min-w-0">
                         {/* Date */}
-                        <div className="text-[11px] sm:text-xs text-[#7A8475] font-medium mb-1 sm:mb-2.5">
+                        <div className="text-[11px] sm:text-xs text-[#7A8475] font-medium mb-0.5 sm:mb-1.5">
                           {item.dateLabel}
                         </div>
 
                         {/* Title with uniform 2-line slot height */}
-                        <h3 className="text-xs sm:text-base font-semibold text-[#1E231C] group-hover:text-[#414D3C] transition-colors leading-snug line-clamp-2 sm:min-h-[2.75rem] flex items-center">
+                        <h3 className="text-xs sm:text-base font-semibold text-[#1E231C] group-hover:text-[#414D3C] transition-colors leading-snug line-clamp-2 sm:min-h-[2.5rem] flex items-center">
                           {item.title}
                         </h3>
                       </div>
 
                       {/* Circular Arrow Button with <ArrowUpRight /> aligned to bottom */}
-                      <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full border border-[#D5CFBF] bg-white flex items-center justify-center text-[#414D3C] group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shadow-2xs shrink-0 self-center sm:self-end">
-                        <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-[#D5CFBF] bg-white flex items-center justify-center text-[#414D3C] group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shadow-2xs shrink-0 self-center sm:self-end">
+                        <ArrowUpRight className="w-3.5 h-3.5" />
                       </div>
                     </div>
                   </div>

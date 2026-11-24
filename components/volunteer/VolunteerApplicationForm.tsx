@@ -31,19 +31,19 @@ export default function VolunteerApplicationForm() {
   };
 
   return (
-    <section id="application-form" className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
+    <section id="application-form" className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-3 mb-3">
-            <div className="w-8 h-px bg-[#C8C2B5]" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#5A6455]">
+        <div className="text-center max-w-2xl mx-auto mb-4 sm:mb-6">
+          <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-2.5">
+            <div className="w-6 sm:w-8 h-px bg-[#C8C2B5]" />
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-[#5A6455] whitespace-nowrap">
               APPLICATION FORM
             </span>
-            <div className="w-8 h-px bg-[#C8C2B5]" />
+            <div className="w-6 sm:w-8 h-px bg-[#C8C2B5]" />
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-serif font-normal text-[#1E231C] tracking-tight mb-3">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-normal text-[#1E231C] tracking-tight mb-1.5 sm:mb-2">
             Apply to Join The Boston Pledge
           </h2>
 
@@ -90,7 +90,7 @@ export default function VolunteerApplicationForm() {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="bg-white p-5 sm:p-8 lg:p-12 rounded-2xl sm:rounded-3xl border border-[#ECE7DF] shadow-xs space-y-5 sm:space-y-6"
+            className="bg-white p-4 sm:p-8 lg:p-12 rounded-2xl sm:rounded-3xl border border-[#ECE7DF] shadow-xs space-y-4 sm:space-y-6"
           >
             {/* Honeypot field (hidden from view for human visitors) */}
             <div className="hidden" aria-hidden="true">
@@ -245,14 +245,14 @@ export default function VolunteerApplicationForm() {
 
             {/* Row 5: Time commitment / week (Radio selection) */}
             <div>
-              <label className="block text-xs font-semibold text-[#374133] mb-2.5">
+              <label className="block text-xs font-semibold text-[#374133] mb-2 sm:mb-2.5">
                 How much time / week can you commit? <span className="text-red-500">*</span>
               </label>
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 {timeCommitments.map((time) => (
                   <label
                     key={time}
-                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl border text-xs font-semibold cursor-pointer transition-all ${
+                    className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border text-xs font-semibold cursor-pointer transition-all ${
                       formData.timeCommitment === time
                         ? "bg-[#414D3C] text-white border-[#414D3C] shadow-2xs"
                         : "bg-[#FAF8F5] text-[#333C2E] border-[#D5CEC2] hover:border-[#414D3C]"
@@ -273,7 +273,7 @@ export default function VolunteerApplicationForm() {
             </div>
 
             {/* Submit button */}
-            <div className="pt-3">
+            <div className="pt-2 sm:pt-3">
               <button
                 type="submit"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs hover:shadow transition-all cursor-pointer"

@@ -4,15 +4,15 @@ import { ArrowRightIcon } from "../common/Icons";
 
 export default function JoinTeamCTA() {
   return (
-    <section className="py-6 sm:py-10 lg:py-14 bg-[#FAF8F5]">
+    <section className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#F3EDE3] rounded-2xl sm:rounded-3xl p-5 sm:p-12 border border-[#E4DDD2] text-center">
-          <div className="flex items-center justify-center gap-3 mb-2 sm:mb-3">
-            <div className="w-8 h-px bg-[#C8C2B5]" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#5A6455]">
+        <div className="bg-[#F3EDE3] rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 border border-[#E4DDD2] text-center">
+          <div className="flex items-center justify-center gap-2.5 sm:gap-3 mb-2 sm:mb-2.5">
+            <div className="w-6 sm:w-8 h-px bg-[#C8C2B5]" />
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-[#5A6455] whitespace-nowrap">
               GET INVOLVED
             </span>
-            <div className="w-8 h-px bg-[#C8C2B5]" />
+            <div className="w-6 sm:w-8 h-px bg-[#C8C2B5]" />
           </div>
           <h3 className="text-xl sm:text-3xl lg:text-4xl font-serif text-[#1E231C] tracking-tight mb-2 sm:mb-3">
             Want to Join Our Volunteer & Mentorship Team?

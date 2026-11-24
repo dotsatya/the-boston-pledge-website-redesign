@@ -33,16 +33,16 @@ export default function InitiativesGrid() {
   ];
 
   return (
-    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
+    <section className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Header Row */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-4 sm:mb-6">
           <div>
-            <div className="flex items-center gap-3 mb-2.5">
-              <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">
+            <div className="flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-2.5">
+              <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-[#5A6455] whitespace-nowrap">
                 OUR INITIATIVES
               </span>
-              <div className="w-10 h-px bg-[#C8C2B5]" />
+              <div className="w-8 sm:w-10 h-px bg-[#C8C2B5]" />
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-normal text-[#1E231C] tracking-tight">
               Creating Opportunities <br className="hidden sm:inline" />

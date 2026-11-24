@@ -6,7 +6,7 @@ import ScrollReveal from "../common/ScrollReveal";
 
 export default function UpcomingEvent() {
   return (
-    <section className="py-6 sm:py-12 lg:py-14 bg-[#FAF8F5]">
+    <section className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="bg-[#F4EEE5] rounded-2xl lg:rounded-3xl
@@ -19,12 +19,11 @@ export default function UpcomingEvent() {
             <div className="lg:col-span-4 relative z-10
               min-w-0 lg:pl-9 lg:pr-3 lg:py-7">
 
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-[11px] font-bold uppercase
-                  tracking-[0.16em] text-[#5A6455] whitespace-nowrap">
+              <div className="flex items-center gap-2.5 sm:gap-3 mb-2">
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-[#5A6455] whitespace-nowrap">
                   UPCOMING EVENT
                 </span>
-                <div className="w-10 h-px bg-[#C8C2B5]" />
+                <div className="w-8 sm:w-10 h-px bg-[#C8C2B5]" />
               </div>
 
               <h2 className="text-2xl sm:text-4xl font-serif

@@ -8,10 +8,10 @@ export default function ConstitutionHero() {
   const { organization, heroImage } = constitutionData;
 
   return (
-    <section className="pt-4 sm:pt-8 pb-2 sm:pb-4 bg-[#FAF8F5]">
+    <section className="pt-6 sm:pt-8 lg:pt-10 pb-3 sm:pb-4 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb Left */}
-        <nav className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs text-[#7A8475] mb-2 sm:mb-4">
+        <nav className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs text-[#7A8475] mb-2.5 sm:mb-4">
           <Link href="/" className="hover:text-[#414D3C] transition-colors">
             Home
           </Link>
@@ -28,24 +28,24 @@ export default function ConstitutionHero() {
           
           {/* Left Column: Heading & Introduction */}
           <div className="lg:col-span-7">
-            <div className="flex items-center gap-3 mb-1.5 sm:mb-3">
-              <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#5A6455]">
+            <div className="flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-2.5">
+              <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-[#5A6455] whitespace-nowrap">
                 CHARTER &amp; GOVERNANCE · EST. 2001
               </span>
-              <div className="w-10 h-px bg-[#C8C2B5]" />
+              <div className="w-8 sm:w-10 h-px bg-[#C8C2B5]" />
             </div>
 
-            <h1 className="text-xl sm:text-3xl lg:text-[44px] font-serif font-normal text-[#1E231C] tracking-tight leading-[1.18] mb-2 sm:mb-4 break-words">
+            <h1 className="text-2xl sm:text-3xl lg:text-[44px] font-serif font-normal text-[#1E231C] tracking-tight leading-[1.18] mb-2.5 sm:mb-4 break-words">
               The Constitution of <br />
               <span className="italic">{organization.name}</span>
             </h1>
 
-            <p className="text-xs sm:text-sm lg:text-base text-[#555E50] leading-relaxed max-w-2xl font-normal mb-3 sm:mb-8">
+            <p className="text-xs sm:text-sm lg:text-base text-[#555E50] leading-relaxed max-w-2xl font-normal mb-3.5 sm:mb-8">
               The moral compass, ethical bedrock, and operational charter that preserves the sanctity, absolute political independence, and altruistic character of our global volunteer fellowship.
             </p>
 
             {/* Metric / Feature Pills */}
-            <div className="flex flex-wrap items-center gap-1.5 sm:gap-3 text-[11px] sm:text-xs">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2.5 text-[11px] sm:text-xs">
               <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white border border-[#E2DDD3] text-[#414D3C] shadow-2xs font-medium">
                 <span className="w-2 h-2 rounded-full bg-[#414D3C]" />
                 <span>6 Foundational Core Values</span>

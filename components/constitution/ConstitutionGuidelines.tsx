@@ -5,19 +5,19 @@ export default function ConstitutionGuidelines() {
   const { guidelines } = constitutionData;
 
   return (
-    <section className="py-6 sm:py-10 lg:py-14 bg-[#FAF8F5]">
+    <section className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-14">
-          <div className="inline-flex items-center gap-3 mb-2 sm:mb-3">
-            <div className="w-8 h-px bg-[#C8C2B5]" />
-            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#5A6455]">
+        <div className="text-center max-w-3xl mx-auto mb-4 sm:mb-6 lg:mb-8">
+          <div className="inline-flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-2.5">
+            <div className="w-6 sm:w-8 h-px bg-[#C8C2B5]" />
+            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-[#5A6455] whitespace-nowrap">
               OPERATIONAL INTEGRITY
             </span>
-            <div className="w-8 h-px bg-[#C8C2B5]" />
+            <div className="w-6 sm:w-8 h-px bg-[#C8C2B5]" />
           </div>
 
-          <h2 className="text-xl sm:text-4xl lg:text-[42px] font-serif font-normal text-[#1E231C] tracking-tight mb-2 sm:mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-normal text-[#1E231C] tracking-tight mb-2 sm:mb-4">
             {guidelines.heading}
           </h2>
 

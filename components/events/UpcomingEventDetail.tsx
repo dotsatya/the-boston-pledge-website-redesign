@@ -4,9 +4,9 @@ import { CalendarIcon, MapPinIcon, ArrowRightIcon } from "../common/Icons";
 
 export default function UpcomingEventDetail() {
   return (
-    <section className="py-10 sm:py-12 lg:py-14 bg-[#FAF8F5]">
+    <section className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#EFE9DF] rounded-3xl p-8 sm:p-12 border border-[#E3DCCE]">
+        <div className="bg-[#EFE9DF] rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 border border-[#E3DCCE]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-2 text-xs font-bold text-[#556050] uppercase tracking-wider mb-2">
