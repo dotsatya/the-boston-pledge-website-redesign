@@ -128,11 +128,11 @@ export default function Navbar() {
       label: "About Us",
       dropdown: [
         { label: "Overview", href: "/about" },
-        { label: "Vision & Mission", href: "/vision-mission" },
-        { label: "Our Team", href: "/our-team" },
-        { label: "Our Frames", href: "/media" },
-        { label: "Constitution", href: "/constitution" },
-        { label: "Reflections", href: "/reflections" },
+        { label: "Vision & Mission", href: "/about/vision-mission" },
+        { label: "Our Team", href: "/about/our-team" },
+        { label: "Our Frames", href: "/about/media" },
+        { label: "Constitution", href: "/about/constitution" },
+        { label: "Reflections", href: "/about/reflections" },
       ],
     },
     { label: "Initiatives", href: "/initiatives" },
@@ -170,8 +170,8 @@ export default function Navbar() {
   const isSubItemActive = (subHref: string): boolean => {
     const [subPath, subHash] = subHref.split("#");
     const isPathMatch =
-      subPath === "/"
-        ? pathname === "/"
+      subPath === "/" || subPath === "/about"
+        ? pathname === subPath
         : pathname === subPath || pathname.startsWith(subPath + "/");
 
     if (!isPathMatch) return false;

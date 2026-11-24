@@ -22,7 +22,7 @@ export default function LeadershipPreview() {
               <div className="w-10 h-px bg-[#C8C2B5]" />
             </div>
 
-            <Link href="/our-team" className="group">
+            <Link href="/about/our-team" className="group">
               <h2 className="text-xl sm:text-3xl font-serif font-normal text-[#1E231C] tracking-tight mb-2 sm:mb-3 group-hover:text-[#414D3C] transition-colors">
                 Meet Our Team
               </h2>
@@ -33,7 +33,7 @@ export default function LeadershipPreview() {
             </p>
 
             <Link
-              href="/our-team"
+              href="/about/our-team"
               className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-medium text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs"
             >
               <span>Learn More</span>
@@ -46,7 +46,7 @@ export default function LeadershipPreview() {
             {leaders.map((leader, idx) => (
               <ScrollReveal key={leader.id} delay={idx * 0.1} className="h-full">
                 <Link
-                  href="/our-team"
+                  href="/about/our-team"
                   className="flex flex-row sm:flex-col bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-2.5 lg:p-3 border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 group h-full"
                 >
                   <div className="relative w-20 h-20 sm:w-full sm:h-48 lg:h-52 shrink-0 rounded-lg sm:rounded-xl overflow-hidden bg-[#EAE6DF] border border-[#E8E2D8]/60">

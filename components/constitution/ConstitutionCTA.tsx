@@ -75,7 +75,7 @@ export default function ConstitutionCTA() {
 
             <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
               <Link
-                href="/vision-mission"
+                href="/about/vision-mission"
                 className="inline-flex items-center gap-2 px-4 py-2.5 sm:px-7 sm:py-3 rounded-full text-xs font-semibold text-[#1E231C] bg-[#FAF8F5] hover:bg-white transition-all shadow-sm"
               >
                 <span>Our Vision &amp; Mission</span>

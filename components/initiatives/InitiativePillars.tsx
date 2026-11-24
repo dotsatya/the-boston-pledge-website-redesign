@@ -126,6 +126,26 @@ export default function InitiativePillars() {
           ))}
         </div>
       </section>
+
+      {/* Full-Width Warm Band: Exalted Ideal Quote */}
+      <section className="py-10 sm:py-12 lg:py-14 bg-[#F3EDE3] border-y border-[#E4DDD2]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="text-4xl sm:text-5xl font-serif text-[#5E6D58] leading-none mb-6 select-none opacity-90">
+            “
+          </div>
+          <blockquote className="text-lg sm:text-xl lg:text-2xl font-serif italic text-[#242D21] leading-relaxed mb-6 font-normal">
+            Our real awakening takes place when we dedicate our life to an
+            exalted ideal.
+          </blockquote>
+          <div className="inline-flex items-center justify-center gap-3">
+            <div className="w-10 h-px bg-[#BEB6A8]" />
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-[#414D3C]">
+              Swami Vivekananda
+            </span>
+            <div className="w-10 h-px bg-[#BEB6A8]" />
+          </div>
+        </div>
+      </section>
     </>
   );
 }

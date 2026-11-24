@@ -43,16 +43,16 @@ export default function LatestEventsSection() {
           </div>
 
           {/* Right 3 event cards matching home page stepped-tab style and <ArrowUpRight /> */}
-          <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-6 items-stretch">
+          <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-6">
             {events.map((item, idx) => {
               const coverImg = getEventCover(item);
               const fallback = getEventFallback(item);
 
               return (
-                <ScrollReveal key={item.id} delay={idx * 0.1} className="h-full">
+                <ScrollReveal key={item.id} delay={idx * 0.1}>
                   <Link
                     href={`/events/${item.slug}`}
-                    className="group flex flex-row sm:flex-col bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 p-2 sm:p-0 h-full justify-between"
+                    className="group flex flex-row sm:flex-col bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 p-2 sm:p-0"
                   >
                   {/* Left (mobile) / Top (desktop) Image */}
                   <div className="p-0 sm:p-2 sm:pb-0 shrink-0">
@@ -80,7 +80,7 @@ export default function LatestEventsSection() {
                   </div>
 
                   {/* Right (mobile) / Bottom (desktop) Details Body */}
-                  <div className="pl-3 sm:px-4 sm:pb-4 sm:pt-0 bg-white flex flex-col justify-center sm:justify-between sm:-mt-3 relative z-10 flex-1 min-w-0">
+                  <div className="pl-3 sm:px-4 sm:pb-3.5 sm:pt-0 bg-white flex flex-col justify-center sm:justify-between sm:-mt-3 relative z-10 flex-1 min-w-0">
                     <div className="flex items-center sm:items-stretch justify-between gap-2">
                       <div className="flex-1 min-w-0">
                         {/* Date */}
@@ -88,13 +88,13 @@ export default function LatestEventsSection() {
                           {formatEventDate(item.date)}
                         </div>
 
-                        {/* Title with uniform 2-line slot height */}
-                        <h3 className="text-xs sm:text-base font-semibold text-[#1E231C] group-hover:text-[#414D3C] transition-colors leading-snug line-clamp-2 sm:min-h-[2.75rem] flex items-center">
+                        {/* Title */}
+                        <h3 className="text-xs sm:text-base font-semibold text-[#1E231C] group-hover:text-[#414D3C] transition-colors leading-snug line-clamp-2">
                           {item.title}
                         </h3>
                       </div>
 
-                      {/* Circular Arrow Button with <ArrowUpRight /> aligned to bottom */}
+                      {/* Circular Arrow Button with <ArrowUpRight /> */}
                       <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full border border-[#D5CFBF] bg-white flex items-center justify-center text-[#414D3C] group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shadow-2xs shrink-0 self-center sm:self-end">
                         <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       </div>

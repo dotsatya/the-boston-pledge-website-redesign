@@ -26,36 +26,43 @@
 
 ## 🌍 About The Boston Pledge
 
-**The Boston Pledge (TBP)** is an independent, volunteer-driven non-profit incubator founded to catalyze grassroots development and economic dignity in undernourished and rural communities. Guided by Chairman **Dr. Partha S. Ghosh** and an international council of faculty, corporate executives, and grassroots practitioners, all leadership and advisory roles operate **100% pro bono** with zero monetary compensation.
+**The Boston Pledge (TBP)** is an independent, volunteer-driven non-profit incubator founded in 2001 to catalyze grassroots development and economic dignity in undernourished and rural communities. Guided by Chairman **Dr. Partha S. Ghosh** and an international council of faculty, corporate executives, and grassroots practitioners, all leadership and advisory roles operate **100% pro bono** with zero monetary compensation.
 
 Our key areas of focus include:
-- **Grassroots Entrepreneurship**: Village-level micro-enterprises and self-help groups.
-- **Rural Education & Literacy**: Digital classrooms, books, and youth learning kits.
-- **Safe Water & Sanitation**: Arsenic detection and community filtration initiatives across rural delta communities.
-- **Holistic Public Service**: Bridging privileged academic and corporate expertise with rural needs.
+- **Grassroots Entrepreneurship**: Mass entrepreneurship clinics, village micro-enterprises, and self-help groups.
+- **Youth & Digital Empowerment**: International youth leadership, software internships, and digital connectivity.
+- **Rural Education & Literacy**: Educator roundtables (EdSP) linking global educators with rural schools.
+- **Safe Water & Ecological Resilience**: Arsenic remediation, community water filters, and sustainable village development.
 
 ---
 
 ## 🚀 Key Features & Pages
 
-The application is built on the **Next.js App Router** with full Static Site Generation (SSG):
+The application is built on the **Next.js App Router** with full Static Site Generation (SSG), prerendering all 56 routes with optimized performance and backwards-compatible redirects:
 
+### 🏛️ About Us (Nested Routes)
 | Route | Page | Description |
 |---|---|---|
-| `/` | **Home** | Hero banner, core mission pillars, featured events, news preview, and leadership highlights. |
-| `/about` | **Overview** | Foundational narrative, historical legacy story, organizational pillars, and public reflections. |
-| `/vision-mission` | **Vision & Mission** | The core vision doctrine, Albert Einstein quote banner, 3 actionable mission objectives, and the 10 Overarching Doctrines. |
-| `/constitution` | **Constitution** | Charter guidelines, 6 Core Values, Rabindranath Tagore quote, and institutional compass card. |
-| `/reflections` | **Reflections** | Thought leadership, featured video discourse ("Lecture on Leadership"), Chairman Dr. Partha S. Ghosh biography, quote, and global keynote symposium archive. |
-| `/our-team` | **Our Team** | Executive Leadership and Advisory Council in a responsive 4-column grid with animated modal biography popups. |
-| `/media` | **Our Frames** | Photo & Video gallery with category filtering, video embed players, and full-screen lightbox modal. |
-| `/initiatives` | **Initiatives** | Deep-dive into grassroots programs across Education, Healthcare, Clean Water, and Youth Mentorship. |
-| `/events` | **Events Hub** | Upcoming global symposiums, webinars, and past conference archive. |
+| `/about` | **Overview** | Foundational legacy story with direct inline video player, core mission pillars, and governance overview. |
+| `/about/vision-mission` | **Vision & Mission** | The core vision doctrine, Albert Einstein quote banner, 3 actionable mission objectives, and the 10 Overarching Doctrines. |
+| `/about/our-team` | **Our Team** | Executive Leadership and Advisory Council in a responsive grid with category filtering and biography modal popups. |
+| `/about/media` | **Our Frames** | Visual archive with category filtering, YouTube embeds, and full-screen lightbox modal. |
+| `/about/constitution` | **Constitution** | Charter guidelines, 6 Core Values, Rabindranath Tagore quote, and institutional compass card. |
+| `/about/reflections` | **Reflections** | Thought leadership, featured video discourse, Chairman Dr. Partha S. Ghosh biography, quote, and keynote symposium archive. |
+
+### 🌿 Programs & Direct Engagement
+| Route | Page | Description |
+|---|---|---|
+| `/` | **Home** | Hero banner, core mission pillars, featured events, news preview, leadership preview, and interactive initiatives grid. |
+| `/initiatives` | **Initiatives Hub** | 5 core program pillars with alternating visual layouts and dynamic icons. |
+| `/initiatives/[id]` | **Initiative Detail** | Dedicated individual detail pages for each pillar (`digital`, `youth`, `edsp`, `esp`, `rural-innovation`) featuring frameworks, case studies, internships, and field reports. |
+| `/events` | **Events Hub** | Comprehensive event archive with categorized filtering and search. |
 | `/events/[slug]` | **Event Detail** | Dynamic SSG routes with agenda timelines, speaker profiles, and registration links. |
-| `/latest-updates` | **News & Updates** | Field reports, newsletters, and milestones categorized by topic. |
-| `/be-a-volunteer` | **Be A Volunteer** | Volunteer eligibility ethos, 6 basic assumptions/principles, 6 behavioral guidelines, Dr. Ghosh quote, and volunteer application form. |
-| `/donate` | **Donate** | 501(c)(3) tax-deductible donation portal with preset amount tiles ($10, $20, $30, $40), custom amount field, donor details form, and transparent impact breakdown. |
-| `/contact` | **Contact Us** | Symmetrical contact inquiry form with live Google Maps embed for Winchester, MA headquarters. |
+| `/latest-updates` | **News & Updates** | Field reports, articles, and milestones categorized by topic. |
+| `/latest-updates/[slug]` | **Article Detail** | Full-length articles, conference proceedings, and media releases. |
+| `/be-a-volunteer` | **Be A Volunteer** | Volunteer eligibility ethos, 6 basic assumptions, 6 behavioral guidelines, and application form. |
+| `/donate` | **Donate** | 501(c)(3) tax-deductible donation portal with preset amount tiles ($10, $20, $30, $40), custom amount field, and impact breakdown. |
+| `/contact` | **Contact Us** | Consolidated hero, symmetrical direct channels, inquiry form, and live Google Maps embed for Winchester, MA headquarters. |
 
 ---
 
@@ -65,9 +72,10 @@ The application is built on the **Next.js App Router** with full Static Site Gen
 - **Library**: [React](https://react.dev/) 19 & React DOM
 - **Language**: [TypeScript](https://www.typescriptlang.org/) (Strict Mode)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) v4
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Icons**: Custom accessible SVGs & Lucide Icons
+- **Animations**: [Framer Motion](https://www.framer.com/motion/) & CSS keyframes
+- **Icons**: Custom accessible SVGs & Lucide-compatible icons
 - **Fonts**: [Geist](https://vercel.com/font) via `next/font`
+- **Images & Video**: Next.js `<Image>` with responsive sizing and YouTube inline video embed
 
 ---
 
@@ -76,44 +84,54 @@ The application is built on the **Next.js App Router** with full Static Site Gen
 ```text
 boston-pledge/
 ├── app/                          # Next.js App Router routes
-│   ├── about/                    # About Us page
+│   ├── about/                    # About Us section
+│   │   ├── constitution/         # Constitution & Charter page
+│   │   ├── media/                # Our Frames media gallery
+│   │   ├── our-team/             # Team page with bio modal popups
+│   │   ├── reflections/          # Reflections & keynote symposium archive
+│   │   ├── vision-mission/       # Vision & Mission doctrines page
+│   │   └── page.tsx              # About Us overview page
 │   ├── be-a-volunteer/           # Be A Volunteer page & application form
-│   ├── constitution/             # Constitution & Charter page
 │   ├── contact/                  # Contact page & live map embed
 │   ├── donate/                   # 501(c)(3) Donation portal
 │   ├── events/                   # Events hub & dynamic [slug] routes
-│   ├── initiatives/              # Initiatives page
+│   │   └── [slug]/               # Dynamic individual event detail page
+│   ├── initiatives/              # Initiatives hub & dynamic [id] routes
+│   │   └── [id]/                 # Dynamic individual initiative detail page
 │   ├── latest-updates/           # Latest news & dynamic [slug] routes
-│   ├── media/                    # Our Frames media gallery
-│   ├── our-team/                 # Team page with bio modal popups
-│   ├── vision-mission/           # Vision & Mission page
+│   │   └── [slug]/               # Dynamic individual news article page
 │   ├── globals.css               # Global CSS & Tailwind configuration
 │   ├── layout.tsx                # Root layout (Navbar, Footer, ScrollToTop)
 │   └── page.tsx                  # Home page
 ├── components/                   # Reusable UI component modules
-│   ├── about/                    # About section components
-│   ├── common/                   # Navbar, Footer, Icons, Logo, Modals
+│   ├── about/                    # About section components (Hero, Story, Pillars, Team)
+│   ├── common/                   # Navbar, Footer, Icons, Logo, Modals, ScrollReveal
 │   ├── constitution/             # Constitution hero, values, guidelines, CTA
-│   ├── contact/                  # Contact form & Google Maps embed
+│   ├── contact/                  # Unified hero, direct channels, contact form & map
 │   ├── donate/                   # Donate hero, donation form, impact cards
 │   ├── events/                   # Event cards, feed, detail layouts
-│   ├── home/                     # Hero, previews, sections
-│   ├── initiatives/              # Initiative pillars & hero
+│   ├── home/                     # Hero, preview sections, initiatives grid, news
+│   ├── initiatives/              # Initiative pillars, hero, and comprehensive detail view
 │   ├── latest-updates/           # Update feeds & detail views
 │   ├── media/                    # Interactive media lightbox & category filters
 │   ├── our-team/                 # Executive team cards & bio modal
+│   ├── reflections/              # Discourse video player & symposium archive
 │   ├── vision-mission/           # Vision & Mission sections & doctrines
 │   └── volunteer/                # Volunteer form, principles, ground rules
 ├── lib/                          # Data models, content stores & utilities
-│   ├── about/                    # Constitution, media, overview, team data
+│   ├── about/                    # Vision-mission, constitution, reflections data
 │   ├── eventsData.ts             # Events data & slug generator
 │   ├── eventsDetails.ts          # Comprehensive event details
+│   ├── Initiatives.ts            # Detailed initiative pillars & programs data
+│   ├── latestUpdates.ts          # Latest news data accessor
 │   ├── latestUpdatesData.ts      # News & field updates data
+│   ├── ourTeamDetails.ts         # Full team member data & bios
 │   └── volunteerData.ts          # Volunteer principles, ground rules & form
 ├── public/                       # Static assets, logos, and optimized graphics
 │   ├── images/                   # Project images and badges
+│   ├── logo.png                  # The Boston Pledge official logo
 │   └── favicon.ico               # Site favicon
-├── next.config.ts                # Next.js configuration (Turbopack, images)
+├── next.config.ts                # Next.js configuration (Turbopack, redirects, images)
 ├── package.json                  # Dependencies & project scripts
 ├── tsconfig.json                 # TypeScript compiler configuration
 └── README.md                     # Project documentation
@@ -171,7 +189,7 @@ The user interface uses a bespoke color palette inspired by nature, grassroots e
 | Color Token | Hex Code | Usage |
 |---|---|---|
 | **Brand Olive** | `#414D3C` | Primary buttons, active states, key icons, badges |
-| **Forest Dark** | `#242D21` | Dark card backgrounds, high-contrast headings |
+| **Forest Dark** | `#242D21` | Dark card backgrounds, high-contrast headings, footer |
 | **Warm Canvas** | `#FAF8F5` | Primary page background, soft card surfaces |
 | **Muted Cream** | `#F3EDE3` | Secondary badge backgrounds, neutral chips |
 | **Border Neutral** | `#ECE7DF` | Clean subtle card borders and section dividers |

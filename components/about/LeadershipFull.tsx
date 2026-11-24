@@ -24,7 +24,7 @@ export default function LeadershipFull() {
           </div>
 
           <Link
-            href="/our-team"
+            href="/about/our-team"
             className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs hover:shadow transition-all shrink-0 self-start sm:self-auto"
           >
             <span>View All 18 Team Members</span>
@@ -36,7 +36,7 @@ export default function LeadershipFull() {
           {team.map((member) => (
             <Link
               key={member.id}
-              href="/our-team"
+              href="/about/our-team"
               className="flex flex-row sm:flex-col bg-white rounded-xl sm:rounded-2xl p-2.5 sm:p-2.5 lg:p-3 border border-[#ECE7DF] shadow-xs hover:shadow-md transition-all duration-300 group h-full justify-between"
             >
               <div className="relative w-20 xs:w-24 sm:w-full h-20 xs:h-24 sm:h-48 lg:h-44 shrink-0 rounded-lg sm:rounded-xl overflow-hidden bg-[#EAE6DF] border border-[#E8E2D8]/60">

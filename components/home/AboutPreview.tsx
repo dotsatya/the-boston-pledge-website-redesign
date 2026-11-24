@@ -18,10 +18,10 @@ export default function AboutPreview() {
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
 
-                {/* Bottom-Left Floating Mission Badge linking to /vision-mission */}
+                {/* Bottom-Left Floating Mission Badge linking to /about/vision-mission */}
                 <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 z-10">
                   <Link
-                    href="/vision-mission"
+                    href="/about/vision-mission"
                     className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-medium text-white bg-black/65 backdrop-blur-md hover:bg-black/85 transition-colors shadow-xs"
                   >
                     <span className="text-xs">✛</span>
