@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { reflectionsData, SpeechItem } from "@/components/about/Reflections";
-import { CalendarIcon, MapPinIcon, SearchIcon } from "../common/Icons";
+import { Calendar, MapPin, Search } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function SpeechesArchive() {
@@ -86,7 +86,7 @@ export default function SpeechesArchive() {
               placeholder="Search by topic, forum, city..."
               className="w-full px-3 py-1.5 sm:px-3.5 sm:py-2 pl-8 sm:pl-9 rounded-xl text-xs bg-white border border-[#E2DDD4] focus:outline-hidden focus:border-[#414D3C] focus:ring-1 focus:ring-[#414D3C] text-[#1E231C] placeholder-[#8F988A]"
             />
-            <SearchIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8F988A] absolute left-2.5 sm:left-3 top-2 sm:top-2.5 pointer-events-none" />
+            <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8F988A] absolute left-2.5 sm:left-3 top-2 sm:top-2.5 pointer-events-none" />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery("")}
@@ -134,11 +134,11 @@ export default function SpeechesArchive() {
                   {/* Footer Badges: Location & Date */}
                   <div className="pt-4 border-t border-[#F2ECE3] flex flex-wrap items-center justify-between gap-3 text-xs text-[#7A8475]">
                     <div className="flex items-center gap-1.5">
-                      <MapPinIcon className="w-3.5 h-3.5 text-[#414D3C] shrink-0" />
+                      <MapPin className="w-3.5 h-3.5 text-[#414D3C] shrink-0" />
                       <span>{speech.location}</span>
                     </div>
                     <div className="flex items-center gap-1.5 font-medium text-[#414D3C]">
-                      <CalendarIcon className="w-3.5 h-3.5 text-[#7A8475] shrink-0" />
+                      <Calendar className="w-3.5 h-3.5 text-[#7A8475] shrink-0" />
                       <span>{speech.date}</span>
                     </div>
                   </div>

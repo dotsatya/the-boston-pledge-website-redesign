@@ -1,7 +1,9 @@
+"use client";
+
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRightIcon, CalendarIcon, MapPinIcon } from "../common/Icons";
+import { ArrowRight, Calendar, MapPin } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function UpcomingEvent() {
@@ -30,12 +32,12 @@ export default function UpcomingEvent() {
 
                 <div className="flex flex-wrap items-center gap-x-3.5 sm:gap-x-4 gap-y-1.5 text-xs text-[#414B3C] font-medium mb-3.5 sm:mb-4">
                   <div data-icon-trigger className="flex items-center gap-1.5 cursor-pointer">
-                    <CalendarIcon className="w-3.5 h-3.5 text-[#5A6455]" />
+                    <Calendar className="w-3.5 h-3.5 text-[#5A6455]" />
                     <span>March 21, 2026</span>
                   </div>
 
                   <div data-icon-trigger className="flex items-center gap-1.5 cursor-pointer">
-                    <MapPinIcon className="w-3.5 h-3.5 text-[#5A6455]" />
+                    <MapPin className="w-3.5 h-3.5 text-[#5A6455]" />
                     <span>Boston, MA</span>
                   </div>
                 </div>
@@ -46,7 +48,7 @@ export default function UpcomingEvent() {
                     className="inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs hover:shadow"
                   >
                     <span>View Event Details</span>
-                    <ArrowRightIcon className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>

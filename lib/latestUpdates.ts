@@ -313,13 +313,3 @@ export const getLatestUpdates = (count = 3): LatestUpdate[] =>
 
 export const getUpdateBySlug = (slug: string): LatestUpdate | undefined =>
   latestUpdates.find((u) => u.slug === slug);
-
-export const getUpdatesByCategory = (category: string): LatestUpdate[] =>
-  getAllUpdates().filter((u) => u.category === category);
-
-export const isPastDate = (isoDate: string): boolean => {
-  const target = new Date(isoDate).getTime();
-  // Safe comparison against current epoch / 2026
-  const reference = new Date("2026-03-01").getTime();
-  return target < reference;
-};

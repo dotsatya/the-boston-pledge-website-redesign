@@ -1,15 +1,10 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { pillars, PillarIconName } from "@/lib/Initiatives";
-import {
-  GradCapIcon,
-  BookOpenIcon,
-  CommunityIcon,
-  ArrowRightIcon,
-  GlobeIcon,
-  RocketIcon,
-} from "../common/Icons";
+import { ArrowRight, BookOpen, Globe, GraduationCap, Rocket, Users } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 function PillarBadgeIcon({
@@ -21,17 +16,17 @@ function PillarBadgeIcon({
 }) {
   switch (name) {
     case "globe":
-      return <GlobeIcon className={className} />;
+      return <Globe className={className} />;
     case "grad-cap":
-      return <GradCapIcon className={className} />;
+      return <GraduationCap className={className} />;
     case "book-open":
-      return <BookOpenIcon className={className} />;
+      return <BookOpen className={className} />;
     case "rocket":
-      return <RocketIcon className={className} />;
+      return <Rocket className={className} />;
     case "community":
-      return <CommunityIcon className={className} />;
+      return <Users className={className} />;
     default:
-      return <GlobeIcon className={className} />;
+      return <Globe className={className} />;
   }
 }
 
@@ -120,7 +115,7 @@ export default function InitiativePillars() {
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs hover:shadow text-center"
                   >
                     <span>View Details</span>
-                    <ArrowRightIcon className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>

@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import { GlobeIcon, CaretDownIcon, CloseIcon, SearchIcon } from "./Icons";
-import { GLOBAL_LANGUAGES, LanguageOption } from "@/lib/languages";
+import { ChevronDown, Globe, Search, X } from "pulsoicon-react";
+import { GLOBAL_LANGUAGES } from "@/lib/languages";
 
 declare global {
   interface Window {
@@ -186,7 +186,7 @@ export default function GoogleTranslate({
         }`}
       >
         <span className="flex items-center gap-1.5">
-          <GlobeIcon
+          <Globe
             className={`w-3.5 h-3.5 ${
               currentLang !== "en" ? "text-white" : "text-[#414D3C]"
             }`}
@@ -198,7 +198,7 @@ export default function GoogleTranslate({
             {currentLang.toUpperCase()}
           </span>
         </span>
-        <CaretDownIcon
+        <ChevronDown
           className={`w-2.5 h-2.5 sm:w-3 sm:h-3 transition-transform duration-200 ${
             isOpen ? "rotate-180" : ""
           } ${currentLang !== "en" ? "text-white/80" : "text-[#7A8475]"}`}
@@ -220,7 +220,7 @@ export default function GoogleTranslate({
           <div className="flex items-center justify-between pb-3 border-b border-[#F0EBE1] mb-3">
             <div className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-full bg-[#FAF8F5] border border-[#DDD7CD] flex items-center justify-center text-[#414D3C]">
-                <GlobeIcon className="w-3.5 h-3.5" />
+                <Globe className="w-3.5 h-3.5" />
               </div>
               <div>
                 <h4 className="text-xs font-bold text-[#1E231C]">
@@ -237,14 +237,14 @@ export default function GoogleTranslate({
               className="w-7 h-7 rounded-full text-[#7A8475] hover:text-[#1E231C] hover:bg-[#FAF8F5] flex items-center justify-center transition-colors cursor-pointer"
               aria-label="Close language selector"
             >
-              <CloseIcon className="w-3.5 h-3.5" />
+              <X className="w-3.5 h-3.5" />
             </button>
           </div>
 
           {/* Global Search Input */}
           <div className="relative mb-2.5">
             <div className="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-[#7A8475]">
-              <SearchIcon className="w-3.5 h-3.5" />
+              <Search className="w-3.5 h-3.5" />
             </div>
             <input
               type="text"

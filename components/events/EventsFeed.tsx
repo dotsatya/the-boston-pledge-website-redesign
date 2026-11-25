@@ -8,7 +8,7 @@ import {
   EventItem,
 } from "@/lib/eventsDetails";
 import EventCard from "./EventCard";
-import { CaretDownIcon, SearchIcon } from "../common/Icons";
+import { ChevronDown, Search } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 const BATCH_SIZE = 6;
@@ -100,7 +100,6 @@ export default function EventsFeed() {
 
   const currentEvents = filteredEvents.slice(0, visibleCount);
   const hasMore = visibleCount < filteredEvents.length;
-  const remainingCount = filteredEvents.length - visibleCount;
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => prev + BATCH_SIZE);
@@ -150,7 +149,7 @@ export default function EventsFeed() {
                 onChange={(e) => handleSearchChange(e.target.value)}
                 className="w-full pl-8 sm:pl-9 pr-3.5 py-1.5 sm:py-2 text-xs rounded-full border border-[#D5CEC2] bg-white text-[#1E231C] placeholder:text-[#8FA587] focus:outline-none focus:ring-2 focus:ring-[#414D3C] hidden sm:block"
               />
-              <SearchIcon className="w-3.5 h-3.5 text-[#8FA587] absolute left-3 top-1/2 -translate-y-1/2 hidden sm:block pointer-events-none" />
+              <Search className="w-3.5 h-3.5 text-[#8FA587] absolute left-3 top-1/2 -translate-y-1/2 hidden sm:block pointer-events-none" />
             </div>
 
             {/* Mobile Dropdown: Single clean compact row instead of 3 rows of wrapping pills */}
@@ -199,7 +198,7 @@ export default function EventsFeed() {
                   className="inline-flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] active:scale-95 transition-all shadow-xs hover:shadow-md cursor-pointer group"
                 >
                   <span>Show More Events</span>
-                  <CaretDownIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5" />
+                  <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5" />
                 </button>
               </div>
             )}

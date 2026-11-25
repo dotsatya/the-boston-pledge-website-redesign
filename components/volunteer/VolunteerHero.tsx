@@ -1,8 +1,10 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import CoverImage from "../latest-updates/CoverImage";
 import { volunteerData } from "@/lib/volunteerData";
-import { HeartHandIcon, ArrowDownIcon } from "../common/Icons";
+import { ArrowDown, Heart } from "pulsoicon-react";
 
 export default function VolunteerHero() {
   const { hero } = volunteerData;
@@ -50,7 +52,7 @@ export default function VolunteerHero() {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs text-center group"
               >
                 <span>Apply as a Volunteer</span>
-                <ArrowDownIcon className="w-3.5 h-3.5" />
+                <ArrowDown className="w-3.5 h-3.5" />
               </a>
               <div className="flex flex-wrap items-center gap-2">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#E2DDD3] text-[#414D3C] shadow-2xs font-medium text-[11px] sm:text-xs">
@@ -78,7 +80,7 @@ export default function VolunteerHero() {
             {/* Floating Glassmorphic Pill */}
             <div className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 bg-white/95 backdrop-blur-md px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl shadow-md border border-[#EBE5DB] flex items-center gap-2 sm:gap-2.5 z-20">
               <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#FAF8F5] border border-[#E2DDD3] flex items-center justify-center text-[#414D3C] shrink-0">
-                <HeartHandIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </div>
               <div>
                 <div className="text-[11px] sm:text-xs font-bold font-serif text-[#1E231C] leading-tight">

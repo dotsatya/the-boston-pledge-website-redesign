@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import { ArrowRightIcon } from "../common/Icons";
+import { ArrowRight } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function JoinTeamCTA() {
@@ -28,7 +30,7 @@ export default function JoinTeamCTA() {
                 className="inline-flex items-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs hover:shadow transition-all"
               >
                 <span>Apply to Join the Team</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <Link
                 href="/contact"

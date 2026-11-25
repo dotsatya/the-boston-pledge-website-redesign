@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import { reflectionsData } from "@/components/about/Reflections";
-import { ArrowUpRight, LinkedInIcon, ArrowDownIcon } from "../common/Icons";
+import { ArrowDown, ArrowUpRight, BrandLinkedin } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function ChairmanBio() {
@@ -62,7 +64,7 @@ export default function ChairmanBio() {
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2 py-1.5 sm:py-2 px-3 sm:px-4 rounded-xl text-xs font-semibold text-white bg-[#0A66C2] hover:bg-[#084e96] transition-colors shadow-2xs"
                 >
-                  <LinkedInIcon className="w-3.5 h-3.5" />
+                  <BrandLinkedin className="w-3.5 h-3.5" />
                   <span>Connect on LinkedIn</span>
                   <ArrowUpRight className="w-3 h-3" />
                 </a>
@@ -118,7 +120,7 @@ export default function ChairmanBio() {
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#414D3C] hover:text-[#242D21] transition-colors shrink-0 group"
                   >
                     <span>View Keynote Presentations</span>
-                    <ArrowDownIcon className="w-3.5 h-3.5 text-[#414D3C]" />
+                    <ArrowDown className="w-3.5 h-3.5 text-[#414D3C]" />
                   </a>
                 </div>
               </div>

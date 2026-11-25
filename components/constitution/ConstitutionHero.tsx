@@ -1,8 +1,10 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { constitutionData } from "@/lib/about/constitution";
 import CoverImage from "../latest-updates/CoverImage";
-import { GlobeIcon } from "../common/Icons";
+import { Globe } from "pulsoicon-react";
 
 export default function ConstitutionHero() {
   const { organization, heroImage } = constitutionData;
@@ -74,7 +76,7 @@ export default function ConstitutionHero() {
             {/* Floating Glassmorphic Pill */}
             <div className="absolute bottom-2.5 right-2.5 sm:bottom-4 sm:right-4 bg-white/95 backdrop-blur-md px-3 py-2 sm:px-4 sm:py-3 rounded-xl sm:rounded-2xl shadow-md border border-[#EBE5DB] flex items-center gap-2 sm:gap-3 z-20">
               <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-[#FAF8F5] border border-[#E2DDD3] flex items-center justify-center text-[#414D3C] shrink-0">
-                <GlobeIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </div>
               <div>
                 <div className="text-xs font-bold font-serif text-[#1E231C]">

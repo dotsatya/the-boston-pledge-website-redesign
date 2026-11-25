@@ -8,7 +8,7 @@ import {
   getUpdateFallbackImage,
 } from "./UpdateBlockRenderer";
 import CoverImage from "./CoverImage";
-import { ArrowRightIcon } from "../common/Icons";
+import { ArrowRight } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function UpdatesFeed() {
@@ -136,7 +136,7 @@ export default function UpdatesFeed() {
                           className="inline-flex items-center gap-1 text-[10px] font-semibold text-[#414D3C]"
                         >
                           <span>Read</span>
-                          <ArrowRightIcon className="w-2 h-2" />
+                          <ArrowRight className="w-2 h-2" />
                         </Link>
                       </div>
                     </div>
@@ -153,7 +153,7 @@ export default function UpdatesFeed() {
                     >
                       <span>Read Full Update</span>
                       <div className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-full border border-[#D5CFBF] bg-white flex items-center justify-center text-[#414D3C] group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shadow-2xs">
-                        <ArrowRightIcon className="w-3 h-3" />
+                        <ArrowRight className="w-3 h-3" />
                       </div>
                     </Link>
                   </div>

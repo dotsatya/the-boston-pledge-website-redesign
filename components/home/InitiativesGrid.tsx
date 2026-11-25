@@ -1,7 +1,9 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRightIcon, GradCapIcon, BookOpenIcon, CommunityIcon } from "../common/Icons";
+import { ArrowRight, BookOpen, GraduationCap, Users } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function InitiativesGrid() {
@@ -11,7 +13,7 @@ export default function InitiativesGrid() {
       title: "Youth Development",
       subtitle: "Empowering the next generation of global changemakers.",
       image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=80",
-      icon: <GradCapIcon className="w-4 h-4 text-white" />,
+      icon: <GraduationCap className="w-4 h-4 text-white" />,
       href: "/initiatives#youth",
     },
     {
@@ -19,7 +21,7 @@ export default function InitiativesGrid() {
       title: "Education & Leadership",
       subtitle: "Educator's Springboard Program for visionary teaching.",
       image: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=700&q=80",
-      icon: <BookOpenIcon className="w-4 h-4 text-white" />,
+      icon: <BookOpen className="w-4 h-4 text-white" />,
       href: "/initiatives#education",
     },
     {
@@ -27,7 +29,7 @@ export default function InitiativesGrid() {
       title: "Community Development",
       subtitle: "Incubating rural enterprises and ecological resilience.",
       image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=700&q=80",
-      icon: <CommunityIcon className="w-4 h-4 text-white" />,
+      icon: <Users className="w-4 h-4 text-white" />,
       href: "/initiatives#community",
     },
   ];
@@ -55,7 +57,7 @@ export default function InitiativesGrid() {
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs hover:shadow self-start sm:self-auto"
           >
             <span>Explore All Initiatives</span>
-            <ArrowRightIcon className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
@@ -106,7 +108,7 @@ export default function InitiativesGrid() {
 
                   {/* Circular Arrow Button (→) */}
                   <div className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 rounded-full border border-[#DDD7CD] sm:border-white/30 bg-[#FAF8F5] sm:bg-white/20 sm:backdrop-blur-md flex items-center justify-center text-[#414D3C] sm:text-white group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shrink-0 shadow-2xs">
-                    <ArrowRightIcon className="w-3.5 h-3.5 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4" />
+                    <ArrowRight className="w-3.5 h-3.5 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4" />
                   </div>
                 </div>
               </Link>

@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import { ArrowRightIcon, CompassIcon } from "../common/Icons";
+import { ArrowRight, Compass } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function ConstitutionCTA() {
@@ -50,7 +52,7 @@ export default function ConstitutionCTA() {
           <div className="relative z-10 max-w-3xl mx-auto">
             {/* Compass / Navigation Emblem Animated Badge */}
             <div data-icon-trigger className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-[#A8B8A0] mx-auto mb-3 sm:mb-5 backdrop-blur-xs shadow-inner cursor-pointer hover:bg-white/15 transition-colors">
-              <CompassIcon className="w-5 h-5 sm:w-7 sm:h-7" />
+              <Compass className="w-5 h-5 sm:w-7 sm:h-7" />
             </div>
 
             <div className="inline-flex items-center gap-2 px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full bg-white/10 text-white/90 text-[10px] sm:text-[11px] font-medium uppercase tracking-wider mb-2.5 sm:mb-4 border border-white/15">
@@ -71,14 +73,14 @@ export default function ConstitutionCTA() {
                 className="inline-flex items-center gap-2 px-4 py-2.5 sm:px-7 sm:py-3 rounded-full text-xs font-semibold text-[#1E231C] bg-[#FAF8F5] hover:bg-white transition-all shadow-sm"
               >
                 <span>Our Vision &amp; Mission</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <Link
                 href="/be-a-volunteer"
                 className="inline-flex items-center gap-2 px-4 py-2.5 sm:px-7 sm:py-3 rounded-full text-xs font-semibold text-white bg-white/15 hover:bg-white/25 border border-white/20 transition-all shadow-sm"
               >
                 <span>Join as a Volunteer</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>

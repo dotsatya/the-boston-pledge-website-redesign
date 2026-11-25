@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import { ArrowRightIcon } from "../common/Icons";
+import { ArrowRight } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function VisionMissionCTA() {
@@ -30,14 +32,14 @@ export default function VisionMissionCTA() {
                   className="inline-flex items-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold text-[#242D21] bg-[#FAF8F5] hover:bg-white transition-all shadow-xs"
                 >
                   <span>Explore Our Initiatives</span>
-                  <ArrowRightIcon className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
                 <Link
                   href="/be-a-volunteer"
                   className="inline-flex items-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white border border-[#6B7965] hover:bg-white/10 transition-all"
                 >
                   <span>Be A Volunteer</span>
-                  <ArrowRightIcon className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>

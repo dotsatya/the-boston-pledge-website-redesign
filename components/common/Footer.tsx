@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { MailIcon, MapPinIcon, PhoneIcon, ArrowRightIcon } from "./Icons";
+import { ArrowRight, Mail, MapPin, Phone } from "pulsoicon-react";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -72,20 +72,20 @@ export default function Footer() {
             </h4>
             <div className="space-y-1 sm:space-y-1.5 lg:space-y-2 text-[10px] sm:text-xs text-[#B5C0AF]">
               <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
-                <MailIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#8FA587] shrink-0" />
+                <Mail className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#8FA587] shrink-0" />
                 <a href="mailto:contact@thebostonpledge.org" className="hover:text-white transition-colors truncate min-w-0">
                   contact@thebostonpledge.org
                 </a>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
-                <PhoneIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#8FA587] shrink-0" />
+                <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#8FA587] shrink-0" />
                 <a href="tel:+16175123038" className="hover:text-white transition-colors whitespace-nowrap min-w-0">
                   +1 617-512-3038
                 </a>
               </div>
               {/* Physical Address: Hidden on smartphone and tablet view to avoid vertical bloat */}
               <div className="hidden lg:flex items-start gap-1.5 sm:gap-2 min-w-0">
-                <MapPinIcon className="w-3.5 h-3.5 text-[#8FA587] shrink-0 mt-0.5" />
+                <MapPin className="w-3.5 h-3.5 text-[#8FA587] shrink-0 mt-0.5" />
                 <span className="break-words min-w-0">Unit 66, 7 Wainwright Road, Winchester, MA 01890</span>
               </div>
             </div>
@@ -118,7 +118,7 @@ export default function Footer() {
                   aria-label="Submit newsletter subscription"
                   className="absolute right-1 top-1/2 -translate-y-1/2 w-6.5 h-6.5 sm:w-7 sm:h-7 rounded-full bg-[#414D3C] hover:bg-[#343F30] text-white flex items-center justify-center transition-colors cursor-pointer shrink-0"
                 >
-                  <ArrowRightIcon className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </form>
             )}

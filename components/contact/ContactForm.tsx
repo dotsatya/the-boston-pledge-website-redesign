@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MailIcon, MapPinIcon, PhoneIcon, ArrowRightIcon, ArrowUpRight, ArrowDownIcon } from "../common/Icons";
+import { ArrowDown, ArrowRight, Mail, MapPin, Phone } from "pulsoicon-react";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -43,7 +43,7 @@ export default function ContactForm() {
               <div className="p-5 rounded-2xl bg-white border border-[#ECE7DF] shadow-xs hover:border-[#D5CEC2] transition-colors">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-[#FAF8F5] border border-[#DDD6CB] flex items-center justify-center shrink-0 text-[#414D3C] mt-0.5">
-                    <MapPinIcon className="w-5 h-5" />
+                    <MapPin className="w-5 h-5" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2 mb-0.5">
@@ -55,7 +55,7 @@ export default function ContactForm() {
                         className="text-[11px] font-semibold text-[#5A6455] hover:text-[#1E231C] flex items-center gap-1 transition-colors group"
                       >
                         <span>View on map</span>
-                        <ArrowDownIcon className="w-3 h-3 text-[#5A6455] group-hover:text-[#1E231C]" />
+                        <ArrowDown className="w-3 h-3 text-[#5A6455] group-hover:text-[#1E231C]" />
                       </a>
                     </div>
                     <div className="text-sm text-[#1E231C] font-medium leading-relaxed">
@@ -70,7 +70,7 @@ export default function ContactForm() {
               <div className="p-5 rounded-2xl bg-white border border-[#ECE7DF] shadow-xs hover:border-[#D5CEC2] transition-colors">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-[#FAF8F5] border border-[#DDD6CB] flex items-center justify-center shrink-0 text-[#414D3C] mt-0.5">
-                    <PhoneIcon className="w-5 h-5" />
+                    <Phone className="w-5 h-5" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-[11px] font-bold text-[#414D3C] uppercase tracking-wider mb-0.5">
@@ -95,7 +95,7 @@ export default function ContactForm() {
               <div className="p-5 rounded-2xl bg-white border border-[#ECE7DF] shadow-xs hover:border-[#D5CEC2] transition-colors">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-[#FAF8F5] border border-[#DDD6CB] flex items-center justify-center shrink-0 text-[#414D3C] mt-0.5">
-                    <MailIcon className="w-5 h-5" />
+                    <Mail className="w-5 h-5" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-[11px] font-bold text-[#414D3C] uppercase tracking-wider mb-0.5">
@@ -246,7 +246,7 @@ export default function ContactForm() {
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs hover:shadow transition-all"
                   >
                     <span>Send Message</span>
-                    <ArrowRightIcon className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               </form>

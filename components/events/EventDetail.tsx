@@ -1,10 +1,12 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { EventItem, getAllEvents, getEventStatus, formatEventDate } from "@/lib/eventsDetails";
 import { getEventCover, getEventFallback } from "./eventHelpers";
 import CoverImage from "../latest-updates/CoverImage";
 import UpdateBlockRenderer from "../latest-updates/UpdateBlockRenderer";
-import { CalendarIcon, MapPinIcon, ArrowLeftIcon } from "../common/Icons";
+import { ArrowLeft, Calendar, MapPin } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function EventDetail({ event }: { event: EventItem }) {
@@ -45,7 +47,7 @@ export default function EventDetail({ event }: { event: EventItem }) {
               {isUpcoming ? "● Upcoming Event" : "Completed Event"}
             </span>
             <div className="flex items-center gap-1.5 text-xs text-[#646E5E]">
-              <CalendarIcon className="w-3.5 h-3.5 text-[#5A6455]" />
+              <Calendar className="w-3.5 h-3.5 text-[#5A6455]" />
               <span>{formatEventDate(event.date)}</span>
             </div>
           </div>
@@ -56,7 +58,7 @@ export default function EventDetail({ event }: { event: EventItem }) {
 
           {event.venue && (
             <div className="flex items-center gap-2 text-sm text-[#4A5445] mb-6 p-3.5 bg-white rounded-xl border border-[#E5DFD4] inline-flex">
-              <MapPinIcon className="w-4 h-4 text-[#414D3C] shrink-0" />
+              <MapPin className="w-4 h-4 text-[#414D3C] shrink-0" />
               <span>{event.venue}</span>
             </div>
           )}
@@ -101,7 +103,7 @@ export default function EventDetail({ event }: { event: EventItem }) {
             href="/events"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium text-[#293325] bg-[#EFE9DF] hover:bg-[#E5DFD4] transition-colors group"
           >
-            <ArrowLeftIcon className="w-3.5 h-3.5" />
+            <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to All Events</span>
           </Link>
           <div className="text-xs text-[#6E7868]">

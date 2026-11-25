@@ -1,16 +1,10 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Pillar, PillarIconName, pillars } from "@/lib/Initiatives";
-import {
-  GradCapIcon,
-  BookOpenIcon,
-  CommunityIcon,
-  ArrowRightIcon,
-  ArrowLeftIcon,
-  GlobeIcon,
-  RocketIcon,
-} from "../common/Icons";
+import { ArrowLeft, ArrowRight, BookOpen, Globe, GraduationCap, Rocket, Users } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 function PillarBadgeIcon({
@@ -22,17 +16,17 @@ function PillarBadgeIcon({
 }) {
   switch (name) {
     case "globe":
-      return <GlobeIcon className={className} />;
+      return <Globe className={className} />;
     case "grad-cap":
-      return <GradCapIcon className={className} />;
+      return <GraduationCap className={className} />;
     case "book-open":
-      return <BookOpenIcon className={className} />;
+      return <BookOpen className={className} />;
     case "rocket":
-      return <RocketIcon className={className} />;
+      return <Rocket className={className} />;
     case "community":
-      return <CommunityIcon className={className} />;
+      return <Users className={className} />;
     default:
-      return <GlobeIcon className={className} />;
+      return <Globe className={className} />;
   }
 }
 
@@ -41,7 +35,6 @@ export default function InitiativeDetail({ pillar }: { pillar: Pillar }) {
   const prevPillar = currentIndex > 0 ? pillars[currentIndex - 1] : null;
   const nextPillar =
     currentIndex < pillars.length - 1 ? pillars[currentIndex + 1] : null;
-  const otherPillars = pillars.filter((p) => p.id !== pillar.id);
 
   return (
     <article className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
@@ -233,7 +226,7 @@ export default function InitiativeDetail({ pillar }: { pillar: Pillar }) {
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs"
                 >
                   <span>Apply for Internship</span>
-                  <ArrowRightIcon className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               )}
             </div>
@@ -340,7 +333,7 @@ export default function InitiativeDetail({ pillar }: { pillar: Pillar }) {
                     className="flex items-center justify-between p-3 rounded-xl bg-[#FAF8F5] hover:bg-[#F3EDE3] transition-colors border border-[#ECE7DF] text-xs sm:text-sm text-[#414D3C] font-medium"
                   >
                     <span>{res.label}</span>
-                    <ArrowRightIcon className="w-3.5 h-3.5 shrink-0" />
+                    <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                   </a>
                 ))}
               </div>
@@ -428,7 +421,7 @@ export default function InitiativeDetail({ pillar }: { pillar: Pillar }) {
                 href="/initiatives"
                 className="inline-flex items-center gap-2 text-xs font-semibold text-[#414D3C] hover:text-[#1E231C] transition-colors"
               >
-                <ArrowLeftIcon className="w-3.5 h-3.5" />
+                <ArrowLeft className="w-3.5 h-3.5" />
                 <span>Back to All Initiatives</span>
               </Link>
 
@@ -437,7 +430,7 @@ export default function InitiativeDetail({ pillar }: { pillar: Pillar }) {
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs hover:shadow"
               >
                 <span>Support This Initiative</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
 
@@ -448,7 +441,7 @@ export default function InitiativeDetail({ pillar }: { pillar: Pillar }) {
                   href={`/initiatives/${prevPillar.id}`}
                   className="p-4 rounded-xl bg-white border border-[#ECE7DF] hover:border-[#414D3C] transition-colors flex items-center gap-3 text-left group"
                 >
-                  <ArrowLeftIcon className="w-4 h-4 text-[#5A6455] group-hover:-translate-x-1 transition-transform" />
+                  <ArrowLeft className="w-4 h-4 text-[#5A6455] group-hover:-translate-x-1 transition-transform" />
                   <div>
                     <div className="text-[10px] uppercase font-bold text-[#7A8475]">
                       Previous Initiative
@@ -475,7 +468,7 @@ export default function InitiativeDetail({ pillar }: { pillar: Pillar }) {
                       {nextPillar.title}
                     </div>
                   </div>
-                  <ArrowRightIcon className="w-4 h-4 text-[#5A6455] group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-[#5A6455] group-hover:translate-x-1 transition-transform" />
                 </Link>
               ) : null}
             </div>

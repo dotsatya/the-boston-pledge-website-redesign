@@ -1,5 +1,7 @@
+"use client";
+
 import React from "react";
-import { MapPinIcon, ArrowUpRight } from "../common/Icons";
+import { ArrowUpRight, MapPin } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function ContactMap() {
@@ -25,7 +27,7 @@ export default function ContactMap() {
               Our Headquarters Location
             </h2>
             <div className="flex items-center gap-2 text-xs sm:text-sm text-[#5C6457]">
-              <MapPinIcon className="w-4 h-4 text-[#414D3C] shrink-0" />
+              <MapPin className="w-4 h-4 text-[#414D3C] shrink-0" />
               <span>7 Wainwright Rd Unit 66, Winchester, MA 01890, USA</span>
             </div>
           </div>

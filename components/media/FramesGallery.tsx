@@ -3,7 +3,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { media, videos } from "@/lib/about/media";
 import CoverImage from "../latest-updates/CoverImage";
-import { PlayIcon, CloseIcon, CaretDownIcon, ArrowRightIcon } from "../common/Icons";
+import { ArrowRight, ChevronDown, Play, X } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 type ViewMode = "photos" | "videos";
@@ -234,7 +234,7 @@ export default function FramesGallery() {
                   : "text-[#556050] hover:text-[#1E231C]"
               }`}
             >
-              <PlayIcon className="w-3 h-3" />
+              <Play className="w-3 h-3" />
               <span>Videos <span className="hidden sm:inline">Dispatches</span></span>
               <span
                 className={`text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium ${
@@ -351,7 +351,7 @@ export default function FramesGallery() {
                               <span className="hidden sm:inline">The Boston Pledge Archive</span>
                               <span className="font-medium text-[#414D3C] group-hover:underline inline-flex items-center gap-1">
                                 <span>Enlarge</span>
-                                <ArrowRightIcon className="w-3 h-3 inline-block" />
+                                <ArrowRight className="w-3 h-3 inline-block" />
                               </span>
                             </div>
                           </div>
@@ -460,7 +460,7 @@ export default function FramesGallery() {
               className="inline-flex items-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] active:scale-95 transition-all shadow-xs hover:shadow-md cursor-pointer group"
             >
               <span>{viewMode === "photos" ? "Show More Frames" : "Show More Videos"}</span>
-              <CaretDownIcon className="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5" />
+              <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:translate-y-0.5" />
             </button>
           </div>
         )}
@@ -477,7 +477,7 @@ export default function FramesGallery() {
               className="absolute top-4 right-4 sm:top-7 sm:right-7 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-colors z-50 cursor-pointer"
               aria-label="Close lightbox"
             >
-              <CloseIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             {/* Prev Button */}

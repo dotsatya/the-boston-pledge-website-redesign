@@ -1,5 +1,7 @@
+"use client";
+
 import React from "react";
-import { GradCapIcon, BookOpenIcon, CommunityIcon } from "../common/Icons";
+import { BookOpen, GraduationCap, Users } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function MissionPillars() {
@@ -8,19 +10,19 @@ export default function MissionPillars() {
       number: "01",
       title: "One Humanity & Inclusiveness",
       desc: "Transcending ethnic and geographic divides, operating with universal respect and mutual empathy for all communities.",
-      icon: <CommunityIcon className="w-5 h-5 text-white" />,
+      icon: <Users className="w-4.5 h-4.5" />,
     },
     {
       number: "02",
       title: "Two-Way Mutual Learning",
       desc: "Fostering collaboration where academic experts and grassroots artisans learn from each other's wisdom and resilience.",
-      icon: <BookOpenIcon className="w-5 h-5 text-white" />,
+      icon: <BookOpen className="w-4.5 h-4.5" />,
     },
     {
       number: "03",
       title: "Self-Sustaining Enterprise",
       desc: "Championing bottom-up micro-entrepreneurship over patronizing aid, unlocking generational economic dignity.",
-      icon: <GradCapIcon className="w-5 h-5 text-white" />,
+      icon: <GraduationCap className="w-4.5 h-4.5" />,
     },
   ];
 
@@ -54,7 +56,7 @@ export default function MissionPillars() {
                       <span className="inline-block text-[10px] sm:text-[11px] font-bold text-[#414D3C] px-2 py-0.5 rounded-lg bg-[#FAF8F5] border border-[#DDD7CD]">
                         {pillar.number}
                       </span>
-                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#414D3C] flex items-center justify-center">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#FAF8F5] border border-[#DDD7CD] flex items-center justify-center text-[#414D3C] group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-colors shadow-2xs">
                         {pillar.icon}
                       </div>
                     </div>

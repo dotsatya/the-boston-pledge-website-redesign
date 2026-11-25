@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import { ContentBlock } from "@/lib/latestUpdates";
-import { ArrowRightIcon } from "../common/Icons";
+import { ArrowRight } from "pulsoicon-react";
 
 export function getUpdateCoverImage(update: { coverImage?: string; category?: string }): string {
   if (update.coverImage && update.coverImage.trim() !== "") {
@@ -113,7 +115,7 @@ export default function UpdateBlockRenderer({ block }: { block: ContentBlock }) 
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all"
           >
             <span>{block.label}</span>
-            <ArrowRightIcon className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </a>
         </div>
       );
@@ -129,7 +131,7 @@ export default function UpdateBlockRenderer({ block }: { block: ContentBlock }) 
             className="inline-flex items-center gap-1.5 text-sm font-medium text-[#414D3C] underline hover:text-[#283224] transition-colors group"
           >
             <span>{block.label}</span>
-            <ArrowRightIcon className="w-3.5 h-3.5 no-underline shrink-0" />
+            <ArrowRight className="w-3.5 h-3.5 no-underline shrink-0" />
           </a>
         </p>
       );

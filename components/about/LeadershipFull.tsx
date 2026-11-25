@@ -1,8 +1,10 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ourTeamDetails } from "@/lib/ourTeamDetails";
-import { ArrowRightIcon } from "../common/Icons";
+import { ArrowRight } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function LeadershipFull() {
@@ -29,7 +31,7 @@ export default function LeadershipFull() {
             className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-5 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs hover:shadow transition-all shrink-0 self-start sm:self-auto"
           >
             <span>View All 18 Team Members</span>
-            <ArrowRightIcon className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 

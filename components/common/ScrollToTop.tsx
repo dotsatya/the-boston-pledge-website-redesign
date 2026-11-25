@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
-import { ArrowUpIcon } from "./Icons";
+import { ArrowUp } from "pulsoicon-react";
 
 export default function ScrollToTop() {
   const { scrollY, scrollYProgress } = useScroll();
@@ -58,7 +58,7 @@ export default function ScrollToTop() {
 
           {/* Inner Center Circle with Up Arrow */}
           <div className="w-8 h-8 rounded-full bg-[#414D3C] text-white flex items-center justify-center group-hover:bg-[#323D2E] transition-colors shadow-2xs">
-            <ArrowUpIcon className="w-4 h-4 text-white" />
+            <ArrowUp className="w-4 h-4 text-white" />
           </div>
         </motion.button>
       )}

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRightIcon } from "../common/Icons";
+import { ArrowRight } from "pulsoicon-react";
 
 export default function DonateForm() {
   const [selectedTier, setSelectedTier] = useState<number | "custom">(30);
@@ -314,7 +314,7 @@ export default function DonateForm() {
                 <span>
                   Donate{actualAmount > 0 ? ` $${actualAmount.toFixed(2)}` : ""}
                 </span>
-                <ArrowRightIcon className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </form>

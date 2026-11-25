@@ -1,9 +1,11 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { LatestUpdate, getAllUpdates } from "@/lib/latestUpdates";
 import UpdateBlockRenderer, { getUpdateCoverImage, getUpdateFallbackImage } from "./UpdateBlockRenderer";
 import CoverImage from "./CoverImage";
-import { CalendarIcon, ArrowLeftIcon } from "../common/Icons";
+import { ArrowLeft, Calendar } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function UpdateDetail({ update }: { update: LatestUpdate }) {
@@ -35,7 +37,7 @@ export default function UpdateDetail({ update }: { update: LatestUpdate }) {
               {update.category}
             </span>
             <div className="flex items-center gap-1.5 text-xs text-[#646E5E]">
-              <CalendarIcon className="w-3.5 h-3.5 text-[#5A6455]" />
+              <Calendar className="w-3.5 h-3.5 text-[#5A6455]" />
               <span>{update.dateLabel}</span>
             </div>
           </div>
@@ -72,7 +74,7 @@ export default function UpdateDetail({ update }: { update: LatestUpdate }) {
             href="/latest-updates"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium text-[#293325] bg-[#EFE9DF] hover:bg-[#E5DFD4] transition-colors group"
           >
-            <ArrowLeftIcon className="w-3.5 h-3.5" />
+            <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to All Updates</span>
           </Link>
           <div className="text-xs text-[#6E7868]">

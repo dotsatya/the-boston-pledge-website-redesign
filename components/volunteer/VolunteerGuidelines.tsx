@@ -1,7 +1,9 @@
+"use client";
+
 import React from "react";
 import CoverImage from "../latest-updates/CoverImage";
 import { volunteerData } from "@/lib/volunteerData";
-import { LeafLogoIcon } from "../common/Icons";
+import { Leaf } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function VolunteerGuidelines() {
@@ -69,7 +71,7 @@ export default function VolunteerGuidelines() {
               {/* Floating Badge */}
               <div className="absolute bottom-2.5 right-2.5 sm:bottom-4 sm:right-4 bg-white/95 backdrop-blur-md px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl shadow-md border border-[#EBE5DB] flex items-center gap-2 sm:gap-2.5 z-20">
                 <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-[#FAF8F5] border border-[#DDD6CB] flex items-center justify-center text-[#414D3C]">
-                  <LeafLogoIcon className="w-3.5 h-3.5" />
+                  <Leaf className="w-3.5 h-3.5" />
                 </div>
                 <div>
                   <div className="text-[10px] sm:text-[11px] font-bold text-[#1E231C] leading-none">

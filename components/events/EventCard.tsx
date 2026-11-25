@@ -5,7 +5,7 @@ import Link from "next/link";
 import { EventItem, formatEventDate } from "@/lib/eventsDetails";
 import { getEventCover, getEventFallback } from "./eventHelpers";
 import CoverImage from "../latest-updates/CoverImage";
-import { CalendarIcon, MapPinIcon, ArrowRightIcon } from "../common/Icons";
+import { ArrowRight, Calendar, MapPin } from "pulsoicon-react";
 
 interface EventCardProps {
   event: EventItem;
@@ -57,7 +57,7 @@ export default function EventCard({ event, featured = false }: EventCardProps) {
                 {event.category}
               </span>
               <div className="flex items-center gap-1 text-[#788274] shrink-0">
-                <CalendarIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#5A6455]" />
+                <Calendar className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#5A6455]" />
                 <span className="hidden sm:inline">{formatEventDate(event.date)}</span>
               </div>
             </div>
@@ -78,7 +78,7 @@ export default function EventCard({ event, featured = false }: EventCardProps) {
 
             {event.venue && (
               <div className="hidden sm:flex items-center gap-1 text-[11px] text-[#6B7566] mb-1.5">
-                <MapPinIcon className="w-3 h-3 text-[#414D3C] shrink-0" />
+                <MapPin className="w-3 h-3 text-[#414D3C] shrink-0" />
                 <span className="truncate">{event.venue}</span>
               </div>
             )}
@@ -106,7 +106,7 @@ export default function EventCard({ event, featured = false }: EventCardProps) {
               className="inline-flex items-center gap-1 text-[10px] font-semibold text-[#414D3C]"
             >
               <span>Details</span>
-              <ArrowRightIcon className="w-2 h-2" />
+              <ArrowRight className="w-2 h-2" />
             </Link>
           </div>
         </div>
@@ -123,7 +123,7 @@ export default function EventCard({ event, featured = false }: EventCardProps) {
         >
           <span>View Details</span>
           <div className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-full border border-[#D5CFBF] bg-white flex items-center justify-center text-[#414D3C] group-hover:bg-[#414D3C] group-hover:text-white group-hover:border-[#414D3C] transition-all shadow-2xs">
-            <ArrowRightIcon className="w-3 h-3" />
+            <ArrowRight className="w-3 h-3" />
           </div>
         </Link>
       </div>

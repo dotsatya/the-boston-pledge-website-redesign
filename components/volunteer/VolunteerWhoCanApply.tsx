@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import { volunteerData } from "@/lib/volunteerData";
-import { CommunityIcon } from "../common/Icons";
+import { Users } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function VolunteerWhoCanApply() {
@@ -48,7 +50,7 @@ export default function VolunteerWhoCanApply() {
             <ScrollReveal delay={0.1}>
               <div className="p-5 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl bg-[#F5F1EB] border border-[#E5DFD4] shadow-2xs">
                 <div data-icon-trigger className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#DDD6CB] text-[#414D3C] text-[11px] sm:text-xs font-semibold mb-3.5 shadow-2xs cursor-pointer">
-                  <CommunityIcon className="w-3.5 h-3.5 shrink-0" />
+                  <Users className="w-3.5 h-3.5 shrink-0" />
                   <span>One Humanity &bull; Mutual Respect &amp; Reverence</span>
                 </div>
 

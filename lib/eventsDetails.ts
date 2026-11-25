@@ -555,23 +555,5 @@ export const getAllEvents = (): EventItem[] =>
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
-export const getUpcomingEvents = (): EventItem[] =>
-  getAllEvents().filter((e) => e.type === "upcoming");
-
-export const getCompletedEvents = (): EventItem[] =>
-  getAllEvents().filter((e) => e.type === "completed");
-
 export const getEventBySlug = (slug: string): EventItem | undefined =>
   eventsDetails.find((e) => e.slug === slug);
-
-// Pagination (the old site had 2 pages)
-export const getEventsPage = (page = 1, pageSize = 12) => {
-  const all = getAllEvents();
-  const totalPages = Math.max(1, Math.ceil(all.length / pageSize));
-  const current = Math.min(Math.max(1, page), totalPages);
-  return {
-    events: all.slice((current - 1) * pageSize, current * pageSize),
-    page: current,
-    totalPages,
-  };
-};

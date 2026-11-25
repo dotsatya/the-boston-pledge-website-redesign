@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import { reflectionsData } from "@/components/about/Reflections";
-import { ArrowUpRight, PlayIcon, YouTubeIcon, ArrowDownIcon } from "../common/Icons";
+import { ArrowDown, ArrowUpRight, BrandYoutube, Play } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function ReflectionsVideo() {
@@ -32,7 +34,7 @@ export default function ReflectionsVideo() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs hover:shadow transition-all shrink-0 self-start md:self-auto"
           >
-            <YouTubeIcon className="w-4 h-4 text-[#FF0000]" />
+            <BrandYoutube className="w-4 h-4 text-[#FF0000]" />
             <span>Watch on YouTube</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
@@ -61,7 +63,7 @@ export default function ReflectionsVideo() {
               <div className="h-full flex flex-col justify-between bg-white rounded-xl sm:rounded-2xl p-4 sm:p-7 border border-[#ECE7DF] shadow-xs">
                 <div>
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-[11px] font-semibold text-[#414D3C] bg-[#F4F0E8] border border-[#E5DFD4] mb-2.5 sm:mb-4">
-                    <PlayIcon className="w-3 h-3 text-[#414D3C]" />
+                    <Play className="w-3 h-3 text-[#414D3C]" />
                     <span>Executive Dialogue</span>
                   </div>
 
@@ -104,7 +106,7 @@ export default function ReflectionsVideo() {
                     className="text-[#414D3C] font-semibold hover:underline inline-flex items-center gap-1 group"
                   >
                     <span>Read Biography</span>
-                    <ArrowDownIcon className="w-3.5 h-3.5" />
+                    <ArrowDown className="w-3.5 h-3.5" />
                   </a>
                 </div>
               </div>

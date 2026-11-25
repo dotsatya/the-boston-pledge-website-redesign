@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import GoogleTranslate from "./GoogleTranslate";
-import { ArrowRightIcon, CaretDownIcon, MenuIcon, CloseIcon } from "./Icons";
+import { ArrowRight, ChevronDown, Menu, X } from "pulsoicon-react";
 
 type SubItem = {
   label: string;
@@ -279,7 +279,7 @@ export default function Navbar() {
                     }`}
                   >
                     <span>{item.label}</span>
-                    <CaretDownIcon
+                    <ChevronDown
                       className={`w-3 h-3 transition-transform duration-200 ${
                         active ? "text-[#414D3C]" : "text-[#556050]"
                       } ${isOpen ? "rotate-180" : ""}`}
@@ -339,7 +339,7 @@ export default function Navbar() {
                                   : "text-[#7A8475] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5"
                               }`}
                             >
-                              <ArrowRightIcon className="w-3 h-3 inline-block" />
+                              <ArrowRight className="w-3 h-3 inline-block" />
                             </span>
                           </Link>
                         );
@@ -384,7 +384,7 @@ export default function Navbar() {
             className="inline-flex items-center gap-1.5 px-3.5 sm:px-5 xl:px-6 py-2 sm:py-2.5 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs hover:shadow transition-all"
           >
             <span>Donate</span>
-            <ArrowRightIcon className="w-3.5 h-3.5 hidden sm:inline-block" />
+            <ArrowRight className="w-3.5 h-3.5 hidden sm:inline-block" />
           </Link>
 
           {/* Tablet / Mobile Hamburger Button */}
@@ -393,7 +393,7 @@ export default function Navbar() {
             className="lg:hidden p-1.5 sm:p-2 text-[#2F372C] hover:text-black focus:outline-none"
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <CloseIcon /> : <MenuIcon />}
+            {mobileOpen ? <X /> : <Menu />}
           </button>
         </div>
       </div>
@@ -422,7 +422,7 @@ export default function Navbar() {
                       }`}
                     >
                       <span>{item.label}</span>
-                      <CaretDownIcon
+                      <ChevronDown
                         className={`w-3.5 h-3.5 text-[#687363] transition-transform duration-200 ${
                           isExpanded ? "rotate-180" : ""
                         }`}
@@ -492,7 +492,7 @@ export default function Navbar() {
                       active ? "text-[#414D3C] font-bold" : "text-[#8FA587]"
                     }`}
                   >
-                    <ArrowRightIcon className="w-3.5 h-3.5 inline-block" />
+                    <ArrowRight className="w-3.5 h-3.5 inline-block" />
                   </span>
                 </Link>
               );
@@ -505,7 +505,7 @@ export default function Navbar() {
                 className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs"
               >
                 <span>Donate</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>

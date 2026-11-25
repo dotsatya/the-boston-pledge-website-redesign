@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { volunteerData } from "@/lib/volunteerData";
-import { ArrowRightIcon } from "../common/Icons";
+import { ArrowRight } from "pulsoicon-react";
 
 export default function VolunteerApplicationForm() {
   const { industries, timeCommitments } = volunteerData;
@@ -279,7 +279,7 @@ export default function VolunteerApplicationForm() {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs hover:shadow transition-all cursor-pointer"
               >
                 <span>Submit Volunteer Application</span>
-                <ArrowRightIcon className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           </form>

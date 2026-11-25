@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { ArrowRightIcon, GlobeIcon, PlayIcon, SparkleIcon, CloseIcon } from "../common/Icons";
+import { ArrowRight, Globe, Play, X } from "pulsoicon-react";
 
 export default function Hero() {
   const [showStoryModal, setShowStoryModal] = useState(false);
@@ -38,7 +38,7 @@ export default function Hero() {
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] shadow-xs hover:shadow transition-all"
               >
                 <span>Explore Our Work</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
 
               <button
@@ -47,7 +47,7 @@ export default function Hero() {
                 className="inline-flex items-center gap-2.5 px-5 py-3.5 rounded-full text-xs sm:text-sm font-medium text-[#293225] hover:text-[#181E16] group transition-colors"
               >
                 <div className="w-8 h-8 rounded-full border border-[#CDC5B7] flex items-center justify-center text-[#414D3C] bg-white/60 group-hover:bg-white shadow-2xs group-hover:border-[#414D3C] transition-all">
-                  <PlayIcon className="w-2.5 h-2.5 ml-0.5 text-[#414D3C]" />
+                  <Play className="w-2.5 h-2.5 ml-0.5 text-[#414D3C]" />
                 </div>
                 <span>Watch Our Story</span>
               </button>
@@ -138,7 +138,7 @@ export default function Hero() {
               {/* Floating "25+ Years of Service" Badge matching demo */}
               <div data-icon-trigger className="absolute top-4 right-3 sm:top-12 sm:right-8 lg:top-14 lg:right-6 bg-white/95 backdrop-blur-md px-3.5 py-2 sm:px-5 sm:py-3.5 rounded-xl sm:rounded-2xl shadow-sm border border-[#EBE5DB] flex items-center gap-2.5 sm:gap-3.5 z-20 hover:shadow-md transition-shadow cursor-pointer">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#FAF8F5] border border-[#E2DDD3] flex items-center justify-center text-[#414D3C] shrink-0">
-                  <GlobeIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
                   <div className="text-lg sm:text-2xl font-bold font-serif text-[#1E231C] leading-none">
@@ -181,7 +181,7 @@ export default function Hero() {
                 className="w-8 h-8 rounded-full border border-[#D5CEC2] flex items-center justify-center text-[#556050] hover:text-[#1E231C] hover:bg-[#FAF8F5] transition-colors"
                 aria-label="Close modal"
               >
-                <CloseIcon className="w-4 h-4" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 
@@ -211,7 +211,7 @@ export default function Hero() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-colors shadow-xs"
               >
                 <span>Read Full Legacy</span>
-                <ArrowRightIcon className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>

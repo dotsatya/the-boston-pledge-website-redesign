@@ -1,7 +1,9 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRightIcon } from "../common/Icons";
+import { ArrowRight } from "pulsoicon-react";
 import { ourTeamDetails } from "@/lib/ourTeamDetails";
 import ScrollReveal from "../common/ScrollReveal";
 
@@ -37,7 +39,7 @@ export default function LeadershipPreview() {
               className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-medium text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs"
             >
               <span>Learn More</span>
-              <ArrowRightIcon className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 

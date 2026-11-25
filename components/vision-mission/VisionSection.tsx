@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import CoverImage from "../latest-updates/CoverImage";
-import { GlobeIcon } from "../common/Icons";
+import { Globe } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 interface VisionSectionProps {
@@ -66,7 +68,7 @@ export default function VisionSection({ title, description, image }: VisionSecti
             {/* Floating Glassmorphic Badge */}
             <div className="absolute bottom-2.5 right-2.5 sm:bottom-6 sm:right-6 bg-white/95 backdrop-blur-md px-3.5 py-2 sm:px-5 sm:py-3.5 rounded-xl sm:rounded-2xl shadow-md border border-[#EBE5DB] flex items-center gap-2.5 sm:gap-3.5 z-20">
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#FAF8F5] border border-[#E2DDD3] flex items-center justify-center text-[#414D3C] shrink-0">
-                <GlobeIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
                 <div className="text-base sm:text-xl font-bold font-serif text-[#1E231C] leading-none">

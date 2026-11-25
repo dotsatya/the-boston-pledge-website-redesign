@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import { ArrowRightIcon, CommunityIcon, HeartHandIcon } from "../common/Icons";
+import { ArrowRight, Heart, Users } from "pulsoicon-react";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function AboutPreview() {
@@ -26,7 +28,7 @@ export default function AboutPreview() {
                   >
                     <span className="text-xs">✛</span>
                     <span>Our Mission</span>
-                    <ArrowRightIcon className="w-3 h-3 text-white" />
+                    <ArrowRight className="w-3 h-3 text-white" />
                   </Link>
                 </div>
               </div>
@@ -61,7 +63,7 @@ export default function AboutPreview() {
                 <span className="underline decoration-[#A3AEA0] underline-offset-4 group-hover:decoration-[#414D3C]">
                   Learn More
                 </span>
-                <ArrowRightIcon className="w-3.5 h-3.5 text-[#414D3C] group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#414D3C] group-hover:translate-x-1 transition-transform" />
               </Link>
             </ScrollReveal>
           </div>
@@ -73,7 +75,7 @@ export default function AboutPreview() {
                 {/* Stat 1: 30+ Active Volunteers */}
                 <div>
                   <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#FAF8F5] border border-[#E2DDD3] flex items-center justify-center text-[#414D3C] mb-1.5 sm:mb-2 shadow-2xs">
-                    <CommunityIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <Users className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#1E231C] tracking-tight">
                     30+
@@ -88,7 +90,7 @@ export default function AboutPreview() {
                 {/* Stat 2: 100+ Global Initiatives */}
                 <div>
                   <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-[#FAF8F5] border border-[#E2DDD3] flex items-center justify-center text-[#414D3C] mb-1.5 sm:mb-2 shadow-2xs">
-                    <HeartHandIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div className="text-3xl sm:text-4xl lg:text-5xl font-serif font-normal text-[#1E231C] tracking-tight">
                     100+
