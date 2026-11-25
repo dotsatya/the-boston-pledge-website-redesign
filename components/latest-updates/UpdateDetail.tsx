@@ -67,7 +67,7 @@ export default function UpdateDetail({ update }: { update: LatestUpdate }) {
         </div>
 
         {/* Back Link & Share bar */}
-        <div className="py-4 sm:py-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-[#E9E4DC] mb-6 sm:mb-8">
+        <div className="py-3.5 sm:py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-4 border-b border-[#E9E4DC] mb-5 sm:mb-8 text-left">
           <Link
             href="/latest-updates"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium text-[#293325] bg-[#EFE9DF] hover:bg-[#E5DFD4] transition-colors"
@@ -82,25 +82,37 @@ export default function UpdateDetail({ update }: { update: LatestUpdate }) {
         {/* Related Updates */}
         {related.length > 0 && (
           <ScrollReveal>
-            <aside className="mt-8">
-              <h3 className="text-xl sm:text-2xl font-serif text-[#1E231C] mb-6">
+            <aside className="mt-5 sm:mt-8">
+              <h3 className="text-lg sm:text-2xl font-serif text-[#1E231C] mb-3.5 sm:mb-6">
                 More Updates & Insights
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6">
                 {related.map((item) => (
                   <Link
                     key={item.id}
                     href={`/latest-updates/${item.slug}`}
-                    className="group flex flex-col bg-white p-5 rounded-2xl border border-[#E8E2D8] hover:shadow-sm transition-all"
+                    className="group flex flex-row sm:flex-col bg-white p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border border-[#E8E2D8] hover:shadow-sm transition-all gap-3 sm:gap-3"
                   >
-                    <div className="text-[11px] font-semibold text-[#414D3C] uppercase tracking-wider mb-1">
-                      {item.category}
+                    <div className="w-20 sm:w-full h-20 sm:h-34 shrink-0 rounded-lg sm:rounded-xl overflow-hidden bg-[#EAE6DF] relative">
+                      <CoverImage
+                        src={getUpdateCoverImage(item)}
+                        fallbackSrc={getUpdateFallbackImage(item)}
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
-                    <h4 className="text-sm font-serif font-medium text-[#1E231C] group-hover:text-[#414D3C] transition-colors mb-2 line-clamp-2">
-                      {item.title}
-                    </h4>
-                    <div className="text-[11px] text-[#788273] mt-auto">
-                      {item.dateLabel}
+                    <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
+                      <div>
+                        <div className="text-[10px] sm:text-[11px] font-semibold text-[#414D3C] uppercase tracking-wider mb-0.5 sm:mb-1 truncate">
+                          {item.category}
+                        </div>
+                        <h4 className="text-xs sm:text-sm font-serif font-medium text-[#1E231C] group-hover:text-[#414D3C] transition-colors leading-snug line-clamp-2">
+                          {item.title}
+                        </h4>
+                      </div>
+                      <div className="text-[10px] sm:text-[11px] text-[#788273] mt-1.5 sm:mt-2">
+                        {item.dateLabel}
+                      </div>
                     </div>
                   </Link>
                 ))}
