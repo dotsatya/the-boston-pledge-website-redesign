@@ -1,6 +1,6 @@
 import React from "react";
 import { reflectionsData } from "@/components/about/Reflections";
-import { ArrowUpRight, LinkedInIcon } from "../common/Icons";
+import { ArrowUpRight, LinkedInIcon, ArrowDownIcon } from "../common/Icons";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function ChairmanBio() {
@@ -115,10 +115,10 @@ export default function ChairmanBio() {
                   </div>
                   <a
                     href="#speeches"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#414D3C] hover:text-[#242D21] transition-colors shrink-0"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#414D3C] hover:text-[#242D21] transition-colors shrink-0 group"
                   >
                     <span>View Keynote Presentations</span>
-                    <span className="text-[#414D3C]">↓</span>
+                    <ArrowDownIcon className="w-3.5 h-3.5 text-[#414D3C]" />
                   </a>
                 </div>
               </div>

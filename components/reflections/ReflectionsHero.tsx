@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { reflectionsData } from "@/components/about/Reflections";
+import { ArrowDownIcon } from "../common/Icons";
 
 export default function ReflectionsHero() {
   return (
@@ -44,24 +45,24 @@ export default function ReflectionsHero() {
           </span>
           <a
             href="#discourse"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-[#414D3C] bg-white border border-[#E2DDD4] hover:bg-[#F3EDE3] transition-colors shadow-2xs"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-[#414D3C] bg-white border border-[#E2DDD4] hover:bg-[#F3EDE3] transition-colors shadow-2xs group"
           >
             <span>Featured Discourse</span>
-            <span className="text-[#7A8475]">↓</span>
+            <ArrowDownIcon className="w-3 h-3 text-[#7A8475]" />
           </a>
           <a
             href="#chairman"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-[#414D3C] bg-white border border-[#E2DDD4] hover:bg-[#F3EDE3] transition-colors shadow-2xs"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-[#414D3C] bg-white border border-[#E2DDD4] hover:bg-[#F3EDE3] transition-colors shadow-2xs group"
           >
             <span>Chairman Profile</span>
-            <span className="text-[#7A8475]">↓</span>
+            <ArrowDownIcon className="w-3 h-3 text-[#7A8475]" />
           </a>
           <a
             href="#speeches"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-[#414D3C] bg-white border border-[#E2DDD4] hover:bg-[#F3EDE3] transition-colors shadow-2xs"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-[#414D3C] bg-white border border-[#E2DDD4] hover:bg-[#F3EDE3] transition-colors shadow-2xs group"
           >
             <span>Select Keynotes & Speeches ({reflectionsData.speeches.items.length})</span>
-            <span className="text-[#7A8475]">↓</span>
+            <ArrowDownIcon className="w-3 h-3 text-[#7A8475]" />
           </a>
         </div>
       </div>

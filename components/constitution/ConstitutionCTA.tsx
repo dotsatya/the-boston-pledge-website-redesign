@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRightIcon } from "../common/Icons";
+import { ArrowRightIcon, CompassIcon } from "../common/Icons";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function ConstitutionCTA() {
@@ -48,19 +48,9 @@ export default function ConstitutionCTA() {
           </div>
 
           <div className="relative z-10 max-w-3xl mx-auto">
-            {/* Compass / Navigation Emblem SVG Badge */}
-            <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-[#A8B8A0] mx-auto mb-3 sm:mb-5 backdrop-blur-xs shadow-inner">
-              <svg className="w-5 h-5 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" />
-                <polygon
-                  points="12 3 14.5 9.5 21 12 14.5 14.5 12 21 9.5 14.5 3 12 9.5 9.5 12 3"
-                  fill="currentColor"
-                  fillOpacity="0.25"
-                  stroke="currentColor"
-                  strokeWidth="1.2"
-                />
-                <circle cx="12" cy="12" r="2" fill="currentColor" />
-              </svg>
+            {/* Compass / Navigation Emblem Animated Badge */}
+            <div data-icon-trigger className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-[#A8B8A0] mx-auto mb-3 sm:mb-5 backdrop-blur-xs shadow-inner cursor-pointer hover:bg-white/15 transition-colors">
+              <CompassIcon className="w-5 h-5 sm:w-7 sm:h-7" />
             </div>
 
             <div className="inline-flex items-center gap-2 px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full bg-white/10 text-white/90 text-[10px] sm:text-[11px] font-medium uppercase tracking-wider mb-2.5 sm:mb-4 border border-white/15">

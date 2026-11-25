@@ -22,10 +22,11 @@ export default function AboutPreview() {
                 <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 z-10">
                   <Link
                     href="/about/vision-mission"
-                    className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-medium text-white bg-black/65 backdrop-blur-md hover:bg-black/85 transition-colors shadow-xs"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-medium text-white bg-black/65 backdrop-blur-md hover:bg-black/85 transition-colors shadow-xs group"
                   >
                     <span className="text-xs">✛</span>
-                    <span>Our Mission →</span>
+                    <span>Our Mission</span>
+                    <ArrowRightIcon className="w-3 h-3 text-white" />
                   </Link>
                 </div>
               </div>

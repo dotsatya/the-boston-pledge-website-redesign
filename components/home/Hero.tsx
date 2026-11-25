@@ -136,7 +136,7 @@ export default function Hero() {
               </div>
 
               {/* Floating "25+ Years of Service" Badge matching demo */}
-              <div className="absolute top-4 right-3 sm:top-12 sm:right-8 lg:top-14 lg:right-6 bg-white/95 backdrop-blur-md px-3.5 py-2 sm:px-5 sm:py-3.5 rounded-xl sm:rounded-2xl shadow-sm border border-[#EBE5DB] flex items-center gap-2.5 sm:gap-3.5 z-20 hover:shadow-md transition-shadow">
+              <div data-icon-trigger className="absolute top-4 right-3 sm:top-12 sm:right-8 lg:top-14 lg:right-6 bg-white/95 backdrop-blur-md px-3.5 py-2 sm:px-5 sm:py-3.5 rounded-xl sm:rounded-2xl shadow-sm border border-[#EBE5DB] flex items-center gap-2.5 sm:gap-3.5 z-20 hover:shadow-md transition-shadow cursor-pointer">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#FAF8F5] border border-[#E2DDD3] flex items-center justify-center text-[#414D3C] shrink-0">
                   <GlobeIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>

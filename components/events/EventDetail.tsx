@@ -4,7 +4,7 @@ import { EventItem, getAllEvents, getEventStatus, formatEventDate } from "@/lib/
 import { getEventCover, getEventFallback } from "./eventHelpers";
 import CoverImage from "../latest-updates/CoverImage";
 import UpdateBlockRenderer from "../latest-updates/UpdateBlockRenderer";
-import { CalendarIcon, MapPinIcon } from "../common/Icons";
+import { CalendarIcon, MapPinIcon, ArrowLeftIcon } from "../common/Icons";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function EventDetail({ event }: { event: EventItem }) {
@@ -99,9 +99,10 @@ export default function EventDetail({ event }: { event: EventItem }) {
         <div className="py-3.5 sm:py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-4 border-b border-[#E9E4DC] mb-5 sm:mb-8 text-left">
           <Link
             href="/events"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium text-[#293325] bg-[#EFE9DF] hover:bg-[#E5DFD4] transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium text-[#293325] bg-[#EFE9DF] hover:bg-[#E5DFD4] transition-colors group"
           >
-            <span>← Back to All Events</span>
+            <ArrowLeftIcon className="w-3.5 h-3.5" />
+            <span>Back to All Events</span>
           </Link>
           <div className="text-xs text-[#6E7868]">
             Organized by <strong>The Boston Pledge Organizing Committee</strong>

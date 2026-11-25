@@ -46,7 +46,8 @@ export default function MissionPillars() {
             {pillars.map((pillar, idx) => (
               <ScrollReveal key={pillar.number} delay={idx * 0.1} className="h-full">
                 <div
-                  className="bg-white p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full"
+                  data-icon-trigger
+                  className="bg-white p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-[#E8E2D8] shadow-2xs hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full cursor-pointer group"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3 sm:mb-4">

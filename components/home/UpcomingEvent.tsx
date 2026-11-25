@@ -29,12 +29,12 @@ export default function UpcomingEvent() {
                 </p>
 
                 <div className="flex flex-wrap items-center gap-x-3.5 sm:gap-x-4 gap-y-1.5 text-xs text-[#414B3C] font-medium mb-3.5 sm:mb-4">
-                  <div className="flex items-center gap-1.5">
+                  <div data-icon-trigger className="flex items-center gap-1.5 cursor-pointer">
                     <CalendarIcon className="w-3.5 h-3.5 text-[#5A6455]" />
                     <span>March 21, 2026</span>
                   </div>
 
-                  <div className="flex items-center gap-1.5">
+                  <div data-icon-trigger className="flex items-center gap-1.5 cursor-pointer">
                     <MapPinIcon className="w-3.5 h-3.5 text-[#5A6455]" />
                     <span>Boston, MA</span>
                   </div>

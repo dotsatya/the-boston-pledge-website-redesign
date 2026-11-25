@@ -3,7 +3,7 @@ import Link from "next/link";
 import { LatestUpdate, getAllUpdates } from "@/lib/latestUpdates";
 import UpdateBlockRenderer, { getUpdateCoverImage, getUpdateFallbackImage } from "./UpdateBlockRenderer";
 import CoverImage from "./CoverImage";
-import { CalendarIcon } from "../common/Icons";
+import { CalendarIcon, ArrowLeftIcon } from "../common/Icons";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function UpdateDetail({ update }: { update: LatestUpdate }) {
@@ -70,9 +70,10 @@ export default function UpdateDetail({ update }: { update: LatestUpdate }) {
         <div className="py-3.5 sm:py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-4 border-b border-[#E9E4DC] mb-5 sm:mb-8 text-left">
           <Link
             href="/latest-updates"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium text-[#293325] bg-[#EFE9DF] hover:bg-[#E5DFD4] transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium text-[#293325] bg-[#EFE9DF] hover:bg-[#E5DFD4] transition-colors group"
           >
-            <span>← Back to All Updates</span>
+            <ArrowLeftIcon className="w-3.5 h-3.5" />
+            <span>Back to All Updates</span>
           </Link>
           <div className="text-xs text-[#6E7868]">
             Published by <strong>The Boston Pledge Communications Committee</strong>

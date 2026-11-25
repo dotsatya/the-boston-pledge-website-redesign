@@ -3,7 +3,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { media, videos } from "@/lib/about/media";
 import CoverImage from "../latest-updates/CoverImage";
-import { PlayIcon, CloseIcon, CaretDownIcon } from "../common/Icons";
+import { PlayIcon, CloseIcon, CaretDownIcon, ArrowRightIcon } from "../common/Icons";
 import ScrollReveal from "../common/ScrollReveal";
 
 type ViewMode = "photos" | "videos";
@@ -349,8 +349,9 @@ export default function FramesGallery() {
                             </div>
                             <div className="pt-1.5 sm:pt-3 sm:mt-3 sm:border-t sm:border-[#F2ECE3] flex items-center justify-between text-[10px] sm:text-[11px] text-[#7A8374]">
                               <span className="hidden sm:inline">The Boston Pledge Archive</span>
-                              <span className="font-medium text-[#414D3C] group-hover:underline">
-                                Enlarge →
+                              <span className="font-medium text-[#414D3C] group-hover:underline inline-flex items-center gap-1">
+                                <span>Enlarge</span>
+                                <ArrowRightIcon className="w-3 h-3 inline-block" />
                               </span>
                             </div>
                           </div>

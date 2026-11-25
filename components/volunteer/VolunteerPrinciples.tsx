@@ -24,7 +24,7 @@ export default function VolunteerPrinciples() {
               />
 
               {/* Floating Badge on Image */}
-              <div className="absolute bottom-2.5 left-2.5 sm:bottom-4 sm:left-4 bg-white/95 backdrop-blur-md px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl shadow-md border border-[#EBE5DB] flex items-center gap-2 sm:gap-2.5 z-20">
+              <div data-icon-trigger className="absolute bottom-2.5 left-2.5 sm:bottom-4 sm:left-4 bg-white/95 backdrop-blur-md px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl shadow-md border border-[#EBE5DB] flex items-center gap-2 sm:gap-2.5 z-20 cursor-pointer">
                 <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-[#FAF8F5] border border-[#DDD6CB] flex items-center justify-center text-[#414D3C]">
                   <SparkleIcon className="w-3.5 h-3.5" />
                 </div>

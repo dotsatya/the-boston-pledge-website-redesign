@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { reflectionsData, SpeechItem } from "@/components/about/Reflections";
-import { CalendarIcon, MapPinIcon } from "../common/Icons";
+import { CalendarIcon, MapPinIcon, SearchIcon } from "../common/Icons";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function SpeechesArchive() {
@@ -86,19 +86,7 @@ export default function SpeechesArchive() {
               placeholder="Search by topic, forum, city..."
               className="w-full px-3 py-1.5 sm:px-3.5 sm:py-2 pl-8 sm:pl-9 rounded-xl text-xs bg-white border border-[#E2DDD4] focus:outline-hidden focus:border-[#414D3C] focus:ring-1 focus:ring-[#414D3C] text-[#1E231C] placeholder-[#8F988A]"
             />
-            <svg
-              className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8F988A] absolute left-2.5 sm:left-3 top-2 sm:top-2.5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
+            <SearchIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8F988A] absolute left-2.5 sm:left-3 top-2 sm:top-2.5 pointer-events-none" />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery("")}

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+import { ArrowUpIcon } from "./Icons";
 
 export default function ScrollToTop() {
   const { scrollY, scrollYProgress } = useScroll();
@@ -57,15 +58,7 @@ export default function ScrollToTop() {
 
           {/* Inner Center Circle with Up Arrow */}
           <div className="w-8 h-8 rounded-full bg-[#414D3C] text-white flex items-center justify-center group-hover:bg-[#323D2E] transition-colors shadow-2xs">
-            <svg
-              className="w-4 h-4 transition-transform duration-200 group-hover:-translate-y-0.5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2.4"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-            </svg>
+            <ArrowUpIcon className="w-4 h-4 text-white" />
           </div>
         </motion.button>
       )}

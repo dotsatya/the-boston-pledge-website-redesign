@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MailIcon, MapPinIcon, PhoneIcon, ArrowRightIcon, ArrowUpRight } from "../common/Icons";
+import { MailIcon, MapPinIcon, PhoneIcon, ArrowRightIcon, ArrowUpRight, ArrowDownIcon } from "../common/Icons";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -52,10 +52,10 @@ export default function ContactForm() {
                       </span>
                       <a
                         href="#live-location"
-                        className="text-[11px] font-semibold text-[#5A6455] hover:text-[#1E231C] flex items-center gap-1 transition-colors"
+                        className="text-[11px] font-semibold text-[#5A6455] hover:text-[#1E231C] flex items-center gap-1 transition-colors group"
                       >
                         <span>View on map</span>
-                        <span>↓</span>
+                        <ArrowDownIcon className="w-3 h-3 text-[#5A6455] group-hover:text-[#1E231C]" />
                       </a>
                     </div>
                     <div className="text-sm text-[#1E231C] font-medium leading-relaxed">

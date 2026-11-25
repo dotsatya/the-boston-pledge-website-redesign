@@ -1,6 +1,6 @@
 import React from "react";
 import { reflectionsData } from "@/components/about/Reflections";
-import { ArrowUpRight, PlayIcon, YouTubeIcon } from "../common/Icons";
+import { ArrowUpRight, PlayIcon, YouTubeIcon, ArrowDownIcon } from "../common/Icons";
 import ScrollReveal from "../common/ScrollReveal";
 
 export default function ReflectionsVideo() {
@@ -101,9 +101,10 @@ export default function ReflectionsVideo() {
                   <span>Speaker: Dr. Partha S. Ghosh</span>
                   <a
                     href="#chairman"
-                    className="text-[#414D3C] font-semibold hover:underline inline-flex items-center gap-1"
+                    className="text-[#414D3C] font-semibold hover:underline inline-flex items-center gap-1 group"
                   >
-                    Read Biography ↓
+                    <span>Read Biography</span>
+                    <ArrowDownIcon className="w-3.5 h-3.5" />
                   </a>
                 </div>
               </div>

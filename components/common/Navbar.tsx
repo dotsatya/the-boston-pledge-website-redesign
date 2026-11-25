@@ -339,7 +339,7 @@ export default function Navbar() {
                                   : "text-[#7A8475] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5"
                               }`}
                             >
-                              →
+                              <ArrowRightIcon className="w-3 h-3 inline-block" />
                             </span>
                           </Link>
                         );
@@ -488,11 +488,11 @@ export default function Navbar() {
                 >
                   <span>{item.label}</span>
                   <span
-                    className={`text-[11px] ${
+                    className={`text-[11px] transition-transform group-hover:translate-x-0.5 ${
                       active ? "text-[#414D3C] font-bold" : "text-[#8FA587]"
                     }`}
                   >
-                    →
+                    <ArrowRightIcon className="w-3.5 h-3.5 inline-block" />
                   </span>
                 </Link>
               );

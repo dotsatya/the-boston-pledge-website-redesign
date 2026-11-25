@@ -8,7 +8,7 @@ import {
   EventItem,
 } from "@/lib/eventsDetails";
 import EventCard from "./EventCard";
-import { CaretDownIcon } from "../common/Icons";
+import { CaretDownIcon, SearchIcon } from "../common/Icons";
 import ScrollReveal from "../common/ScrollReveal";
 
 const BATCH_SIZE = 6;
@@ -150,19 +150,7 @@ export default function EventsFeed() {
                 onChange={(e) => handleSearchChange(e.target.value)}
                 className="w-full pl-8 sm:pl-9 pr-3.5 py-1.5 sm:py-2 text-xs rounded-full border border-[#D5CEC2] bg-white text-[#1E231C] placeholder:text-[#8FA587] focus:outline-none focus:ring-2 focus:ring-[#414D3C] hidden sm:block"
               />
-              <svg
-                className="w-3.5 h-3.5 text-[#8FA587] absolute left-3 top-1/2 -translate-y-1/2 hidden sm:block pointer-events-none"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
+              <SearchIcon className="w-3.5 h-3.5 text-[#8FA587] absolute left-3 top-1/2 -translate-y-1/2 hidden sm:block pointer-events-none" />
             </div>
 
             {/* Mobile Dropdown: Single clean compact row instead of 3 rows of wrapping pills */}

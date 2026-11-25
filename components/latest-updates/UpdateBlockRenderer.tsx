@@ -126,9 +126,10 @@ export default function UpdateBlockRenderer({ block }: { block: ContentBlock }) 
             href={block.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-[#414D3C] underline hover:text-[#283224] transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-[#414D3C] underline hover:text-[#283224] transition-colors group"
           >
-            {block.label} →
+            <span>{block.label}</span>
+            <ArrowRightIcon className="w-3.5 h-3.5 no-underline shrink-0" />
           </a>
         </p>
       );

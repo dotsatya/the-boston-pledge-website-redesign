@@ -69,7 +69,7 @@ export default function DonateHero() {
             </div>
 
             {/* Floating Glassmorphic Pill */}
-            <div className="absolute bottom-1 right-2 sm:bottom-2 sm:right-6 bg-white/95 backdrop-blur-md px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl shadow-md border border-[#EBE5DB] flex items-center gap-2 sm:gap-3 z-20 max-w-[calc(100%-16px)]">
+            <div data-icon-trigger className="absolute bottom-1 right-2 sm:bottom-2 sm:right-6 bg-white/95 backdrop-blur-md px-3 py-1.5 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl shadow-md border border-[#EBE5DB] flex items-center gap-2 sm:gap-3 z-20 max-w-[calc(100%-16px)] cursor-pointer">
               <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#FAF8F5] border border-[#E2DDD3] flex items-center justify-center text-[#414D3C] shrink-0">
                 <HeartHandIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </div>

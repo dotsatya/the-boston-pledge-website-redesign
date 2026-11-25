@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import CoverImage from "../latest-updates/CoverImage";
 import { volunteerData } from "@/lib/volunteerData";
-import { HeartHandIcon } from "../common/Icons";
+import { HeartHandIcon, ArrowDownIcon } from "../common/Icons";
 
 export default function VolunteerHero() {
   const { hero } = volunteerData;
@@ -47,10 +47,10 @@ export default function VolunteerHero() {
             <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3 text-xs mb-2 sm:mb-0">
               <a
                 href="#application-form"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs text-center"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-[#414D3C] hover:bg-[#323D2E] transition-all shadow-xs text-center group"
               >
                 <span>Apply as a Volunteer</span>
-                <span>↓</span>
+                <ArrowDownIcon className="w-3.5 h-3.5" />
               </a>
               <div className="flex flex-wrap items-center gap-2">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#E2DDD3] text-[#414D3C] shadow-2xs font-medium text-[11px] sm:text-xs">
