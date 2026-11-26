@@ -2,6 +2,9 @@
 
 > A modern, high-performance web platform for **The Boston Pledge (TBP)** — a global 501(c)(3) fellowship dedicated to grassroots awakening, village self-reliance, and sustainable global equity through voluntary public service.
 
+🌐 **Live Website**: [https://the-boston-pledge-website-redesign.vercel.app](https://the-boston-pledge-website-redesign.vercel.app/)
+
+[![Live Deployment](https://img.shields.io/badge/Live_Deployment-Vercel-black?logo=vercel)](https://the-boston-pledge-website-redesign.vercel.app/)
 [![Next.js](https://img.shields.io/badge/Next.js-16.4.6-black?logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.3.0-blue?logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
@@ -218,7 +221,8 @@ boston-pledge/
 - **Chairman**: Dr. Partha S. Ghosh
 - **Headquarters**: 7 Wainwright Rd Unit 66, Winchester, MA 01890, USA
 - **Contact**: [contact@thebostonpledge.org](mailto:contact@thebostonpledge.org)
-- **Website**: [https://thebostonpledge.org](https://thebostonpledge.org)
+- **Live Platform**: [https://the-boston-pledge-website-redesign.vercel.app](https://the-boston-pledge-website-redesign.vercel.app/)
+- **Official Legacy Website**: [https://thebostonpledge.org](https://thebostonpledge.org)
 
 ---
 
