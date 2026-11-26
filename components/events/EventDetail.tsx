@@ -19,7 +19,7 @@ export default function EventDetail({ event }: { event: EventItem }) {
 
   return (
     <article className="py-6 sm:py-8 lg:py-10 bg-[#FAF8F5]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb Navigation */}
         <nav className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs text-[#7A8475] mb-2.5 sm:mb-4">
           <Link href="/" className="hover:text-[#414D3C] transition-colors">

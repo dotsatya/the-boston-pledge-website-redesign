@@ -91,7 +91,7 @@ export default function ExecutiveLeadership() {
               >
                 <div className="flex flex-row sm:flex-col h-full justify-between">
                   {/* Photo & LinkedIn button: Left on mobile, Top on desktop */}
-                  <div className="relative w-20 xs:w-20 sm:w-full h-20 xs:h-20 sm:h-36 lg:h-40 shrink-0 rounded-lg sm:rounded-xl overflow-hidden bg-[#EAE6DF] mb-0 sm:mb-2.5 border border-[#E2DDD4]">
+                  <div className="relative w-24 h-28 sm:w-full sm:h-60 md:h-64 lg:h-72 shrink-0 rounded-lg sm:rounded-xl overflow-hidden bg-[#EAE6DF] mb-0 sm:mb-2.5 border border-[#E2DDD4]">
                     <Image
                       src={member.image}
                       alt={member.name}
@@ -169,7 +169,7 @@ export default function ExecutiveLeadership() {
 
               {/* Member Header in Modal */}
               <div className="flex items-start gap-4 sm:gap-5 mb-6 pr-8">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden bg-[#EAE6DF] border border-[#E2DDD4] shrink-0">
+                <div className="w-20 h-24 sm:w-24 sm:h-28 rounded-2xl overflow-hidden bg-[#EAE6DF] border border-[#E2DDD4] shrink-0">
                   <img
                     src={selectedMember.image}
                     alt={selectedMember.name}
