@@ -242,7 +242,7 @@ export default function Navbar() {
   return (
     <header
       className={`sticky top-0 z-50 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#E9E4DC] transition-transform duration-300 ease-in-out ${
-        visible ? "translate-y-0" : "-translate-y-[calc(100%+28px)]"
+        visible ? "translate-y-0" : "-translate-y-full"
       } ${isScrolled ? "shadow-sm" : ""}`}
     >
       <div
