@@ -2,8 +2,6 @@
 
 > A modern, high-performance web platform for **The Boston Pledge (TBP)** — a global 501(c)(3) fellowship dedicated to grassroots awakening, village self-reliance, and sustainable global equity through voluntary public service.
 
-🌐 **Live Website**: [https://the-boston-pledge-website-redesign.vercel.app](https://the-boston-pledge-website-redesign.vercel.app/)
-
 [![Live Deployment](https://img.shields.io/badge/Live_Deployment-Vercel-black?logo=vercel)](https://the-boston-pledge-website-redesign.vercel.app/)
 [![Next.js](https://img.shields.io/badge/Next.js-16.4.6-black?logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.3.0-blue?logo=react)](https://react.dev/)
@@ -13,21 +11,6 @@
 [![Framer Motion](https://img.shields.io/badge/Motion-Framer_Motion_14-purple?logo=framer)](https://www.framer.com/motion/)
 [![Static Site Generation](https://img.shields.io/badge/SSG-56_Routes-success)](https://nextjs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
----
-
-## 📖 Table of Contents
-
-1. [Overview](#-overview)
-2. [The Modern Transformation (Before vs. After)](#-the-modern-transformation-before-vs-after)
-3. [Key Features](#-key-features)
-4. [Technologies & Tools Used](#️-technologies--tools-used)
-5. [Site Architecture & Complete Route Map](#-site-architecture--complete-route-map)
-6. [Project Structure](#-project-structure)
-7. [Design System & Typographic Tokens](#-design-system--typographic-tokens)
-8. [Getting Started & Development](#-getting-started--development)
-9. [Available Scripts](#-available-scripts)
-10. [Governance & Organization](#-governance--organization)
 
 ---
 
@@ -43,9 +26,13 @@ This web platform serves as the central hub for TBP's initiatives, symposium pro
 
 A comprehensive redesign and architectural migration from the legacy platform to a modern, high-performance web experience:
 
-| Legacy Platform (Before) | Modern Redesign (After) |
+- 🏛️ **Original / Legacy Website (Before Redesign)**: [https://thebostonpledge.org/](https://thebostonpledge.org/) *(Original site with dated layout and performance bottlenecks)*
+- 🚀 **Redesigned Modern Website (After Redesign)**: [https://the-boston-pledge-website-redesign.vercel.app/](https://the-boston-pledge-website-redesign.vercel.app/) *(High-performance Next.js 16 platform deployed on Vercel)*
+
+| Original Website (Before Redesign) | Redesigned Website (After Redesign) |
 | :---: | :---: |
-| <img src="./public/transition_photo/old.png" alt="Legacy Website Before Redesign" width="100%" /> | <img src="./public/transition_photo/new.png" alt="Modern Redesign After Revamp" width="100%" /> |
+| [🔗 thebostonpledge.org](https://thebostonpledge.org/) | [🔗 the-boston-pledge-website-redesign.vercel.app](https://the-boston-pledge-website-redesign.vercel.app/) |
+| <a href="https://thebostonpledge.org/"><img src="./public/transition_photo/old.png" alt="Legacy Website Before Redesign" width="100%" /></a> | <a href="https://the-boston-pledge-website-redesign.vercel.app/"><img src="./public/transition_photo/new.png" alt="Modern Redesign After Revamp" width="100%" /></a> |
 | *Original layout with dated presentation and static content* | *Editorial aesthetic, warm earth tones, responsive layouts, and motion-reactive icons* |
 
 ### Key Improvements Made in the Redesign:
@@ -221,8 +208,8 @@ boston-pledge/
 - **Chairman**: Dr. Partha S. Ghosh
 - **Headquarters**: 7 Wainwright Rd Unit 66, Winchester, MA 01890, USA
 - **Contact**: [contact@thebostonpledge.org](mailto:contact@thebostonpledge.org)
-- **Live Platform**: [https://the-boston-pledge-website-redesign.vercel.app](https://the-boston-pledge-website-redesign.vercel.app/)
-- **Official Legacy Website**: [https://thebostonpledge.org](https://thebostonpledge.org)
+- **Redesigned Version (After Redesign)**: [https://the-boston-pledge-website-redesign.vercel.app](https://the-boston-pledge-website-redesign.vercel.app/)
+- **Original Legacy Website (Before Redesign)**: [https://thebostonpledge.org](https://thebostonpledge.org)
 
 ---
 
